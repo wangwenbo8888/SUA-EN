@@ -1,0 +1,12 @@
+#ifndef HIFUIMAGEALGO_GLOBAL_H_
+#define HIFUIMAGEALGO_GLOBAL_H_
+
+#include <QtCore/qglobal.h>
+
+#if defined(HIFUIMAGEALGO_LIBRARY)
+#  define HIFUIMAGEALGO_EXPORT Q_DECL_EXPORT
+#else
+#  define HIFUIMAGEALGO_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // HIFUREGIST_GLOBAL_H_

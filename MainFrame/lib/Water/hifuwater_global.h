@@ -1,0 +1,12 @@
+#ifndef HIFUWATER_GLOBAL_H
+#define HIFUWATER_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(HIFUWATER_LIBRARY)
+#  define HIFUWATERSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define HIFUWATERSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // HIFUWATER_GLOBAL_H

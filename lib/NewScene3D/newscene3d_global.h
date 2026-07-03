@@ -1,0 +1,12 @@
+#ifndef NEWSCENE3D_GLOBAL_H
+#define NEWSCENE3D_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(NEWSCENE3D_LIBRARY)
+#  define NEWSCENE3DSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define NEWSCENE3DSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // NEWSCENE3D_GLOBAL_H

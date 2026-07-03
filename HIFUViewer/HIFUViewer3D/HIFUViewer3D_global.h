@@ -1,0 +1,12 @@
+#ifndef HIFUVIEWER3D_GLOBAL_H_
+#define HIFUVIEWER3D_GLOBAL_H_
+
+#include <QtCore/qglobal.h>
+
+#if defined(HIFUVIEWER3D_LIBRARY)
+#  define HIFUVIEWER3D_EXPORT Q_DECL_EXPORT
+#else
+#  define HIFUVIEWER3D_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // HIFUVIEWER3D_GLOBAL_H_

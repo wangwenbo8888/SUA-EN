@@ -1,0 +1,21 @@
+﻿{
+    "x" : [
+        0.000
+    ],
+    "y" : [
+        0.0
+    ],
+    "z" : [
+        0.140
+    ],
+    "focusCount" : [
+        1
+    ],
+    "pulseCount" : [
+        12
+    ],
+    "pulseOn" : 300,
+    "pulseOff" : 200,
+    "cooling" : 0,
+    "voltage" : 10
+}

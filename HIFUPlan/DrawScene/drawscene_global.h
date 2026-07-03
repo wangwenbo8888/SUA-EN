@@ -1,0 +1,12 @@
+#ifndef DRAWSCENE_GLOBAL_H
+#define DRAWSCENE_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(DRAWSCENE_LIBRARY)
+#  define DRAWSCENESHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define DRAWSCENESHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // DRAWSCENE_GLOBAL_H

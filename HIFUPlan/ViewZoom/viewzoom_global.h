@@ -1,0 +1,12 @@
+#ifndef VIEWZOOM_GLOBAL_H
+#define VIEWZOOM_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(VIEWZOOM_LIBRARY)
+#  define VIEWZOOMSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define VIEWZOOMSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // VIEWZOOM_GLOBAL_H

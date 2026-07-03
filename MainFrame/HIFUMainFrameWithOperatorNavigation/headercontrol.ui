@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>headercontrol</class>
+ <widget class="QDialog" name="headercontrol">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>336</width>
+    <height>155</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Therapy Head Fine Control</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(76, 79, 81);
+border-color: rgb(76, 79, 81);</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>341</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="tabShape">
+    <enum>QTabWidget::Rounded</enum>
+   </property>
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="elideMode">
+    <enum>Qt::ElideNone</enum>
+   </property>
+   <property name="usesScrollButtons">
+    <bool>true</bool>
+   </property>
+   <property name="documentMode">
+    <bool>false</bool>
+   </property>
+   <property name="tabsClosable">
+    <bool>false</bool>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="tabBarAutoHide">
+    <bool>false</bool>
+   </property>
+   <widget class="QWidget" name="tab_head">
+    <attribute name="title">
+     <string>Probe</string>
+    </attribute>
+    <widget class="QLabel" name="label_left_right_unit">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>10</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>°</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_front_back_unit">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>45</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>°</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_up_down">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>82</y>
+       <width>70</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Up/Down Motion</string>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_up_down">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>80</y>
+       <width>101</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="minimum">
+      <double>-400.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>0.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_left_right">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>10</y>
+       <width>101</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="minimum">
+      <double>-15.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>15.000000000000000</double>
+     </property>
+     <property name="singleStep">
+      <double>0.100000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_front_back">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>47</y>
+       <width>70</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Forward/Back Motion</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_up_down_unit">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>80</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>mm</string>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_front_back">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>45</y>
+       <width>101</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="minimum">
+      <double>-15.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>15.000000000000000</double>
+     </property>
+     <property name="singleStep">
+      <double>0.100000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_left_right">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>12</y>
+       <width>70</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Left/Right Motion</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_zero">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>100</y>
+       <width>90</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(76, 79, 81);
+border-color: rgb(76, 79, 81);</string>
+     </property>
+     <property name="text">
+      <string>Zero Position</string>
+     </property>
+    </widget>
+    <zorder>label_left_right_unit</zorder>
+    <zorder>label_front_back_unit</zorder>
+    <zorder>label_up_down</zorder>
+    <zorder>doubleSpinBox_up_down</zorder>
+    <zorder>doubleSpinBox_left_right</zorder>
+    <zorder>label_front_back</zorder>
+    <zorder>label_up_down_unit</zorder>
+    <zorder>doubleSpinBox_front_back</zorder>
+    <zorder>pushButton_zero</zorder>
+    <zorder>label_left_right</zorder>
+   </widget>
+   <widget class="QWidget" name="tab_bed">
+    <attribute name="title">
+     <string>Table</string>
+    </attribute>
+    <widget class="QSpinBox" name="spinBox_bed_front_back">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>45</y>
+       <width>101</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="minimum">
+      <number>-70</number>
+     </property>
+     <property name="maximum">
+      <number>70</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_bed_up_down">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>80</y>
+       <width>101</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>348</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_bed_left_right">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>12</y>
+       <width>70</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Left/Right Motion</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_bed_front_back">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>47</y>
+       <width>70</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Forward/Back Motion</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_bed_left_right_unit">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>10</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>mm</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_bed_front_back_unit">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>45</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>mm</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_bed_left_right">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>10</y>
+       <width>101</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="minimum">
+      <number>-130</number>
+     </property>
+     <property name="maximum">
+      <number>130</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="stepType">
+      <enum>QAbstractSpinBox::DefaultStepType</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_bed_up_down">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>82</y>
+       <width>70</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Up/Down Motion</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_bed_zero">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>100</y>
+       <width>90</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(76, 79, 81);
+border-color: rgb(76, 79, 81);</string>
+     </property>
+     <property name="text">
+      <string>Zero Position</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_bed_up_down_unit">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>80</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>mm</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Table</string>
+    </attribute>
+    <widget class="QPushButton" name="pushButton_forward">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>10</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Forward</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_left">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>50</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Left</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_right">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>50</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Right</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_backward">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>90</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Back</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_bedmove">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>38</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>40</number>
+     </property>
+     <property name="singleStep">
+      <number>1</number>
+     </property>
+     <property name="stepType">
+      <enum>QAbstractSpinBox::DefaultStepType</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>40</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>cm</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_up">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>10</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Top</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_down">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>90</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Bottom</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_stop">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>90</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Stop</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

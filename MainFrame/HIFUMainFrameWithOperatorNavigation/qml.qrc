@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>LoginWindow.qml</file>
+        <file>MyButton.qml</file>
+        <file>LineInput.qml</file>
+        <file>MainWindow.qml</file>
+        <file>PatientTab.qml</file>
+        <file>PatientDetail.qml</file>
+        <file>NewDoctor.qml</file>
+        <file>DoctorTab.qml</file>
+        <file>PatientBasicInfo.qml</file>
+        <file>PatientTreatmentInfo.qml</file>
+        <file>NewPatient.qml</file>
+        <file>DoctorDetail.qml</file>
+        <file>DoctorBasicInfo.qml</file>
+        <file>DoctorLoginInfo.qml</file>
+        <file>logo.jpg</file>
+        <file>Report.qml</file>
+        <file>ReportInfo.qml</file>
+        <file>systempicture.png</file>
+        <file>SpotDetail.qml</file>
+    </qresource>
+</RCC>

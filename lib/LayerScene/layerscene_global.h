@@ -1,0 +1,12 @@
+#ifndef LAYERSCENE_GLOBAL_H_
+#define LAYERSCENE_GLOBAL_H_
+
+#include <QtCore/qglobal.h>
+
+#if defined(LAYERSCENE_LIBRARY)
+#  define LAYERSCENESHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define LAYERSCENESHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // LAYERSCENE_GLOBAL_H_

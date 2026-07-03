@@ -1,0 +1,37 @@
+# Build
+*.o
+*.obj
+*.exe
+*.pdb
+*.ilk
+release/
+debug/
+build-*/
+.qmake.stash
+Makefile
+Makefile.Debug
+Makefile.Release
+mocinclude.opt
+
+# Qt Creator user files
+*.pro.user*
+
+# Visual Studio
+.vs/
+*.sln
+*.vcxproj*
+Debug/
+Release/
+
+# Generated UI headers
+ui_*.h
+
+# QML cache
+qml_qmlcache.qrc
+
+# Database
+database.db
+
+# Temp / backup
+*_备份*
+*- 副本.*
