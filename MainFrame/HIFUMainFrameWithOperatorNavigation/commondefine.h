@@ -94,21 +94,21 @@ enum APPEND_LABEL
     LABEL_RED,        // 红灯
     LABEL_YELLOW,     // 黄灯
     LABEL_GREEN,      // 绿灯
-    SWITCH            // 脚踏开关
+    SWITCH            // Foot Switch
 };
 
 struct TREAT_PARA
 {
-    int power;         // 功率，单位瓦特
-    int energy;        // 能量，单位焦耳
-    double voltage;       // 电压，单位伏特
-    int onTime;        // 持续时间，单位毫秒
-    int offTime;       // 间隔时间，单位毫秒
-    int pulse;         // 脉冲个数，单位个
-    int coolingTime;   // 冷却时间，单位秒
+    int power;         // Power，单位瓦特
+    int energy;        // Energy，单位焦耳
+    double voltage;       // 电压，单位volts
+    int onTime;        // Duration，单位毫秒
+    int offTime;       // Interval，单位毫秒
+    int pulse;         // Pulse，单位个
+    int coolingTime;   // Cooling，单位秒
 };
 
-// 治疗协议对应的参数结构
+// Treatment协议对应的参数结构
 struct Element
 {
     int voltage;
@@ -145,26 +145,26 @@ struct TOTAL_TIME
     {
         blocks = 0;        // 剩余多少个block
         spots = 0;         // 每个block多少个点
-        spotsRemain = 0;   // 当前治疗块剩余多少点
-        onTime = 0;        // 持续时间多少
-        offTime = 0;       // 间隔时间多少
-        coolingTime = 0;   // 冷却时间多少
-        delayTime = 0;     // 系统延迟时间
-        remainTime = -1;    // 当前治疗剩下总的时间
+        spotsRemain = 0;   // 当前Treatment块剩余多少点
+        onTime = 0;        // Duration多少
+        offTime = 0;       // Interval多少
+        coolingTime = 0;   // Cooling多少
+        delayTime = 0;     // 系统延迟Time
+        remainTime = -1;    // 当前Treatment剩下总的Time
         spendTime = 0;
     }
 
     int blocks;        // 剩余多少个block
     int spots;         // 每个block多少个点
-    int spotsRemain;   // 当前治疗块剩余多少点
-    int onTime;        // 持续时间多少
-    int offTime;       // 间隔时间多少
-    int pulseNumber;   // 脉冲个数
-    int coolingTime;   // 冷却时间多少
-    int delayTime;     // 系统延迟时间
+    int spotsRemain;   // 当前Treatment块剩余多少点
+    int onTime;        // Duration多少
+    int offTime;       // Interval多少
+    int pulseNumber;   // Pulse
+    int coolingTime;   // Cooling多少
+    int delayTime;     // 系统延迟Time
 
-    int remainTime;    // 剩余时间
-    int spendTime;     // 花费时间
+    int remainTime;    // Remaining time
+    int spendTime;     // 花费Time
 };
 
 QImage toGray(QImage image);

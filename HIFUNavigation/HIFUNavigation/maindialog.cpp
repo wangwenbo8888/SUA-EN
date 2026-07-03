@@ -132,7 +132,7 @@ MainDialog::MainDialog(QWidget *parent) :
     RTRect_Mapper=vtkSmartPointer<vtkPolyDataMapper2D>::New();
     RTRect_Actor=vtkSmartPointer<vtkActor2D>::New();
 
-    //表面重建
+    //Surface Reconstruction
     STLCubeAxes=vtkSmartPointer<vtkAnnotatedCubeActor>::New();
     _STLOrientationWidget=vtkSmartPointer<vtkOrientationMarkerWidget>::New();
     STLCubeAxes->SetXPlusFaceText("L");
@@ -164,7 +164,7 @@ MainDialog::MainDialog(QWidget *parent) :
     _contourColorTable = vtkSmartPointer<vtkLookupTable>::New();
     _contourExtraVOI = vtkSmartPointer<vtkExtractVOI>::New();
 
-    // 根据肌膜轮廓提取肌瘤轮廓初始化
+    // 根据肌膜轮廓提取fibroid轮廓初始化
     importer = vtkSmartPointer<vtkImageImport>::New();
     thresholdFilter=vtkSmartPointer<vtkImageThreshold>::New();
     contourFilter = vtkSmartPointer<vtkContourFilter>::New();
@@ -262,9 +262,9 @@ void MainDialog::setToolTip()
     ui->spinBox_long_axis->setStyleSheet("QToolTip{border:0px solid black; background: white; color:black;}");
     ui->spinBox_short_axis->setStyleSheet("QToolTip{border:0px solid black; background: white; color:black;}");
     ui->spinBox_thick_axis->setStyleSheet("QToolTip{border:0px solid black; background: white; color:black;}");
-    ui->spinBox_long_axis->setToolTip(QStringLiteral("椭圆长轴半径，最大105mm"));
-    ui->spinBox_short_axis->setToolTip(QStringLiteral("椭圆短轴半径，最大105mm"));
-    ui->spinBox_thick_axis->setToolTip(QStringLiteral("椭圆厚度半径，最大105mm"));
+    ui->spinBox_long_axis->setToolTip(QStringLiteral("Ellipse major-axis radius, max 105 mm"));
+    ui->spinBox_short_axis->setToolTip(QStringLiteral("Ellipse minor-axis radius, max 105 mm"));
+    ui->spinBox_thick_axis->setToolTip(QStringLiteral("Ellipse thickness radius, max 105 mm"));
 }
 
 void MainDialog::on_pushButton_ImportMR_clicked()
@@ -294,8 +294,8 @@ void MainDialog::on_pushButton_ImportMR_clicked()
     if(dicomlist.count()>=100)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("读取的核磁图像超过100张，请重新读取");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("More than 100 MRI images were loaded. Load them again.");
 
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
@@ -304,8 +304,8 @@ void MainDialog::on_pushButton_ImportMR_clicked()
     if(dicomlist.count()<=3)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("读取的核磁图像小于3张，请重新读取");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Fewer than 3 MRI images were loaded. Load them again.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
     }
@@ -335,8 +335,8 @@ void MainDialog::on_pushButton_ImportMR_clicked()
         if(temp_string.length())
         {
             codec = QTextCodec::codecForName("GBK");
-            QString info1Str =  codec->toUnicode("提示");
-            QString info2Str =  codec->toUnicode("路径包含中文及特殊字符,请使用英文和数字！");
+            QString info1Str =  codec->toUnicode("Notice");
+            QString info2Str =  codec->toUnicode("The path contains Chinese or special characters. Use letters and numbers only.");
             QMessageBox::warning(0,info1Str,info2Str,"ok",0);
             qDebug()<<"路径包含："<<absolute_file_path;
             return;
@@ -352,8 +352,8 @@ void MainDialog::on_pushButton_ImportMR_clicked()
     if(string_list.isEmpty())
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("没有可读取的核磁图像");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("No readable MRI images found.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
     }
@@ -397,8 +397,8 @@ void MainDialog::on_pushButton_ImportMR_clicked()
     if(originalSpace[0]<=0||originalSpace[1]<=0||originalSpace[2]<=0)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("选择的核磁图像数据无效！");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("The selected MRI image data is invalid.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
     }
@@ -1367,7 +1367,7 @@ void MainDialog::on_qtVtkWidgetMouseClicked(vtkObject *, unsigned long, void *, 
 //        SetLimitPoint2(ProcessInfo.LimitPoint2_x,ProcessInfo.LimitPoint2_y,limitw,limith);
         LimitedRegionOperationSwitch(SetLimitedRegion);
     }
-    //擦除区域
+    //Erase Region
     if(ProcessInfo.isErasing)
     {
         EraseRegion(pointX,pointY,pointZ,ProcessInfo.EraseSize,0);
@@ -1628,7 +1628,7 @@ void MainDialog::GetContours()
     //    qDebug()<<"size 0 is "<<size[0] << " size 1 is "<<size[1] << " size 2 is "<<size[2];
     //    qDebug()<<"seeds 0 is "<<_seeds[0] << " seed 1 is "<<_seeds[1] << " seed 2 is "<<_seeds[2];
 
-    // 截取肌瘤附近的区域重新切片
+    // 截取fibroid附近的区域重新切片
     _extraVOI->SetInputData(_preProContourData);
     _extraVOI->SetVOI((_seeds[0]-0.5*size[0])<0?0:(_seeds[0]-0.5*size[0]),
             (_seeds[0]+0.5*size[0])>dims[0]-1?dims[0]-1:(_seeds[0]+0.5*size[0]),
@@ -1749,7 +1749,7 @@ void MainDialog::GetContoursNew()
     //    qDebug()<<"size 0 is "<<size[0] << " size 1 is "<<size[1] << " size 2 is "<<size[2];
     //    qDebug()<<"seeds 0 is "<<_seeds[0] << " seed 1 is "<<_seeds[1] << " seed 2 is "<<_seeds[2];
 
-    // 截取肌瘤附近的区域重新切片
+    // 截取fibroid附近的区域重新切片
     _extraVOI->SetInputData(_preProMaskData);
     _extraVOI->SetVOI((_seeds[0]-0.5*size[0])<0?0:(_seeds[0]-0.5*size[0]),
             (_seeds[0]+0.5*size[0])>dims[0]-1?dims[0]-1:(_seeds[0]+0.5*size[0]),
@@ -1829,7 +1829,7 @@ void MainDialog::GetSlices()
     {
     PreProcessDicomData();//计算contour和image数据
     m_bIsPreProcessed=true;
-    //qDebug()<<"GetSlices里面_preProImageData是"<<_preProContourData;
+    //qDebug()<<"GetSlices里面_preProImageDataYes"<<_preProContourData;
 
     }
 
@@ -1872,7 +1872,7 @@ void MainDialog::GetSlices()
     //    qDebug()<<"size 0 is "<<size[0] << " size 1 is "<<size[1] << " size 2 is "<<size[2];
     //    qDebug()<<"seeds 0 is "<<_seeds[0] << " seed 1 is "<<_seeds[1] << " seed 2 is "<<_seeds[2];
 
-    // 截取肌瘤附近的区域重新切片
+    // 截取fibroid附近的区域重新切片
     _extraVOI->SetInputData(_preProImageData);
     _extraVOI->SetVOI((_seeds[0]-0.5*size[0])<0?0:(_seeds[0]-0.5*size[0]),
             (_seeds[0]+0.5*size[0])>dims[0]-1?dims[0]-1:(_seeds[0]+0.5*size[0]),
@@ -2044,7 +2044,7 @@ void MainDialog::SeedRegionGrowingProcess(bool bClear)
         RegionGrowImageDataArray = NULL;
         ProcessInfo.isRegionGrow=false;
     }
-    qDebug()<<"种子点区域生成操作 Clear:"<<bClear<<" Array size:"<<DicomInfo.m_iVoxelSize;
+    qDebug()<<"种子点区域Generate操作 Clear:"<<bClear<<" Array size:"<<DicomInfo.m_iVoxelSize;
 }
 
 void MainDialog::ManualDrawProcess(bool bClear)
@@ -2139,7 +2139,7 @@ void MainDialog::ManualDrawProcess(bool bClear)
         ProcessInfo.isRegionGrow=false;
     }
 //#endif
-    qDebug()<<"手动勾画区域生成操作 Clear:"<<bClear<<" Array size:"<<DicomInfo.m_iVoxelSize;
+    qDebug()<<"Manual Tracing区域Generate操作 Clear:"<<bClear<<" Array size:"<<DicomInfo.m_iVoxelSize;
 }
 
 void MainDialog::SeedRegionReGrowingProcess()
@@ -2427,7 +2427,7 @@ void MainDialog::Update3DModel()
     _emptySTLRender->ResetCamera();
     _qvtkWidget_STLView->GetRenderWindow()->Render();
 
-    //计算肌瘤参数
+    //计算fibroid参数
     double *bound;
     bound =_STLPolyData->GetBounds();
     double size[3];
@@ -2574,8 +2574,8 @@ void MainDialog::on_pushButton_GetSlices_clicked()
     if(!DicomInfo.isSourceRead)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("尚未导入数据，无法生成对应图像");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("No data has been imported, so the corresponding image cannot be generated.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
     }
@@ -2667,8 +2667,8 @@ void MainDialog::on_pushButton_Grow_clicked()
     if(!DicomInfo.isSourceRead)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("无可生成数据");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("No data available to generate.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
     }
@@ -2677,8 +2677,8 @@ void MainDialog::on_pushButton_Grow_clicked()
         if(!ProcessInfo.ValidThreshold())
         {
             codec = QTextCodec::codecForName("GBK");
-            QString info1Str =  codec->toUnicode("提示");
-            QString info2Str =  codec->toUnicode("未阈值分割或种子点未设置");
+            QString info1Str =  codec->toUnicode("Notice");
+            QString info2Str =  codec->toUnicode("Threshold segmentation has not run or the seed point is not set.");
             QMessageBox::warning(NULL,info1Str,info2Str);
             return;
         }
@@ -2701,8 +2701,8 @@ void MainDialog::on_toolButton_SetRegionXY_clicked()
     if(RegionGrowImageDataArray==NULL)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("没有可标定的增长区域");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("No growing region available for calibration.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
     }
@@ -2756,8 +2756,8 @@ void MainDialog::on_toolButton_Erase_clicked()
     if(RegionGrowImageDataArray==NULL)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("没有可擦除的增长区域");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("No growing region available to erase.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
     }
@@ -2769,8 +2769,8 @@ void MainDialog::on_pushButton_ReGrow_clicked()
     if(RegionGrowImageDataArray==NULL)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("没有可重新增长的区域");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("No region available to regrow.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
     }
@@ -2790,8 +2790,8 @@ void MainDialog::on_pushButton_SurfaceRendering_2_clicked()
     if(ContoursMaskArray==NULL)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("肌瘤掩模为空，无法三维重建");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("The fibroid mask is empty, so 3D reconstruction cannot run.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
     }
@@ -3044,8 +3044,8 @@ void MainDialog::on_toolButton_Fill_clicked()
     if(RegionGrowImageDataArray==NULL)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("没有可填充的增长区域");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("No growing region available to fill.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
     }
@@ -3204,12 +3204,12 @@ void MainDialog::InitqvtkWIdgetContextMenu()
 
 //    if (_ShowThresholdMask==NULL)
 //    {
-//        _ShowThresholdMask = _qvtkWIdgetContextMenu->addAction("隐藏阈值分割Mask");
+//        _ShowThresholdMask = _qvtkWIdgetContextMenu->addAction("Hide Threshold Mask");
 //        connect(_ShowThresholdMask,SIGNAL(triggered(bool)),this,SLOT(ContextAction_ThresholdMask()));
 //    }
 //    if (_ShowRegionGrowMask==NULL)
 //    {
-//        _ShowRegionGrowMask = _qvtkWIdgetContextMenu->addAction("隐藏区域增长Mask");
+//        _ShowRegionGrowMask = _qvtkWIdgetContextMenu->addAction("Hide Region Growing Mask");
 //        connect(_ShowRegionGrowMask,SIGNAL(triggered(bool)),this,SLOT(ContextAction_RegionGrowMask()));
 //    }
 
@@ -3217,7 +3217,7 @@ void MainDialog::InitqvtkWIdgetContextMenu()
     {
 
         codec = QTextCodec::codecForName("GBK");
-        QString infoStr =  codec->toUnicode("隐藏肌瘤Mask");
+        QString infoStr =  codec->toUnicode("Hide Fibroid Mask");
         _ShowContourMask = _qvtkWIdgetContextMenu->addAction(infoStr);
         connect(_ShowContourMask,SIGNAL(triggered(bool)),this,SLOT(ContexAction_ContourMask()));
     }
@@ -3228,14 +3228,14 @@ void MainDialog::ContexAction_ContourMask()
     if(ProcessInfo.isShowContourMask)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString infoStr =  codec->toUnicode("显示肌瘤Mask");
+        QString infoStr =  codec->toUnicode("Show Fibroid Mask");
         RemoveMaskActor(2);
         _ShowContourMask->setText(infoStr);
     }
     else
     {
         codec = QTextCodec::codecForName("GBK");
-        QString infoStr =  codec->toUnicode("隐藏肌瘤Mask");
+        QString infoStr =  codec->toUnicode("Hide Fibroid Mask");
         AddMaskActor(2);
         _ShowContourMask->setText(infoStr);
     }
@@ -3246,14 +3246,14 @@ void MainDialog::ContextAction_ThresholdMask()
     if(ProcessInfo.isShowThresholdMask)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString infoStr =  codec->toUnicode("显示阈值分割Mask");
+        QString infoStr =  codec->toUnicode("Show Threshold Mask");
         RemoveMaskActor(0);
         _ShowThresholdMask->setText(infoStr);
     }
     else
     {
         codec = QTextCodec::codecForName("GBK");
-        QString infoStr =  codec->toUnicode("隐藏阈值分割Mask");
+        QString infoStr =  codec->toUnicode("Hide Threshold Mask");
         AddMaskActor(0);
         _ShowThresholdMask->setText(infoStr);
     }
@@ -3264,14 +3264,14 @@ void MainDialog::ContextAction_RegionGrowMask()
     if(ProcessInfo.isShowRegionGrowMask)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString infoStr =  codec->toUnicode("显示区域增长Mask");
+        QString infoStr =  codec->toUnicode("Show Region Growing Mask");
         RemoveMaskActor(1);
         _ShowRegionGrowMask->setText(infoStr);
     }
     else
     {
         codec = QTextCodec::codecForName("GBK");
-        QString infoStr =  codec->toUnicode("隐藏区域增长Mask");
+        QString infoStr =  codec->toUnicode("Hide Region Growing Mask");
         AddMaskActor(1);
         _ShowRegionGrowMask->setText(infoStr);
     }
@@ -3476,8 +3476,8 @@ void MainDialog::on_pushButton_ManualDrawOn_clicked()
     if(defaultdicom)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("当前为默认图像，请重新导入dicom图像！");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("The current image is the default image. Import DICOM images again.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return;
 
@@ -3581,11 +3581,11 @@ void MainDialog::on_pushButton_output_mask_clicked()
         bool ok = fold.mkpath(maskFold);
         if (!ok)
         {
-            QString info("创建文件夹失败 ");
+            QString info("Could not create folder. ");
             info.append("maskFold");
             codec = QTextCodec::codecForName("GBK");
-            QString info1Str =  codec->toUnicode("提示");
-            QString info2Str =  codec->toUnicode("创建文件夹失败");
+            QString info1Str =  codec->toUnicode("Notice");
+            QString info2Str =  codec->toUnicode("Could not create folder.");
 
             QMessageBox::warning(NULL,info1Str,info2Str);
 
@@ -3594,7 +3594,7 @@ void MainDialog::on_pushButton_output_mask_clicked()
     }
 
     QString file = maskFold;
-    QFileDialog fd(this,tr("保存截图"),
+    QFileDialog fd(this,tr("Save Screenshot"),
                    file,
                    tr("ZH(*.zh)"));
 
@@ -3614,8 +3614,8 @@ void MainDialog::on_pushButton_output_mask_clicked()
         if (!outputMask(*fileName.begin()))
         {
             codec = QTextCodec::codecForName("GBK");
-            QString info1Str =  codec->toUnicode("提示");
-            QString info2Str =  codec->toUnicode("写出掩模数据失败！");
+            QString info1Str =  codec->toUnicode("Notice");
+            QString info2Str =  codec->toUnicode("Failed to export mask data.");
             QMessageBox::warning(NULL,info1Str,info2Str);
         }
     }
@@ -3639,8 +3639,8 @@ void MainDialog::on_pushButton_input_mask_clicked()
         if (!inputMask(*fileNames.begin()))
         {
             codec = QTextCodec::codecForName("GBK");
-            QString info1Str =  codec->toUnicode("提示");
-            QString info2Str =  codec->toUnicode("读入掩模数据失败！");
+            QString info1Str =  codec->toUnicode("Notice");
+            QString info2Str =  codec->toUnicode("Failed to import mask data.");
             QMessageBox::warning(NULL,info1Str,info2Str);
             return;
         }
@@ -3685,8 +3685,8 @@ bool MainDialog::outputMask(QString filename)
     if (RegionGrowImageDataArray==NULL)
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("掩模数据为空，请先生成掩模！");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Mask data is empty. Generate a mask first.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return false;
     }
@@ -3695,11 +3695,11 @@ bool MainDialog::outputMask(QString filename)
     //读二进制文件
     if (!file.open(QIODevice::WriteOnly))
     {
-        QString info("不能打开写入文件");
+        QString info("Could not open file for writing.");
         info.append(filename);
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("不能打开写入文件");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Could not open file for writing.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return false;
     }
@@ -3776,18 +3776,18 @@ bool MainDialog::outputMask(QString filename)
     {
         file.close();
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("写入数据失败");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Failed to write data.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return false;
     }
 
     file.close();
-    QString info("写入数据成功 ");
+    QString info("Data written successfully. ");
     info.append(filename);
     codec = QTextCodec::codecForName("GBK");
-    QString info1Str =  codec->toUnicode("提示");
-    QString info2Str =  codec->toUnicode("写入数据成功");
+    QString info1Str =  codec->toUnicode("Notice");
+    QString info2Str =  codec->toUnicode("Data written successfully.");
     QMessageBox::warning(NULL,info1Str,info2Str);
     return true;
 }
@@ -3798,11 +3798,11 @@ bool MainDialog::inputMask(QString filename)
     QFile file(filename);
     if(!file.open(QIODevice::ReadOnly))
     {
-        QString info("不能打开读入文件");
+        QString info("Could not open file for reading.");
         info.append(filename);
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("不能打开读入文件");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Could not open file for reading.");
         QMessageBox::warning(NULL,info1Str,info2Str);
 
         return false;
@@ -3812,8 +3812,8 @@ bool MainDialog::inputMask(QString filename)
     if (sizeof(int)!=file.read((char*)&uidSize,sizeof(int)))
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("读入UIDSIZE 长度失败");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Failed to read UIDSIZE length.");
         QMessageBox::warning(NULL,info1Str,info2Str);
 
         file.close();
@@ -3827,12 +3827,12 @@ bool MainDialog::inputMask(QString filename)
     qDebug()<<"mask size is  "<<DicomInfo.m_iVoxelSize;
     if (fileSize!=size+6*sizeof(int)+uidSize)
     {
-        QString info("读入文件长度不对");
+        QString info("File length is incorrect.");
         info.append(QString::number(size+6*sizeof(int)+uidSize));
 
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("读入文件长度不对");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("File length is incorrect.");
         QMessageBox::warning(NULL,info1Str,info2Str);
 
         file.close();
@@ -3844,8 +3844,8 @@ bool MainDialog::inputMask(QString filename)
     if (uidSize!=file.read(seriesUID,uidSize))
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("读入UIDSIZE失败");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Failed to read UIDSIZE.");
         QMessageBox::warning(NULL,info1Str,info2Str);
 
         file.close();
@@ -3861,8 +3861,8 @@ bool MainDialog::inputMask(QString filename)
         else
         {
             codec = QTextCodec::codecForName("GBK");
-            QString info1Str =  codec->toUnicode("提示");
-            QString info2Str =  codec->toUnicode("读入seriesUID不匹配");
+            QString info1Str =  codec->toUnicode("Notice");
+            QString info2Str =  codec->toUnicode("Imported seriesUID does not match.");
             QMessageBox::warning(NULL,info1Str,info2Str);
             qDebug()<<"mask series uid is "<<QString(seriesUID);
             qDebug()<<"dicom series uid is "<<DicomInfo.SeriesUID;
@@ -3879,8 +3879,8 @@ bool MainDialog::inputMask(QString filename)
     if (sizeof(int)!=file.read((char*)&min,sizeof(int)))
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("读入阈值最小值失败");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Failed to read the minimum threshold.");
         QMessageBox::warning(NULL,info1Str,info2Str);
 
         file.close();
@@ -3890,8 +3890,8 @@ bool MainDialog::inputMask(QString filename)
     if (sizeof(int)!=file.read((char*)&max,sizeof(int)))
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("读入阈值最大值失败");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Failed to read the maximum threshold.");
         QMessageBox::warning(NULL,info1Str,info2Str);
 
         file.close();
@@ -3907,8 +3907,8 @@ bool MainDialog::inputMask(QString filename)
     if (sizeof(int)!=file.read((char*)&seedx,sizeof(int)))
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("读入种子点x失败");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Failed to read seed point X.");
         QMessageBox::warning(NULL,info1Str,info2Str);
 
         file.close();
@@ -3918,8 +3918,8 @@ bool MainDialog::inputMask(QString filename)
     if (sizeof(int)!=file.read((char*)&seedy,sizeof(int)))
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("读入种子点y失败");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Failed to read seed point Y.");
         QMessageBox::warning(NULL,info1Str,info2Str);
 
         file.close();
@@ -3929,8 +3929,8 @@ bool MainDialog::inputMask(QString filename)
     if (sizeof(int)!=file.read((char*)&seedz,sizeof(int)))
     {
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("读入种子点z失败");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Failed to read seed point Z.");
         QMessageBox::warning(NULL,info1Str,info2Str);
 
         file.close();
@@ -3952,16 +3952,16 @@ bool MainDialog::inputMask(QString filename)
     {
         file.close();
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("提示");
-        QString info2Str =  codec->toUnicode("读入掩模失败");
+        QString info1Str =  codec->toUnicode("Notice");
+        QString info2Str =  codec->toUnicode("Failed to read mask.");
         QMessageBox::warning(NULL,info1Str,info2Str);
         return false;
     }
 
     file.close();
     codec = QTextCodec::codecForName("GBK");
-    QString info1Str =  codec->toUnicode("提示");
-    QString info2Str =  codec->toUnicode("读入掩模成功");
+    QString info1Str =  codec->toUnicode("Notice");
+    QString info2Str =  codec->toUnicode("Mask imported successfully.");
     QMessageBox::warning(NULL,info1Str,info2Str);
     return true;
 }
@@ -4092,7 +4092,7 @@ void MainDialog::GetMaskPolyData(double spacex,double spacey,int slice,cv::Mat i
     // delete []pts;
 }
 
-// 生成肌瘤掩模
+// Generatefibroid掩模
 void MainDialog::on_pushButton_generate_mask_clicked()
 {
 //#if 0
@@ -4199,8 +4199,8 @@ void MainDialog::on_pushButton_generate_ellips_clicked()
         {
 
             codec = QTextCodec::codecForName("GBK");
-            QString info1Str =  codec->toUnicode("勾画张数");
-            QString info2Str =  codec->toUnicode("请勾画三张以上");
+            QString info1Str =  codec->toUnicode("Number of traced slices");
+            QString info2Str =  codec->toUnicode("Trace at least three slices.");
 
             QMessageBox msgBox(info1Str,
                                info2Str,
@@ -4266,8 +4266,8 @@ void MainDialog::on_pushButton_generate_ellips_clicked()
             qDebug()<<"para Z0 is "<<algo.Z0;
 
             codec = QTextCodec::codecForName("GBK");
-            QString info1Str =  codec->toUnicode("拟合椭球失败");
-            QString info2Str =  codec->toUnicode("请重新勾划");
+            QString info1Str =  codec->toUnicode("Ellipsoid fitting failed.");
+            QString info2Str =  codec->toUnicode("Trace again.");
 
 
             QMessageBox msgBox(info1Str,
@@ -4322,14 +4322,14 @@ void MainDialog::on_pushButton_generate_ellips_clicked()
         qCDebug(HIFUNAVIGATION())<<HIFUNAVIGATION().categoryName()
                                 <<"benin________"
                                <<TRACE_CMH();
-        //导入默认dicom图像
+        //导入Defaultdicom图像
         defaultdicom=true;
-        //读入默认的dicom图像
+        //读入Default的dicom图像
         isReadingDicom=true;
         QDir dirtemp;
         QString rootpath=dirtemp.currentPath();
 //        rootpath=rootpath.left(rootpath.indexOf(":")+1);//存储在当前项目的盘
-        rootpath.append("/default_dcm");//默认的dicom图像存储地址
+        rootpath.append("/default_dcm");//Default的dicom图像存储地址
         qCDebug(HIFUNAVIGATION())<<HIFUNAVIGATION().categoryName()
                                 <<"path________"<<rootpath
                                <<TRACE_CMH();
@@ -4353,7 +4353,7 @@ void MainDialog::on_pushButton_generate_ellips_clicked()
 
         if(string_list.isEmpty())
         {
-            QMessageBox::warning(NULL,"提示","没有可读取的核磁图像");
+            QMessageBox::warning(NULL,"Notice","No readable MRI images found.");
             return;
         }
 
@@ -4392,7 +4392,7 @@ void MainDialog::on_pushButton_generate_ellips_clicked()
         qDebug()<<"Spacing:"<<originalSpace[0]<<originalSpace[1]<<originalSpace[2];
         if(originalSpace[0]<=0||originalSpace[1]<=0||originalSpace[2]<=0)
         {
-            QMessageBox::warning(NULL,"提示","选择的核磁图像数据无效！");
+            QMessageBox::warning(NULL,"Notice","The selected MRI image data is invalid.");
             return;
         }
 
@@ -4558,8 +4558,8 @@ void MainDialog::on_pushButton_generate_ellips_clicked()
     {
 
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("选择一种轮廓生成方式");
-        QString info2Str =  codec->toUnicode("请选择轮廓生成方式");
+        QString info1Str =  codec->toUnicode("Choose a contour generation method");
+        QString info2Str =  codec->toUnicode("Choose a contour generation method.");
 
         QMessageBox msgBox(info1Str,
                            info2Str,

@@ -23,7 +23,7 @@
 Q_LOGGING_CATEGORY(HIFUIMAGEALGO,"HIFUIMAGEALGO")
 
 
-double RESOLUTION = 2.07692;
+static double RESOLUTION = 2.07692;
 HifuImageAlgo::~HifuImageAlgo()
 {
 
@@ -68,7 +68,7 @@ double HifuImageAlgo::deepthmeasure(QImage image)
     {
         if(!ispointnull)
         {
-            QMessageBox::warning(0,"提示","M超未打开，识别失败！");
+            QMessageBox::warning(0,"Notice","M-mode ultrasound is not open. Detection failed.");
             ispointnull = !ispointnull;
         }
 

@@ -23,7 +23,7 @@ PrintDialogClinic::PrintDialogClinic(QWidget *parent) :
     preview = new QPrintPreviewWidget (printer,this);
 
     this->ui->verticalLayout_printview->addWidget(preview);
-    connect(preview, SIGNAL(paintRequested(QPrinter*)),this,SLOT(printPreview(QPrinter *)));//关联打印预览的内容
+    connect(preview, SIGNAL(paintRequested(QPrinter*)),this,SLOT(printPreview(QPrinter *)));//关联Print预览的内容
     preview->show();
     //preview->setZoomMode(QPrintPreviewWidget::FitToWidth);
 
@@ -46,7 +46,7 @@ PrintDialogClinic::~PrintDialogClinic()
     delete printer;
     delete ui;
 }
-//打印
+//Print
 void PrintDialogClinic::on_pushButton_print_clicked()
 {
 //    QTextDocument *ted = new QTextDocument;
@@ -67,7 +67,7 @@ void PrintDialogClinic::printPreview(QPrinter *p)
     ted->print(p);
     delete ted;
 }
-//设置患者信息槽
+//设置Patient information槽
 void PrintDialogClinic::setPatientInfo(QVariant id, QVariant fname, QVariant age,
                                  QVariant mobile, QVariant x, QVariant y, QVariant z)
 {
@@ -79,7 +79,7 @@ void PrintDialogClinic::setPatientInfo(QVariant id, QVariant fname, QVariant age
 
 }
 
-//设置治疗信息槽
+//设置Treatment信息槽
 void PrintDialogClinic::setTerapyInfo(QVariant rate, QVariant startTime, QVariant endTime,
                                 QVariant number, QVariant totalTime, QVariant deep,
                                 QVariant doctor, QVariant pulse,QVariant volt)
@@ -150,96 +150,96 @@ void PrintDialogClinic::SaveReportInfoToDB()
     else
     {
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "治疗报告数据库导入失败！错误信息："+updateQuery.lastError().text());
+                                          "Treatment report database import failed. Error:"+updateQuery.lastError().text());
     }
     m_db.close();
 }
 
-//生成文档样式html
+//Generate文档样式html
 QString PrintDialogClinic::getHtmlStr(QString check1,QString check2)
 {
     m_strPeintHtml=QString("<p align=\"center\">\
-            <span style=\"font-size: 24px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">中惠医疗HIFU治疗报告</span></strong></span><br/><br/><br/><br/><br/>\
+            <span style=\"font-size: 24px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">Zhonghui Medical HIFU Treatment Report</span></strong></span><br/><br/><br/><br/><br/>\
         </p>\
         <p>\
-            <span style=\"font-size: 20px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">患者信息</span></strong></span><br/>\
+            <span style=\"font-size: 20px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">Patient information</span></strong></span><br/>\
         </p>\
         <hr/>\
         <table width=\"595\">\
             <tbody>\
                 <tr class=\"firstRow\">\
                     <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">入组号：%1<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Enrollment ID:%1<br/></span>\
                     </td>\
                     <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">姓名：%2<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Name:%2<br/></span>\
                     </td>\
                 </tr>\
                 <tr>\
                     <td width=\"402\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">开始时间：%3<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Start time:%3<br/></span>\
                     </td>\
                     <td width=\"402\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">结束时间：%4</span><br/>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">End time:%4</span><br/>\
                     </td>\
                 </tr>\
                 <tr>\
                     <td width=\"402\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">辐照时间共计：%5<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Total Sonication Time:%5<br/></span>\
                     </td>\
                     <td width=\"402\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">有效治疗时间：%16<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Effective Treatment Time:%16<br/></span>\
                     </td>\
                 </tr>\
             </tbody>\
         </table>\
         <hr/><br/><br/><br/>\
         <p>\
-            <strong><span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 20px;\">治疗参数</span></strong><br/>\
+            <strong><span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 20px;\">Treatment Parameters</span></strong><br/>\
         </p>\
         <hr/>\
         <table width=\"595\">\
             <tbody>\
                 <tr class=\"firstRow\">\
                     <td width=\"250\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">辐照点个数(个)：%6 <br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">sonication point个数(pcs)：%6 <br/></span>\
                     </td>\
                     <td width=\"402\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">治疗深度(cm)：%7 <br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Treatment depth(cm)：%7 <br/></span>\
                     </td>\
                 </tr>\
                 <tr>\
                     <td width=\"250\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">脉冲个数(个)：%8 </span><br/>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Pulse Count:%8 </span><br/>\
                     </td>\
                     <td width=\"250\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">治疗总点数(个)：%9 </span><br/>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Total Treatment Points:%9 </span><br/>\
                     </td>\
                 </tr>\
                 <tr>\
                     <td width=\"250\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">辐照电压(V)：%10<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Sonication Voltage(V)：%10<br/></span>\
                     </td>\
                     <td width=\"402\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">辐照总功率(W)：%11</span><br/>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Total Sonication Power (W):%11</span><br/>\
                     </td>\
                 </tr>\
                 <tr>\
                     <td width=\"250\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">热损伤：%12<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Thermal Injury:%12<br/></span>\
                     </td>\
                     <td width=\"402\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">机械损伤：%13</span><br/>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Mechanical Injury:%13</span><br/>\
                     </td>\
                 </tr>\
             </tbody>\
         </table>\
         <hr/><br/><br/><br/>\
         <p>\
-            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">主治医师：</span></strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">%14</span><br/><br/><br/>\
+            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">Attending Physician:</span></strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">%14</span><br/><br/><br/>\
         </p>\
         <p>\
-            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">治疗日期：</span></strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">%15</span><br/>\
+            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">Treatment Date:</span></strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">%15</span><br/>\
         </p>")
             .arg(ui->lineEdit_group_number->text())
             .arg(ui->lineEdit_name->text())
@@ -260,73 +260,73 @@ QString PrintDialogClinic::getHtmlStr(QString check1,QString check2)
 //            qDebug()<<check1<<"2"<<check2;
             return m_strPeintHtml;
 //    m_strPeintHtml=QString("<p align=\"center\">\
-//            <span style=\"font-size: 24px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">中惠医疗HIFU治疗报告</span></strong></span><br/><br/><br/><br/><br/>\
+//            <span style=\"font-size: 24px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">Zhonghui Medical HIFU Treatment Report</span></strong></span><br/><br/><br/><br/><br/>\
 //        </p>\
 //        <p>\
-//            <span style=\"font-size: 20px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">患者信息</span></strong></span><br/>\
+//            <span style=\"font-size: 20px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">Patient information</span></strong></span><br/>\
 //        </p>\
 //        <hr/>\
 //        <table width=\"595\">\
 //            <tbody>\
 //                <tr class=\"firstRow\">\
 //                    <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
-//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">入组号：%1<br/></span>\
+//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Enrollment ID:%1<br/></span>\
 //                    </td>\
 //                    <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
-//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">姓名：%2<br/></span>\
+//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Name:%2<br/></span>\
 //                    </td>\
 //                </tr>\
 //                <tr>\
 //                    <td width=\"402\" valign=\"top\">\
-//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">开始时间：%3<br/></span>\
+//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Start time:%3<br/></span>\
 //                    </td>\
 //                    <td width=\"402\" valign=\"top\">\
-//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">结束时间：%4</span><br/>\
+//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">End time:%4</span><br/>\
 //                    </td>\
 //                </tr>\
 //                <tr>\
 //                    <td width=\"402\" valign=\"top\">\
-//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">辐照时间共计：%5<br/></span>\
+//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Total Sonication Time:%5<br/></span>\
 //                    </td>\
 //                </tr>\
 //            </tbody>\
 //        </table>\
 //        <hr/><br/><br/><br/>\
 //        <p>\
-//            <strong><span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 20px;\">治疗参数</span></strong><br/>\
+//            <strong><span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 20px;\">Treatment Parameters</span></strong><br/>\
 //        </p>\
 //        <hr/>\
 //        <table width=\"595\">\
 //            <tbody>\
 //                <tr class=\"firstRow\">\
 //                    <td width=\"250\" valign=\"top\">\
-//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">辐照点个数(个)：%6 <br/></span>\
+//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">sonication point个数(pcs)：%6 <br/></span>\
 //                    </td>\
 //                    <td width=\"402\" valign=\"top\">\
-//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">治疗深度(cm)：%7 <br/></span>\
+//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Treatment depth(cm)：%7 <br/></span>\
 //                    </td>\
 //                </tr>\
 //                <tr>\
 //                    <td width=\"250\" valign=\"top\">\
-//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">脉冲个数(个)：%8 </span><br/>\
+//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Pulse Count:%8 </span><br/>\
 //                    </td>\
 //                </tr>\
 //                <tr>\
 //                    <td width=\"250\" valign=\"top\">\
-//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">辐照电压(V)：%9<br/></span>\
+//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Sonication Voltage(V)：%9<br/></span>\
 //                    </td>\
 //                    <td width=\"402\" valign=\"top\">\
-//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">辐照总功率(W)：%10</span><br/>\
+//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Total Sonication Power (W):%10</span><br/>\
 //                    </td>\
 //                </tr>\
 //            </tbody>\
 //        </table>\
 //        <hr/><br/><br/><br/>\
 //        <p>\
-//            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">主治医师：</span></strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">%11</span><br/><br/><br/>\
+//            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">Attending Physician:</span></strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">%11</span><br/><br/><br/>\
 //        </p>\
 //        <p>\
-//            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">治疗日期：</span></strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">%12</span><br/>\
+//            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">Treatment Date:</span></strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">%12</span><br/>\
 //        </p>")
 //            .arg(ui->lineEdit_group_number->text())
 //            .arg(ui->lineEdit_name->text())
@@ -465,7 +465,7 @@ void PrintDialogClinic::on_lineEdit_date_textChanged(const QString &arg)
 void PrintDialogClinic::on_checkBox_2_clicked()
 {
     ui->checkBox->setChecked(false);
-    check1 = "无";
+    check1 = "None";
     preview->updatePreview();
     ui->checkBox_2->setChecked(true);
 
@@ -474,7 +474,7 @@ void PrintDialogClinic::on_checkBox_2_clicked()
 void PrintDialogClinic::on_checkBox_clicked()
 {
     ui->checkBox_2->setChecked(false);
-    check1 = "有";
+    check1 = "Yes";
     preview->updatePreview();
     ui->checkBox->setChecked(true);
 
@@ -483,7 +483,7 @@ void PrintDialogClinic::on_checkBox_clicked()
 void PrintDialogClinic::on_checkBox_3_clicked()
 {
     ui->checkBox_4->setChecked(false);
-    check2 = "有";
+    check2 = "Yes";
     preview->updatePreview();
     ui->checkBox_3->setChecked(true);
 }
@@ -491,7 +491,7 @@ void PrintDialogClinic::on_checkBox_3_clicked()
 void PrintDialogClinic::on_checkBox_4_clicked()
 {
     ui->checkBox_3->setChecked(false);
-    check2 = "无";
+    check2 = "None";
     preview->updatePreview();
     ui->checkBox_4->setChecked(true);
 }

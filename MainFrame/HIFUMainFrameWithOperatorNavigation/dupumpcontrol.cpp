@@ -149,10 +149,10 @@ bool dupumpcontrol::init()
         connect(this,SIGNAL(queryTemp(bool)),q_water,SLOT(queryTemp(bool)));
         connect(this,SIGNAL(queryVacuum(bool)),q_water,SLOT(queryVacuum(bool)));
 
-        // 向Q_Water发送开始排水箱水消息
+        // 向Q_Water发送开始排tank水消息
         connect(this,SIGNAL(DrainTankStart()),q_water,SLOT(DrainTank()));
 
-        // 收到Q_Water发送的水箱排水完成的消息
+        // 收到Q_Water发送的Water tank drain complete的消息
 
         connect(q_water,SIGNAL(DrainTankFinished()),this,SLOT(DrainTankFinished()));
 
@@ -212,7 +212,7 @@ void dupumpcontrol::SetMainWindow(NewMainWindow* main)
     connect(this,SIGNAL(controlunlock()),m_pMainWin,SLOT(controlunlock()));
     connect(this,SIGNAL(UpdateLevel(int)),m_pMainWin,SLOT(updatelevel(int)));
 
-    // 向窗口发送水箱排水完成的消息
+    // 向窗口发送Water tank drain complete的消息
     connect(this,SIGNAL(DrainTankFinishedToWindow()),m_pMainWin,SLOT(on_Drain_Water_Finished()));
 //    connect(this,SIGNAL(setPump1Speed(int)),_water,SLOT(setduPump1(int)));
 //    connect(this,SIGNAL(setPump2Speed(int)),_water,SLOT(setduPump2(int)));
@@ -234,7 +234,7 @@ void dupumpcontrol::on_toolButton_pump1_control_clicked()
             m_msgBoxFont.setPixelSize(16);
 //            QMessageBox::information(0,"Notice","Water tank level is too low. Water bladder filling is paused.","Confirm",0);
             QMessageBox msgBox("Notice",
-                               "水箱当前液位过低，水囊进水功能暂停使用",
+                               "Water tank level is too low. Water bladder filling is paused.",
                                QMessageBox::Information,
                                QMessageBox::Ok | QMessageBox::Escape,
                                QMessageBox::NoButton,
@@ -317,14 +317,14 @@ void dupumpcontrol::on_toolButton_querypump1_clicked()
     autoquerywater=!autoquerywater;
     if(autoquerywater)
     {
-        qDebug()<<"查询温度液位信息";
+        qDebug()<<"Query温度Level信息";
         q_water->getWater(true);
 //        emit GetWater(true);
         ui->toolButton_querypump1->setText("Stop Query");
     }
     else
     {
-        qDebug()<<"停止查询温度液位信息";
+        qDebug()<<"Stop Query温度Level信息";
         q_water->getWater(false);
 //        emit GetWater(false);
         ui->toolButton_querypump1->setText("Query");
@@ -524,7 +524,7 @@ void dupumpcontrol::LevelUpdate(int level)
                {
                    return;
                }
-               qDebug()<<"水箱当前液位过低，已自动关闭水循环";
+               qDebug()<<"tank当前Water Level Low，已自动关闭Circulation";
            }
            if(m_bPump2Open){
                on_toolButton_pump2_control_clicked();
@@ -673,12 +673,12 @@ void dupumpcontrol::updatePump2Status(int m_Speed2)
     if(m_Speed2&0x8000)
     {
         ui->toolButton_pump2_control->setText("Stop Pump");
-        strS = "开";
+        strS = "On";
     }
     else
     {
         ui->toolButton_pump2_control->setText("Start Pump");
-        strS = "关";
+        strS = "Off";
     }
     ui->textEdit_shelf_check_status->setText(QString("Peristaltic Pump 2: Speed = %1, Status: %2").arg((float)(m_Speed2 & 0xFFF)/10,0,'f',1).arg(strS));
 }
@@ -689,12 +689,12 @@ void dupumpcontrol::updatePump1Status(int m_Speed1)
     if(m_Speed1&0x8000)
     {
         ui->toolButton_pump1_control->setText("Stop Pump");
-        strS = "开";
+        strS = "On";
     }
     else
     {
         ui->toolButton_pump1_control->setText("Start Pump");
-        strS = "关";
+        strS = "Off";
     }
     ui->textEdit_shelf_check_status->setText(QString("Peristaltic Pump 1: Speed = %1, Status: %2").arg((float)(m_Speed1 & 0xFFF)/10,0,'f',1).arg(strS));
 }
@@ -804,7 +804,7 @@ void dupumpcontrol::paintEvent(QPaintEvent *)
     painter.setPen(pen);
     Xb=X0;Xe=X0-Xw;Yb=Y0-m_PreMeter*Yzm/100;Ye=Yb;
     painter.drawLine(QPointF(Xb,Yb), QPointF(Xe,Ye));
-    //画压力实时曲线
+    //画PressureLive曲线
     pen.setColor(Qt::black);
     pen.setStyle(Qt::SolidLine);
     painter.setPen(pen);
@@ -1262,7 +1262,7 @@ void dupumpcontrol::TreatState(bool state)
     emit SetBedLock(state);
 }
 
-// 收到水箱排水完成消息处理槽函数
+// 收到Water tank drain complete消息处理槽函数
 void dupumpcontrol::DrainTankFinished()
 {
     emit DrainTankFinishedToWindow();

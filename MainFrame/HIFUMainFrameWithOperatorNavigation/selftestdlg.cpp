@@ -180,7 +180,7 @@ void SelfTestDlg::updateStatus(bool bappend, bool blocation, bool bwarter, bool 
     selfTestStatus[iwarter]=bwarter;
     selfTestStatus[inetwork]=bnetwork;
     selfTestStatus[iimagegraber]=bimagegraber;
-    //如果是刷新状态则执行
+    //如果是RefreshStatus则执行
     if(!this->isHidden()){
         bOK=true;
         foreach (QLabel *lbl, lblList) {
@@ -197,7 +197,7 @@ void SelfTestDlg::updateStatus(selfSubSys sys,bool status)
 {
 //    if(sys==ipower && !status){
 //        if(ischecknetwork){
-//            ui->textEdit_shelf_check_status->append("功放板电压异常\n提示：检查工控机功放板是否正常工作");
+//            ui->textEdit_shelf_check_status->append("power amp电压异常\nNotice：检查PCpower amp是否正常工作");
 //            lblList[inetwork]->setPixmap(pixNO);
 //            selfcheckfailed=true;
 //        }else{
@@ -244,7 +244,7 @@ void SelfTestDlg::updateStatus(selfSubSys sys,bool status)
 
 void SelfTestDlg::timeoutslot()
 {
-    // 查询，刷新水循环状态
+    // Query，RefreshCirculationStatus
     if(sindex>4)
     {
         timer->stop();
@@ -360,7 +360,7 @@ void SelfTestDlg::DelayClose()
     connect(&delayTimer,SIGNAL(timeout()),this,SLOT(close()));
 }
 
-//刷新自检状态
+//Refresh自检Status
 void SelfTestDlg::on_pushButton_refresh_clicked()
 {
     _isShowFromLogin = true;

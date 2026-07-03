@@ -29,7 +29,7 @@ void LoginInfoEdit::on_buttonBox_accepted()
     if(m_DrLoginData.DrID==-1)
     {
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "无法修改，数据为空！");
+                                          "Nothing to update. The data is empty.");
         return;
     }
     bool bUserEmpty=ui->lineEdit_UserName->text().isEmpty();
@@ -37,7 +37,7 @@ void LoginInfoEdit::on_buttonBox_accepted()
     if(bUserEmpty)
     {
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "登录用户名不能为空！");
+                                          "Username is required.");
         return;
     }
 
@@ -52,7 +52,7 @@ void LoginInfoEdit::on_buttonBox_accepted()
     if(hash_pwvalue!=m_DrLoginData.pw)
     {
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "原密码输入错误！");
+                                          "Current password is incorrect.");
         return;
     }
     QString strSQl;
@@ -66,7 +66,7 @@ void LoginInfoEdit::on_buttonBox_accepted()
     {
         if(ui->lineEdit_NewPwd->text()!=ui->lineEdit_NewPwd2->text())
         {
-//            QMessageBox::critical(0, QObject::tr("Notice"),"两次输入新密码不匹配！");
+//            QMessageBox::critical(0, QObject::tr("Notice"),"两次InputNew Password不匹配！");
             ui->lineEdit_NewPwd2->setText("");
             return;
         }
@@ -94,7 +94,7 @@ void LoginInfoEdit::on_buttonBox_accepted()
     else
     {
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "修改失败！\n错误信息："+sQuery.lastError().text());
+                                          "Update failed.\nError:"+sQuery.lastError().text());
         this->reject();
     }
 }
@@ -109,7 +109,7 @@ void LoginInfoEdit::GetLoginInfo(int id)
     if(!sQuery.exec(strSQl))
     {
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "查询数据库出错！\n错误信息："+sQuery.lastError().text());
+                                          "Database query failed.\nError:"+sQuery.lastError().text());
         return;
     }
     qDebug()<<sQuery.size();

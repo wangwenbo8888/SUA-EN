@@ -40,7 +40,7 @@ void DragTable::mouseMoveEvent(QMouseEvent *event)
         Qt::DropAction resultAction = drag->exec(Qt::MoveAction);
         if (resultAction==Qt::MoveAction)
         {
-            // 删除数据源
+            // Delete数据源
         }
     }
 

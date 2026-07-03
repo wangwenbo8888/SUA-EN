@@ -71,7 +71,7 @@ void heartthread::connectfailed()
     heartcount++;
     if(heartcount>5)
     {
-        qDebug() << "网络连接断开";
+        qDebug() << "Network Connection Lost";
         heartcount = 0;
         if(!netwarning)
         {
@@ -79,7 +79,7 @@ void heartthread::connectfailed()
             emit connectfail();
             qDebug()<<"messagebox connectfailed";
 //            //emit statusUpdated(INQUIRY, NETWORK_DISCONNECTED);
-//            QMessageBox msgBox("Network Connection Lost","请重启客户端并确保工控机连接正常",
+//            QMessageBox msgBox("Network Connection Lost","请重启客户端并确保PC连接正常",
 //                               QMessageBox::Warning,
 //                               QMessageBox::Ok | QMessageBox::Escape,
 //                               QMessageBox::NoButton,

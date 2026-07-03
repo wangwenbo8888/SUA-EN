@@ -42,7 +42,7 @@ SelfTestDlg::SelfTestDlg(NewMainWindow* pMain,QWidget *parent) :
     sindex=0;
     connect(timer,SIGNAL(timeout()),this,SLOT(timeoutslot()));
 
-    //水循环部分
+    //Circulation部分
     initShelfCheckTimer();
     m_iCheckCircle = 0;
 
@@ -171,7 +171,7 @@ void SelfTestDlg::on_toolButton_pump_control_clicked()
 
 void SelfTestDlg::on_toolButton_query_clicked()
 {
-    qDebug()<<"查询温度液位信息";
+    qDebug()<<"Query温度Level信息";
     emit queryStatus();
 }
 
@@ -216,17 +216,17 @@ void SelfTestDlg::on_shelf_check_timer_timeout()
     queryStatus();
     // statusUpdated();
 
-    info = "温度1";
+    info = "Temperature 1";
     info.append(" ");
     info.append(QString::number(m_iTemperature1));
     ui->textEdit_shelf_check_status->append(outputCheckInfo(info));
 
-    info = "温度2";
+    info = "Temperature 2";
     info.append(" ");
     info.append(QString::number(m_iTemperature2));
     ui->textEdit_shelf_check_status->append(outputCheckInfo(info));
 
-    info = "液位";
+    info = "Level";
     info.append(" ");
     info.append(QString::number(m_iLevel));
     ui->textEdit_shelf_check_status->append(outputCheckInfo(info));
@@ -234,7 +234,7 @@ void SelfTestDlg::on_shelf_check_timer_timeout()
 
 void SelfTestDlg::statusUpdated(uint temp1, uint temp2, uint level)
 {
-    qDebug()<<"查询信息更新";
+    qDebug()<<"Query信息更新";
     m_iTemperature1 = temp1;
     tempGauge1->setValue(temp1);
     m_iTemperature2 = temp2;

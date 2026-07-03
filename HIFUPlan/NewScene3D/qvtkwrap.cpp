@@ -32,7 +32,7 @@ QVTKWrap::QVTKWrap(QObject *parent) :
      m_pSampleUsImg=new QImage();
      if(!m_pSampleUsImg->load(QString::fromUtf8(":/smapleusimg.png"),"PNG"))
      {
-         qDebug()<<"NewScene3D 加载示例超声图像失败";
+         qDebug()<<"NewScene3D 加载示例Ultrasound Image失败";
      }
 }
 
@@ -344,14 +344,14 @@ void QVTKWrap::InitqvtkWIdgetContextMenu()
 {
     QTextCodec *codec;
     codec = QTextCodec::codecForName("GBK");
-    QString info1Str =  codec->toUnicode("隐藏辐照点");
-    QString info2Str =  codec->toUnicode("辐照层选择");
-    QString info3Str =  codec->toUnicode("显示所有层");
-    QString info4Str =  codec->toUnicode("显示上层");
-    QString info5Str =  codec->toUnicode("显示中层");
-    QString info6Str =  codec->toUnicode("显示下层");
-    QString info7Str =  codec->toUnicode("锁定人体模型");
-    QString info8Str =  codec->toUnicode("隐藏超声平面");
+    QString info1Str =  codec->toUnicode("Hide Sonication Points");
+    QString info2Str =  codec->toUnicode("Sonication Plane Selection");
+    QString info3Str =  codec->toUnicode("Show All Planes");
+    QString info4Str =  codec->toUnicode("Show Upper Plane");
+    QString info5Str =  codec->toUnicode("Show Middle Plane");
+    QString info6Str =  codec->toUnicode("Show Lower Plane");
+    QString info7Str =  codec->toUnicode("Lock Body Model");
+    QString info8Str =  codec->toUnicode("Hide Ultrasound Plane");
 
 
 
@@ -391,29 +391,29 @@ void QVTKWrap::InitqvtkWIdgetContextMenu()
     _qvtkWIdgetContextMenu->addSeparator();
     if (_ShowTuborElement==NULL)
     {
-//        _ShowTuborElement = _qvtkWIdgetContextMenu->addAction("隐藏肌瘤模型");
+//        _ShowTuborElement = _qvtkWIdgetContextMenu->addAction("Hide Fibroid Model");
 //        connect(_ShowTuborElement,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowTumor()));
     }
-//    QMenu* OpacityMenu = _qvtkWIdgetContextMenu->addMenu(tr("肌瘤透明度"));
+//    QMenu* OpacityMenu = _qvtkWIdgetContextMenu->addMenu(tr("Fibroid Opacity"));
 //    if (_ShowTumorNoOpacity==NULL)
 //    {
-//        _ShowTumorNoOpacity = OpacityMenu->addAction("不透明");
+//        _ShowTumorNoOpacity = OpacityMenu->addAction("Opaque");
 //        connect(_ShowTumorNoOpacity,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowTumorNoOpacity()));
 //    }
 //    if (_ShowTumorLowOpacity==NULL)
 //    {
-//        _ShowTumorLowOpacity = OpacityMenu->addAction("低透明度");
+//        _ShowTumorLowOpacity = OpacityMenu->addAction("Low Opacity");
 //        connect(_ShowTumorLowOpacity,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowTumorLowOpacity()));
 //    }
 
 //    if (_ShowTumorMidlleOpacity==NULL)
 //    {
-//        _ShowTumorMidlleOpacity = OpacityMenu->addAction("中透明度");
+//        _ShowTumorMidlleOpacity = OpacityMenu->addAction("Medium Opacity");
 //        connect(_ShowTumorMidlleOpacity,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowTumorMidlleOpacity()));
 //    }
 //    if (_ShowTumorHighOpacity==NULL)
 //    {
-//        _ShowTumorHighOpacity = OpacityMenu->addAction("高透明度");
+//        _ShowTumorHighOpacity = OpacityMenu->addAction("High Opacity");
 //        connect(_ShowTumorHighOpacity,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowTumorHighOpacity()));
 //    }
     _qvtkWIdgetContextMenu->addSeparator();
@@ -504,7 +504,7 @@ void QVTKWrap::Scene3d_ContextAction_ShowTumor()
     {
         QTextCodec *codec;
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("显示肌瘤模型");
+        QString info1Str =  codec->toUnicode("Show Fibroid Model");
         _Scene3d_TumorActor->SetVisibility(0);
         _ShowTuborElement->setText(info1Str);
     }
@@ -512,7 +512,7 @@ void QVTKWrap::Scene3d_ContextAction_ShowTumor()
     {
         QTextCodec *codec;
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("隐藏肌瘤模型");
+        QString info1Str =  codec->toUnicode("Hide Fibroid Model");
         _Scene3d_TumorActor->SetVisibility(1);
         _ShowTuborElement->setText(info1Str);
     }
@@ -532,7 +532,7 @@ void QVTKWrap::Scene3d_ContextAction_ShowIrraPoint()
         }
         QTextCodec *codec;
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("显示辐照点");
+        QString info1Str =  codec->toUnicode("Show Sonication Points");
         _ShowIrraPointElement->setText(info1Str);
     }
     else
@@ -543,7 +543,7 @@ void QVTKWrap::Scene3d_ContextAction_ShowIrraPoint()
         }
         QTextCodec *codec;
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("隐藏辐照点");
+        QString info1Str =  codec->toUnicode("Hide Sonication Points");
         _ShowIrraPointElement->setText(info1Str);
     }
     _qvtkWidget_Scene3d->GetRenderWindow()->Render();
@@ -634,7 +634,7 @@ void QVTKWrap::Scene3d_ContextAction_LockHumanModel()
     {
         QTextCodec *codec;
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("解锁人体模型");
+        QString info1Str =  codec->toUnicode("Unlock Body Model");
         _Scene3d_OrientationWidget->InteractiveOff();
         _LockHumanModel->setText(info1Str);
     }
@@ -642,7 +642,7 @@ void QVTKWrap::Scene3d_ContextAction_LockHumanModel()
     {
         QTextCodec *codec;
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("锁定人体模型");
+        QString info1Str =  codec->toUnicode("Lock Body Model");
         _Scene3d_OrientationWidget->InteractiveOn();
         _LockHumanModel->setText(info1Str);
     }
@@ -655,7 +655,7 @@ void QVTKWrap::Scene3d_ContextAction_ShowUsImgPlane()
     {
         QTextCodec *codec;
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("显示超声指示图");
+        QString info1Str =  codec->toUnicode("Show Ultrasound Guide");
         UsImgPlaneActor->SetVisibility(0);
         _ShowUsImgPlane->setText(info1Str);
     }
@@ -663,7 +663,7 @@ void QVTKWrap::Scene3d_ContextAction_ShowUsImgPlane()
     {
         QTextCodec *codec;
         codec = QTextCodec::codecForName("GBK");
-        QString info1Str =  codec->toUnicode("隐藏超声指示图");
+        QString info1Str =  codec->toUnicode("Hide Ultrasound Guide");
         UsImgPlaneActor->SetVisibility(1);
         _ShowUsImgPlane->setText(info1Str);
     }

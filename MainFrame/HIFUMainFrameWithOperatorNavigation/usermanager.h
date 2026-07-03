@@ -75,7 +75,7 @@ private:
         QString selectStatement() const override
         {
             QString query = QSqlTableModel::selectStatement();
-            query += " LIMIT 1000"; // 添加 LIMIT 子句
+            query += " LIMIT 1000"; // Add LIMIT 子句
             return query;
         }
     };
@@ -95,7 +95,7 @@ private:
     void DelayClose();
     QTimer delayTimer;
 
-    int m_iPaOrientation;//患者朝向，左侧为0，右侧为1
+    int m_iPaOrientation;//Patients朝向，左侧为0，右侧为1
 
     void keyPressEvent(QKeyEvent *event);
 

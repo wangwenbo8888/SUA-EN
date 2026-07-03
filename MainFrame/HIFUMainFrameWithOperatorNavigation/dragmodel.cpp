@@ -62,14 +62,14 @@ bool DragModel::isDropable(QModelIndex index)
     }
 }
 
-// 更新model里面显示的辐照点顺序
+// 更新model里面显示的sonication point顺序
 void DragModel::exchangeRows(const QMap<QString,QString>& vIds,int to)
 {
     QString insertId = this->item(to,0)->text();
     QList<QString> temp;
     QMap<QString,QVector<QString> > itemBak;
     QMap<QString,QBrush> brushBak;
-    // 保存当前参数
+    // Save当前参数
     for (int i = 0; i < this->rowCount(); ++i)
     {
         temp.append(this->item(i,0)->text());
@@ -114,7 +114,7 @@ void DragModel::exchangeRows(const QMap<QString,QString>& vIds,int to)
         }
     }
 
-    // 调整刷新后的model
+    // 调整Refresh后的model
     for (int i = 0; i < temp.size(); ++i)
     {
         QVector<QString>& vItems = *itemBak.find(temp[i]);
@@ -149,7 +149,7 @@ void DragModel::exchangeRows(const QMap<QString,QString>& vIds,int to)
         }
     }
 
-    // model刷新后的id排列顺序
+    // modelRefresh后的id排列顺序
     QVector<QString> newIds;
     for (QList<QString>::iterator listIter = temp.begin(); listIter!= temp.end(); ++listIter)
     {

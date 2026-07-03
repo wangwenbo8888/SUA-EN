@@ -52,7 +52,7 @@ SelfTestDlg::SelfTestDlg(NewMainWindow* pMain,QWidget *parent) :
     m_networkservice = 0;
     connect(timer,SIGNAL(timeout()),this,SLOT(timeoutslot()));
 
-    //水循环部分
+    //Circulation部分
 //    initShelfCheckTimer();
 //    m_iCheckCircle = 0;
 
@@ -233,7 +233,7 @@ void SelfTestDlg::updateStatus(bool bappend, bool blocation, bool bwarter, bool 
     selfTestStatus[iwarter]=bwarter;
     selfTestStatus[inetwork]=bnetwork;
     selfTestStatus[iimagegraber]=bimagegraber;
-    //如果是刷新状态则执行
+    //如果是RefreshStatus则执行
     if(!this->isHidden()){
         bOK=true;
         foreach (QLabel *lbl, lblList) {
@@ -283,7 +283,7 @@ void SelfTestDlg::updateStatus(selfSubSys sys,bool status)
 
 void SelfTestDlg::timeoutslot()
 {
-    // 查询，刷新水循环状态
+    // Query，RefreshCirculationStatus
     if(sindex>4)
     {
         timer->stop();
@@ -375,7 +375,7 @@ void SelfTestDlg::networkreflash()
 
 //void SelfTestDlg::on_toolButton_query_clicked()
 //{
-//    qDebug()<<"查询温度液位信息";
+//    qDebug()<<"Query温度Level信息";
 //    emit queryStatus();
 //}
 
@@ -406,17 +406,17 @@ void SelfTestDlg::networkreflash()
 //    ui->textEdit_shelf_check_status->append(outputCheckInfo(info));
 //    queryStatus();
 
-//    info = "温度1";
+//    info = "Temperature 1";
 //    info.append(" ");
 //    info.append(QString::number(m_iTemperature1));
 //    ui->textEdit_shelf_check_status->append(outputCheckInfo(info));
 
-//    info = "温度2";
+//    info = "Temperature 2";
 //    info.append(" ");
 //    info.append(QString::number(m_iTemperature2));
 //    ui->textEdit_shelf_check_status->append(outputCheckInfo(info));
 
-//    info = "液位";
+//    info = "Level";
 //    info.append(" ");
 //    info.append(QString::number(m_iLevel));
 //    ui->textEdit_shelf_check_status->append(outputCheckInfo(info));
@@ -424,7 +424,7 @@ void SelfTestDlg::networkreflash()
 
 //void SelfTestDlg::statusUpdated(uint temp1, uint temp2, uint level)
 //{
-//    qDebug()<<"查询信息更新";
+//    qDebug()<<"Query信息更新";
 //    m_iTemperature1 = temp1;
 //    tempGauge1->setValue(temp1);
 //    m_iTemperature2 = temp2;
@@ -524,7 +524,7 @@ void SelfTestDlg::DelayClose()
     connect(&delayTimer,SIGNAL(timeout()),this,SLOT(close()));
 }
 
-//刷新自检状态
+//Refresh自检Status
 void SelfTestDlg::on_pushButton_refresh_clicked()
 {
     _isShowFromLogin = true;

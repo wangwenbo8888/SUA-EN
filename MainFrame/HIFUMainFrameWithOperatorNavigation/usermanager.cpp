@@ -47,11 +47,11 @@ UserManager::UserManager(QWidget *parent) :
             ->setStyleSheet("QHeaderView::section {color: black;font: 75 12pt \"微软雅黑\";border: 1px solid #6c6c6c;}");
     ui->tableView->verticalHeader()
             ->setStyleSheet("QHeaderView::section {color: black;font: 75 10pt \"微软雅黑\";border: 1px solid #6c6c6c;}");
-    this->ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);  //单击选择一行
-    this->ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection); //设置只能选择一行，不能多行选中
+    this->ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);  //单击Select一行
+    this->ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection); //设置只能Select一行，不能多行选中
     this->ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);   //设置每行内容不可更改
 
-    // 设置限制输入为整数及范围
+    // 设置限制Input为整数及范围
     ui->lineEdit_DrAge->setValidator(new QIntValidator(18,150,this));
     ui->lineEdit_PaAge->setValidator(new QIntValidator(18,150,this));
 
@@ -59,7 +59,7 @@ UserManager::UserManager(QWidget *parent) :
     QRegExp regx("[a-zA-Z0-9\-\\\_]{25}");
     ui->lineEdit_PaGender->setEnabled(false);
 //    ui->lineEdit_PaGender->setValidator(new QRegExpValidator(regx, this));
-//    ui->lineEdit_PaGender->setToolTip("请输入字符和数字的组合。");
+//    ui->lineEdit_PaGender->setToolTip("请Input字符和数字的组合。");
 
     ui->lineEdit_DrGender->setValidator(new QRegExpValidator(rx, this));
     ui->lineEdit_DrGender->setToolTip("Enter M for male, F for female, or O for other.");
@@ -205,7 +205,7 @@ void UserManager::SetTableViewHeader(int dataType)
         this->ui->tableView->setColumnWidth(13,300);
         break;
     case 2:
-//        qDebug()<<"医生数据表头";
+//        qDebug()<<"Physicians数据表头";
         model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID"));
         model->setHeaderData(1,Qt::Horizontal,QObject::tr("First Name"));
         model->setHeaderData(2,Qt::Horizontal,QObject::tr("Last Name"));
@@ -259,7 +259,7 @@ void UserManager::on_radioButton_SMobile_clicked()
     sSearchField="mobile";
 }
 
-//查询
+//Query
 void UserManager::on_toolButton_Search_clicked()
 {
     QSqlDatabase m_db = QSqlDatabase::addDatabase("QSQLITE");
@@ -276,7 +276,7 @@ void UserManager::on_toolButton_Search_clicked()
 
 //    if ((ui->lineEdit_SFieldText->text().size()<6||ui->lineEdit_SFieldText->text().size()>12)&&(sSearchField=="name"||sSearchField=="fullName"))
 //    {
-//        QMessageBox::warning(0,"Notice","请输入6-12个字符","Confirm",0);
+//        QMessageBox::warning(0,"Notice","请Input6-12个字符","Confirm",0);
 //        return;
 //    }
     if(ui->radioButton_SFirstName->isChecked())
@@ -295,7 +295,7 @@ void UserManager::on_toolButton_Search_clicked()
     qDebug()<<model->filter();
     m_db.close();
 }
-//撤销查询
+//Clear Search
 void UserManager::on_toolButton_UndoSearch_clicked()
 {
     if(m_QDataType==TypePatient)
@@ -367,7 +367,7 @@ void UserManager::on_tableView_clicked(const QModelIndex &index)
     SetDoctorCtlEditable(true);
 }
 
-//添加用户
+//Add用户
 void UserManager::on_commandLinkButton_add_clicked()
 {
     AddUser addForm;
@@ -426,7 +426,7 @@ void UserManager::SetDoctorCtlData(DoctorDataRow data)
     ui->lineEdit_DrPost->setText(data.post);
 }
 
-//设置患者详细信息控件可编辑性
+//设置PatientsDetails控件可Edit性
 void UserManager::SetPatientCtlEditable(bool editable)
 {
     ui->lineEdit_PaAge->setReadOnly(editable);
@@ -479,7 +479,7 @@ void UserManager::SetPatientCtlEditable(bool editable)
 
 }
 
-//设置医师详细控件可编辑性
+//设置医师详细控件可Edit性
 void UserManager::SetDoctorCtlEditable(bool editable)
 {
     ui->lineEdit_DrAge->setReadOnly(editable);
@@ -521,7 +521,7 @@ void UserManager::SetDoctorCtlEditable(bool editable)
     }
 }
 
-//患者编辑
+//PatientsEdit
 void UserManager::on_pushButton_PaEdit_clicked()
 {
     if(!m_PaDataRow.isClear())
@@ -529,7 +529,7 @@ void UserManager::on_pushButton_PaEdit_clicked()
         SetPatientCtlEditable(false);
     }
 }
-//医生编辑
+//PhysiciansEdit
 void UserManager::on_pushButton_DrEdit_clicked()
 {
     if(!m_DrDataRow.isClear())
@@ -537,7 +537,7 @@ void UserManager::on_pushButton_DrEdit_clicked()
         SetDoctorCtlEditable(false);
     }
 }
-//医生提交
+//PhysiciansSubmit
 void UserManager::on_pushButton_DrCommit_clicked()
 {
      if(ui->lineEdit_DrFullName->text().isEmpty()||ui->lineEdit_DrLastName->text().isEmpty()||ui->lineEdit_DrFirstName->text().isEmpty())
@@ -570,7 +570,7 @@ void UserManager::on_pushButton_DrCommit_clicked()
     else
     {
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "更新失败！\n错误信息："+updateQuery.lastError().text());
+                                          "Update failed.\nError:"+updateQuery.lastError().text());
         SetDoctorCtlData(m_DrDataRow);
     }
     SetDoctorCtlEditable(true);
@@ -579,7 +579,7 @@ void UserManager::on_pushButton_DrCommit_clicked()
     on_commandLinkButton_Doctor_clicked();
 }
 
-//患者提交
+//PatientsSubmit
 void UserManager::on_pushButton_PaCommit_clicked()
 {
     QSqlDatabase m_db = QSqlDatabase::addDatabase("QSQLITE");
@@ -648,7 +648,7 @@ void UserManager::on_pushButton_PaCommit_clicked()
     if(updateQuery.exec())
     {
         QMessageBox::information(NULL,"Notice","Updated successfully.",QMessageBox::Ok);
-        updateInfo(PID+","+ui->lineEdit_SID->text()+","+ui->lineEdit_PaName->text()+","+"女"+","+
+        updateInfo(PID+","+ui->lineEdit_SID->text()+","+ui->lineEdit_PaName->text()+","+"Female"+","+
                    ui->LineEdit_Birth->text()+","+ui->lineEdit_PaAge->text()+","+
                    ui->lineEdit_PaMobile->text()+","+ui->lineEdit_PaDepth->text()
                    +","+ui->lineEdit_PaSizeX->text()+","+ui->lineEdit_PaSizeY->text()+","+ui->lineEdit_PaSizeZ->text()+","+
@@ -663,12 +663,12 @@ void UserManager::on_pushButton_PaCommit_clicked()
     else
     {
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "更新失败！\n错误信息：" + m_PaDataRow.id_str +"\n"+updateQuery.lastError().text());
+                                          "Update failed.\nError:" + m_PaDataRow.id_str +"\n"+updateQuery.lastError().text());
         SetPatientCtlData(m_PaDataRow);
     }
     m_db.close();
 }
-//删除用户
+//Delete用户
 void UserManager::on_commandLinkButton_delete_clicked()
 {
     QSqlDatabase m_db = QSqlDatabase::addDatabase("QSQLITE");
@@ -677,7 +677,7 @@ void UserManager::on_commandLinkButton_delete_clicked()
     m_db.setPassword("123456");
     m_db.open();
     if(m_QDataType==TypePatient)
-    {//删除患者
+    {//DeletePatients
         if(m_PaDataRow.isClear())
         {
             QMessageBox::information(NULL,"Notice","Select an item to delete.",QMessageBox::Ok);
@@ -685,7 +685,7 @@ void UserManager::on_commandLinkButton_delete_clicked()
             return;
         }
         QMessageBox msgBox("Delete Information",
-                           "是否删除该患者信息？\n患者ID："+m_PaDataRow.id_str+"\n患者名："+m_PaDataRow.name,
+                           "Delete this patient record?\nPatient ID:"+m_PaDataRow.id_str+"\nPatient Name:"+m_PaDataRow.name,
                            QMessageBox::Critical,
                            QMessageBox::Yes | QMessageBox::Default,
                            QMessageBox::No | QMessageBox::Escape,
@@ -702,7 +702,7 @@ void UserManager::on_commandLinkButton_delete_clicked()
             return;
         }
 //        int ensure=QMessageBox::warning(0, QObject::tr("Warning"),
-//                                         "是否删除该患者信息？\n患者ID："+m_PaDataRow.id_str+"\n患者名："+m_PaDataRow.name,
+//                                         "Delete this patient record?\nPatient ID:"+m_PaDataRow.id_str+"\nPatient Name:"+m_PaDataRow.name,
 //                                         QMessageBox::Ok,QMessageBox::Cancel);
 //        if(ensure==QMessageBox::Cancel)
 //        {
@@ -740,11 +740,11 @@ void UserManager::on_commandLinkButton_delete_clicked()
         else
         {
             QMessageBox::critical(0, QObject::tr("Notice"),
-                                              "删除失败！\n错误信息："+updateQuery.lastError().text());
+                                              "Delete failed.\nError:"+updateQuery.lastError().text());
         }
     }
     else if(m_QDataType==TypeDoctor)
-    {//删除医生
+    {//DeletePhysicians
         if(m_DrDataRow.isClear())
         {
             QMessageBox::information(NULL,"Notice","Select an item to delete.",QMessageBox::Ok);
@@ -752,7 +752,7 @@ void UserManager::on_commandLinkButton_delete_clicked()
             return;
         }
         QMessageBox msgBox("Delete Information",
-                           "是否删除该医生信息（包括登录信息）？\n医生ID："+m_DrDataRow.id_str+"\n医生姓名："+m_DrDataRow.fullName,
+                           "Delete this physician record, including login information?\nPhysician ID:"+m_DrDataRow.id_str+"\nPhysician Name:"+m_DrDataRow.fullName,
                            QMessageBox::Critical,
                            QMessageBox::Yes | QMessageBox::Default,
                            QMessageBox::No | QMessageBox::Escape,
@@ -769,7 +769,7 @@ void UserManager::on_commandLinkButton_delete_clicked()
             return;
         }
 //        int ensure=QMessageBox::warning(0, QObject::tr("Warning"),
-//                                         "是否删除该医生信息（包括登录信息）？\n医生ID："+m_DrDataRow.id_str+"\n医生姓名："+m_DrDataRow.fullName,
+//                                         "Delete this physician record, including login information?\nPhysician ID:"+m_DrDataRow.id_str+"\nPhysician Name:"+m_DrDataRow.fullName,
 //                                         QMessageBox::Ok,QMessageBox::Cancel);
 //        if(ensure==QMessageBox::Cancel)
 //        {
@@ -790,7 +790,7 @@ void UserManager::on_commandLinkButton_delete_clicked()
             else
             {
                 QMessageBox::information(NULL,"Notice",
-                                         "删除医生基本信息成功，但删除该医生的登录信息失败！\n错误信息："+updateQuery.lastError().text()
+                                         "Physician profile was deleted, but login information could not be deleted.\nError:"+updateQuery.lastError().text()
                                          ,QMessageBox::Ok);
             }
             model->setTable("DrInfo");
@@ -801,7 +801,7 @@ void UserManager::on_commandLinkButton_delete_clicked()
         else
         {
             QMessageBox::critical(0, QObject::tr("Notice"),
-                                              "删除失败！\n错误信息："+updateQuery.lastError().text());
+                                              "Delete failed.\nError:"+updateQuery.lastError().text());
             m_db.close();
         }
     }
@@ -822,7 +822,7 @@ void UserManager::on_pushButton_DrLogInfoEdit_clicked()
     LoginInfoEdit lie(0,m_DrDataRow.id);
     lie.exec();
 }
-//开始治疗
+//Start treatment
 void UserManager::on_pushButton_PaTreatment_clicked()
 {
     if(m_PaDataRow.isClear())
@@ -832,7 +832,7 @@ void UserManager::on_pushButton_PaTreatment_clicked()
     }
 
     QMessageBox msgBox("Start treatment",
-                       "是否开始治疗当前患者",
+                       "Start treatment for the selected patient?",
                        QMessageBox::Question,
                        QMessageBox::Yes | QMessageBox::Default,
                        QMessageBox::No | QMessageBox::Escape,
@@ -852,7 +852,7 @@ void UserManager::on_pushButton_PaTreatment_clicked()
     }
 
     bool bCP=PatientManager::getInstance()->createPatientDir(QString("%1_%2").arg(m_PaDataRow.id_str).arg(m_PaDataRow.name));
-    qDebug()<<"UserManager "<<"患者目录创建:"<<bCP;
+    qDebug()<<"UserManager "<<"Patients目录创建:"<<bCP;
 
     emit SendPatientInfo(m_PaDataRow.pid,m_PaDataRow.name,m_PaDataRow.age_str,m_PaDataRow.mobile,m_PaDataRow.size_x_str,m_PaDataRow.size_y_str,m_PaDataRow.size_z_str,m_iPaOrientation);
     emit ShowMainWindow();
@@ -909,7 +909,7 @@ bool UserManager::eventFilter(QObject *obj, QEvent *event)
 {
     if (qobject_cast<QLabel*>(obj)== ui->label_Body_Orientation_Left) {
         if (event->type() == QEvent::MouseButtonRelease) {
-            qDebug("患者头部朝向左侧");
+            qDebug("Patients头部朝向左侧");
             ui->label_Body_Orientation_Left->setStyleSheet("background-color: rgb(0, 255, 255);image: url(:/umimg/UMImage/patient_oritention_left.png);");
             ui->label_Body_Orientation_Right->setStyleSheet("background-color: rgb(200, 200, 200);image: url(:/umimg/UMImage/patient_oritention_right.png);");
             m_iPaOrientation=0;
@@ -924,7 +924,7 @@ bool UserManager::eventFilter(QObject *obj, QEvent *event)
     else if(qobject_cast<QLabel*>(obj) == ui->label_Body_Orientation_Right)
     {
         if (event->type() == QEvent::MouseButtonRelease) {
-            qDebug("患者头部朝向右侧");
+            qDebug("Patients头部朝向右侧");
             ui->label_Body_Orientation_Right->setStyleSheet("background-color: rgb(0, 255, 255);image: url(:/umimg/UMImage/patient_oritention_right.png);");
             ui->label_Body_Orientation_Left->setStyleSheet("background-color: rgb(200, 200, 200);image: url(:/umimg/UMImage/patient_oritention_left.png);");
             m_iPaOrientation=1;
@@ -941,7 +941,7 @@ bool UserManager::eventFilter(QObject *obj, QEvent *event)
         //return UserManager::eventFilter(obj, event);
     }
 }
-//患者朝向默认朝左
+//Patients朝向Default朝左
 void UserManager::showEvent(QShowEvent *event)
 {
     ui->pushButton_PaTreatment->setEnabled(true);

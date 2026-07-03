@@ -55,7 +55,7 @@ signals:
 
 public slots:
 
-    // 刷新表格中的功放温度和电压参数
+    // Refresh表格中的功放温度和电压参数
 //    void refreshAmpParaInTable(DataFlag,QByteArray& );
 
     void updateStatus(bool bappend,bool blocation,bool bwarter,bool bnetwork,bool bimagegraber);
@@ -127,7 +127,7 @@ private:
 
 //    TemperTable* m_table;
 
-    // 用于保存功放板温度和电压
+    // 用于Savepower amp温度和电压
 //    QStandardItemModel* m_pAmpModel;
 
     NewMainWindow* m_pMainWin;

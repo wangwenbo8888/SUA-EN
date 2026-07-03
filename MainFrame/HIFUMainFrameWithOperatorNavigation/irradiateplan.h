@@ -15,7 +15,7 @@ class QStandardItem;
 
 Q_DECLARE_LOGGING_CATEGORY(IRRADIATEPLAN)
 
-// 辐照计划
+// Sonication Plan
 class IrradiatePlan : public QObject
 {
     Q_OBJECT
@@ -37,7 +37,7 @@ public:
 
     ~IrradiatePlan();
 
-    // 更新治疗计划，将未辐照的点全部删除，添加进新的辐照点
+    // 更新TreatmentPlan，将未sonication的点全部Delete，Add进新的sonication point
 //    void refreshPlan(int angle,
 //                     const QQueue<double>& x,
 //                     const QQueue<double>& y,
@@ -45,7 +45,7 @@ public:
 //                     const QQueue<QString>& idBorn,
 //                     QMap<QString,bool>& flag);
 
-    // 更新辐照参数
+    // 更新sonication参数
     void refreshIrradiatePara(const double valtage,
                               const int onTime,
                               const int offTime,
@@ -78,7 +78,7 @@ public slots:
     void refreshDisplayPlan(const QVector<QString>& ids);
 
 private:
-    // 根据旧ID创建一个新的辐照点ID
+    // 根据旧ID创建一个新的sonication pointID
     QString createNewId(QString id);
     int getAngle(double x,double y);
     Layer getLayer(double z);
@@ -87,8 +87,8 @@ private:
 
     void sortSpots(Irradiate_model model);
 
-    Layer _layer;    // 记录当前计划辐照的层
-    // int   _angle;    // 记录当前计划辐照的角度
+    Layer _layer;    // 记录Current Plansonication的层
+    // int   _angle;    // 记录Current Plansonication的Angle
 
     QQueue<Irradiate_Spot> _plan;
     QQueue<Irradiate_Spot> _displayPlan;

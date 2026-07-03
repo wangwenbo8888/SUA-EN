@@ -195,7 +195,7 @@ void FileSaveDialog::on_pushButton_Accepted_clicked()
 //        ushort uni = cha.unicode();
 //        if(uni >= 0x4E00 && uni <= 0x9FA5)
 //        {
-//            QMessageBox::warning(0,"文件路径错误",QString("选择的路径中不能包含中文 %1").arg(cha));
+//            QMessageBox::warning(0,"File Path错误",QString("Select的路径中不能包含中文 %1").arg(cha));
 //            return;
 //        }
 //    }

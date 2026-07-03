@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#LoginDialog
-{background-image: url(:/umimg/UMImage/登录背景色.png);
+{background-image: url(:/umimg/UMImage/Log In背景色.png);
 }
 #LoginDialog *{border-image: url();}</string>
   </property>
@@ -29,7 +29,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">#frame{background-image: url(:/umimg/UMImage/登录框.png);}
+    <string notr="true">#frame{background-image: url(:/umimg/UMImage/Log In框.png);}
 #frame *{border-image: url();}</string>
    </property>
    <property name="frameShape">
@@ -258,7 +258,7 @@
      <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/umimg/UMImage/登录button.png);
+     <string notr="true">background-image: url(:/umimg/UMImage/Log Inbutton.png);
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">

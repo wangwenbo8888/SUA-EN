@@ -178,7 +178,7 @@ ColumnLayout {
     function showMainWindow()
     {
         w.show()
-        // 发送当前患者基本信息
+        // 发送当前Patients基本信息
         w.sendPatientInfo(idText,firstNameText,ageText,mobileText,sizeXText,sizeYText,sizeZText)
         start()
     }

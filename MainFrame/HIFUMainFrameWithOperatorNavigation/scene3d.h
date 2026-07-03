@@ -38,7 +38,7 @@ private:
 
     void createSpotsModel();
 
-    void createPlane();    // 创建辐照平面
+    void createPlane();    // 创建sonication平面
     void initPlane();
     void setHumanModel();
     void setMyomaModel();

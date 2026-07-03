@@ -24,8 +24,8 @@ class PrintDialogClinic;
 
 //    Checks()
 //    {
-//        check1 = "无";
-//        check2 = "无";
+//        check1 = "None";
+//        check2 = "None";
 
 //    }
 
@@ -108,8 +108,8 @@ private:
 //    QString deep;
 //    QString palsenum;
 //    QString totalspot;
-    QString check1 = "无";
-    QString check2 = "无";
+    QString check1 = "None";
+    QString check2 = "None";
     QString getHtmlStr(QString check1,QString check2);
     QPrinter *printer;
     QPrintPreviewWidget *preview;

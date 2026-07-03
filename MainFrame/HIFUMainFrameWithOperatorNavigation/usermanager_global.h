@@ -3,14 +3,14 @@
 
 #include <QString>
 
-//查询数据模式（患者，医师）
+//Query数据模式（Patients，医师）
 enum QueryDataType
 {
     TypePatient,
     TypeDoctor,
 };
 
-//患者数据行
+//Patients数据行
 struct PatientDataRow
 {
     int id;
@@ -146,7 +146,7 @@ public:
     }
 };
 
-//医师登录信息数据行
+//医师Login Information数据行
 struct DrLoginDataRow
 {
     QString name;

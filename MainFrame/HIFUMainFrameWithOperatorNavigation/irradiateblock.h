@@ -6,8 +6,8 @@
 struct Irradiate_Block
 {
     QString id;
-    double leftRight;    // 治疗头左右偏转角度
-    double frontBack;    // 治疗头前后偏转角度
+    double leftRight;    // Probe左右偏转Angle
+    double frontBack;    // Probe前后偏转Angle
 
     QString para2String(int i)
     {

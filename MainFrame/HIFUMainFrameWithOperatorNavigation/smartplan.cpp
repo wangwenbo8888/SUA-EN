@@ -12,7 +12,7 @@ SmartPlan::~SmartPlan()
 {
 }
 
-// 角度对应层数,默认初始角都是-90度
+// Angle对应层数,Default初始角都是-90度
 void SmartPlan::initAngleArrayNew(int angle,const SPOT_DISTRIBUTE& dist)
 {
     m_eDensity = dist.eDensity;
@@ -81,8 +81,8 @@ void SmartPlan::initAngleArrayNew(int angle,const SPOT_DISTRIBUTE& dist)
         iter.value().setCenter(true);
     }
 }
-// 相对于初始点位置辐照点分布为
-// 相对角度      0     20  30 40 60    80 90 100 120 140 150 160
+// 相对于初始点位置Sonication Point Distribution为
+// 相对Angle      0     20  30 40 60    80 90 100 120 140 150 160
 // 点个数        7     2   2  2  6     2  2  2   6    2   2  2
 // 半径       0,1,2,3  3   2  3 1,2,3  3  2  3  1,2,3 3   2  3
 void SmartPlan::initAngleArray(int angle,const SPOT_DISTRIBUTE& dist)

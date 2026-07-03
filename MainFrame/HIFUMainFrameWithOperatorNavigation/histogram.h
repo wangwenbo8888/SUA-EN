@@ -15,7 +15,7 @@ public:
 protected:
     void paintEvent(QPaintEvent *);
 
-    // 判断是否在辐照
+    // 判断是否在sonication
     bool isIrradiating();
 
     RealtimeScene* m_real;

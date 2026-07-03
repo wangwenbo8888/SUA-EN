@@ -90,7 +90,7 @@ void outputTreatmentLog(const QString& str0,const QString& str1,const QString& s
                         const QString& str6,const QString& str7,const QString& str8,
                         const QString& str9)
 {
-    // 跟治疗相关的log输出
+    // 跟Treatment相关的log输出
    qDebug()<<"%%%%%% "<<str0 << " "<< str1 <<" "<<str2 <<" "
            <<str3 << " " << str4 << " "<<str5<<" "<<str6<<" "<<str7<<" "<<str8<<" "<<str9;
 }

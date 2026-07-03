@@ -294,7 +294,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       </rect>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/底部icon/网络通信-不正常.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/底部icon/Network-不正常.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -365,7 +365,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/底部icon/超声驱动-不正常.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/底部icon/Ultrasound Driver-不正常.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -507,7 +507,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/底部icon/水循环-不正常.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/底部icon/Circulation-不正常.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -621,7 +621,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       </rect>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/底部icon/网络通信-不正常.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/底部icon/Network-不正常.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -4952,7 +4952,7 @@ background-image: url(:/plan/img/操作栏/button01.png);</string>
        </property>
        <property name="icon">
         <iconset resource="resource.qrc">
-         <normaloff>:/icons/img/底部icon/水循环.png</normaloff>:/icons/img/底部icon/水循环.png</iconset>
+         <normaloff>:/icons/img/底部icon/Circulation.png</normaloff>:/icons/img/底部icon/Circulation.png</iconset>
        </property>
        <property name="iconSize">
         <size>

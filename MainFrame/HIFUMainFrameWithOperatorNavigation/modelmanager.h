@@ -27,7 +27,7 @@ public:
     explicit ModelManager(Mesh* pMyoma);
     ~ModelManager();
 
-    void setModelColor(int index);    // 设置辐照点颜色
+    void setModelColor(int index);    // 设置sonication point颜色
 
     GLuint* getTrisIndex();          // 三角形顶点索引数组首地址
     GLfloat* getColorIndexs();       // 三角形顶点颜色数值首地址
@@ -45,7 +45,7 @@ private :
     void loadWomanModel(Mesh* pHuman);
     void addModel(Mesh* pModel,GLfloat* matrix);
 
-    Mesh* _pMyoma;                   // 肌瘤模型
+    Mesh* _pMyoma;                   // fibroid模型
     GLuint* _trisIndex;
     GLfloat* _colorIndexs;
     GLfloat* _versPos;

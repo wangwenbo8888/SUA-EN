@@ -30,7 +30,7 @@ bool BlockPlan::getNextBlock(const QMap<QString,bool>& complete,
     for (QQueue<Irradiate_Block>::iterator iter = m_blocks.begin();
          iter != m_blocks.end();++iter)
     {
-        // 按顺序找到了未辐照的点
+        // 按顺序找到了未sonication的点
         if (complete.find(iter->id)==complete.end())
         {
             block = *iter;
@@ -41,10 +41,10 @@ bool BlockPlan::getNextBlock(const QMap<QString,bool>& complete,
     return false;
 }
 
-// 根据肌瘤直径和深度生成治疗盘偏转角度
+// 根据fibroid直径和深度GenerateTreatment盘偏转Angle
 void BlockPlan::generateBlocks(int size,int distance)
 {
-    // 前负后正，左负右正
+    // Negative forward, positive back，Negative left, positive right
     Irradiate_Block block;
     double radius;
     switch (size)

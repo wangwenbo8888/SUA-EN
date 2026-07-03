@@ -34,7 +34,7 @@ IrradiateCore::IrradiateCore(IrradiatePlan* plan,Append* append,
     _isPause = false;
     _isIrradiating = false;
     _AimUSAngle = -100;
-    // 实际超声角度
+    // 实际超声Angle
     _CurrentUSAngle = -100;
 
     initCooling();
@@ -51,7 +51,7 @@ IrradiateCore::~IrradiateCore()
         _pMessage = NULL;
     }
 
-    // 冷却时间定时器，单辐照点发送计划，驱动模块忽略最后一个点冷却时间
+    // Cooling定时器，单sonication point发送Plan，驱动模块忽略最后一个点Cooling
     if (_coolingTimer!=NULL)
     {
         delete _coolingTimer;
@@ -60,7 +60,7 @@ IrradiateCore::~IrradiateCore()
 
     if (_progressTimer!=NULL)
     {
-        delete _progressTimer;   // 冷却进度条刷新定时器
+        delete _progressTimer;   // Cooling进度条Refresh定时器
         _progressTimer = NULL;
     }
 }
@@ -95,11 +95,11 @@ void IrradiateCore::initPC()
     }
 }
 
-// 冷却定时器超时
+// Cooling定时器超时
 void IrradiateCore::on_cooling_timeout()
 {
 
-    // 停止定时器
+    // Stop定时器
     if (_coolingTime > 0)
     {
         _coolingTimer->stop();
@@ -109,15 +109,15 @@ void IrradiateCore::on_cooling_timeout()
     // 同步进度条
     emit setProgressRate(100);
 
-    // 设置剩余冷却时间为0
+    // 设置剩余Cooling为0
     emit setRemainCoolingTime(0);
 
-    // 设置辐照参数表格颜色
+    // 设置sonication参数表格颜色
     emit setTableRowColor(_spotId,COMPLETE_COLOR);
-    // 设置图像辐照点颜色
+    // 设置图像sonication point颜色
     emit setSpotColor(_spotBornId,COMPLETE_COLOR);
 
-    // 确认开始下一个辐照点
+    // Confirm开始下一个sonication point
     emit moveToNextSpot();
 }
 
@@ -130,7 +130,7 @@ void IrradiateCore::on_progress_timeout()
     emit setRemainCoolingTime(_coolingTime-_coolingTimeCount);
 }
 
-// 初始化冷却相关
+// 初始化Cooling相关
 void IrradiateCore::initCooling()
 {
     if (!_irradiatePlan->getCoolingTime(_coolingTime))
@@ -163,7 +163,7 @@ void IrradiateCore::initCooling()
 //    }
 }
 
-// 设置超声探头当前位置
+// 设置Ultrasound Probe当前位置
 void IrradiateCore::setCurrentUSAngle(int angle)
 {
     _CurrentUSAngle = angle;
@@ -223,7 +223,7 @@ bool IrradiateCore::sendSpotParameter()
         focusCount << spot.focusCount;
         pulseCount << spot.pulseCount;
 
-        // 记录治疗过程中参数
+        // 记录Treatment过程中参数
         outputTreatmentLog(QString::number(spot.position.x),
                            QString::number(spot.position.y),
                            QString::number(spot.position.z),
@@ -237,7 +237,7 @@ bool IrradiateCore::sendSpotParameter()
         coolingTime = spot.coolingTime;
         if (_coolingTimer!=NULL)
         {
-            // 重新设置当前点冷却时间
+            // 重新设置当前点Cooling
             _coolingTime = coolingTime;
             _coolingTimer->setInterval(coolingTime*MILLISECOND_UNIT);
         }
@@ -257,11 +257,11 @@ bool IrradiateCore::sendSpotParameter()
         _schedule->onServiceCalled(SONICATION, SONICATION_GET_READY);
 
         emit synImageAngle(spot.usAngle);
-        // 记录辐照点超声角度
+        // 记录sonication point超声Angle
         _AimUSAngle = spot.usAngle;
 
         _status = STATUS_SENDED_PARAMETER;
-        // 发送辐照参数后设置进度条进度为0
+        // 发送sonication参数后设置进度条进度为0
         emit setProgressRate(0);
 
 
@@ -270,7 +270,7 @@ bool IrradiateCore::sendSpotParameter()
     else
     {
         QMessageBox message("No Sonication Points Available",
-                            "请确认当前计划是否辐照完成",
+                            "Confirm whether the current plan has finished sonication.",
                             QMessageBox::Warning,
                             QMessageBox::Yes | QMessageBox::Default,
                             QMessageBox::No | QMessageBox::Escape,
@@ -283,19 +283,19 @@ bool IrradiateCore::sendSpotParameter()
     }
 }
 
-// 更新当前辐照过程状态
+// 更新当前sonication过程Status
 void IrradiateCore::statusChanged(DataFlag flag)
 {
     switch(flag)
     {
-    // 下发治疗参数成功，工控机已经准备好
+    // 下发Treatment Parameters成功，PC已经准备好
     case PLAN_READY:
         qDebug()<<"plan ready !";
         _status = STATUS_READY;
         readyFire();
         break;
 
-    // 治疗已经开始
+    // Treatment已经开始
     case  SONICATION_STARTED:
         qCDebug(IRRADIATECORE()) << IRRADIATECORE().categoryName()
                                  << "sonication started "
@@ -306,7 +306,7 @@ void IrradiateCore::statusChanged(DataFlag flag)
 
         break;
 
-    // 治疗计划被终止
+    // TreatmentPlan被终止
     case SONICATION_STOPPED:
         qCDebug(IRRADIATECORE()) << IRRADIATECORE().categoryName()
                                  << "sonication stoped "
@@ -319,7 +319,7 @@ void IrradiateCore::statusChanged(DataFlag flag)
         }
         else
         {
-            // 设置治疗控件可用
+            // 设置Treatment控件可用
             emit setTreatmentControlEnable();
         }
 
@@ -333,21 +333,21 @@ void IrradiateCore::statusChanged(DataFlag flag)
         _status = STATUS_SPOT_COMPLETED;
         break;
 
-    // 一个点治疗计划完成
+    // 一个点TreatmentPlanComplete
     case PLAN_COMPLETED:
         _status = STATUS_PLAN_COMPLETED;
 
         qCDebug(IRRADIATECORE()) << IRRADIATECORE().categoryName()
                                  << "plan completed !"
                                  << TRACE_CMH();
-        // 任然继续辐照
+        // 任然继续sonication
         if (_isIrradiating)
         {
            onPlanComplete();
         }
         else
         {
-            // 设置治疗控件可用
+            // 设置Treatment控件可用
             emit setTreatmentControlEnable();
         }
         break;
@@ -357,7 +357,7 @@ void IrradiateCore::statusChanged(DataFlag flag)
     }
 }
 
-// 接收到辐照计划完成的消息
+// 接收到Sonication PlanComplete的消息
 void IrradiateCore::onPlanComplete()
 {
     if (_coolingTime<1)
@@ -395,11 +395,11 @@ void IrradiateCore::readyFire()
         }
         else
         {
-            // 脚踏开关未闭合
+            // Foot Switch未闭合
             if (_pMessage==NULL)
             {
                 _pMessage = new QMessageBox("Foot Switch Status",
-                                            "是否忘记踩下脚踏开关?",
+                                            "Did you forget to press the foot switch?",
                                             QMessageBox::Question,
                                             QMessageBox::Yes | QMessageBox::Default,
                                             QMessageBox::No | QMessageBox::Escape,
@@ -438,11 +438,11 @@ void IrradiateCore::yesButtonDown()
         qDebug()<<"闭合了-append->isSwitchOn()";
         if (_schedule!=NULL)
         {
-            // 超声探头是否转到位
+            // Ultrasound Probe是否转到位
             if (isUSReady()&&(_status==STATUS_READY))
             {
                 _schedule->onServiceCalled(SONICATION, SONICATION_START);
-                // 设置当前辐照点颜色
+                // 设置当前sonication point颜色
                 emit setSpotColor(_spotBornId,IRADIATING_COLOR);
                 emit setTableRowColor(_spotId,IRADIATING_COLOR);
 
@@ -462,11 +462,11 @@ void IrradiateCore::yesButtonDown()
     }
     else
     {
-        // 脚踏开关未闭合
+        // Foot Switch未闭合
         if (_pMessage==NULL)
         {
             _pMessage = new QMessageBox("Foot Switch Status",
-                                        "是否忘记踩下脚踏开关?",
+                                        "Did you forget to press the foot switch?",
                                         QMessageBox::Question,
                                         QMessageBox::Yes | QMessageBox::Default,
                                         QMessageBox::No | QMessageBox::Escape,
@@ -490,7 +490,7 @@ void IrradiateCore::yesButtonDown()
 
 void IrradiateCore::noButtonDown()
 {
-    // 治疗停止
+    // TreatmentStop
     if (_schedule!=NULL)
     {
         _schedule->onServiceCalled(SONICATION,SONICATION_STOP);
@@ -504,7 +504,7 @@ void IrradiateCore::noButtonDown()
         }
     }
 
-    // 设置治疗相关按钮可用
+    // 设置Treatment相关按钮可用
     // emit setTreatmentControlEnable();
     if (_append!=NULL)
     {
@@ -548,11 +548,11 @@ void IrradiateCore::setIrradiating(bool b)
 void IrradiateCore::setIsPause(bool b)
 {
     _isPause = b;
-    // 设置辐照参数表格颜色为已辐照完成
+    // 设置sonication参数表格颜色为已sonicationComplete
     emit setTableRowColor(_spotId,COMPLETE_COLOR);
-    // 设置图像辐照点颜色为已完成
+    // 设置图像sonication point颜色为已Complete
     emit setSpotColor(_spotBornId,COMPLETE_COLOR);
-    // 辐照停止则停止冷却和进度定时器
+    // sonicationStop则StopCooling和进度定时器
     if (_coolingTimer!=NULL && _coolingTimer->isActive())
     {
         _coolingTimer->stop();
@@ -564,14 +564,14 @@ void IrradiateCore::setIsPause(bool b)
     }
 }
 
-// 响应脚踏开关状态变化槽函数
+// 响应Foot Switch Status变化槽函数
 void IrradiateCore::switchChanged(bool flag)
 {
     if (!flag)
     {
-        // 脚踏开关断开
+        // Foot Switch断开
 
-            // 开始辐照则辐照停止
+            // 开始sonication则sonicationStop
         if (_schedule!=NULL)
         {
             qDebug()<<"status is "<<_status;
@@ -599,14 +599,14 @@ void IrradiateCore::switchChanged(bool flag)
     else
     {
         qDebug()<<"闭合了";
-        // 脚踏开关闭合
+        // Foot Switch闭合
         emit setLighting(SWITCH,true);
         if (_schedule!=NULL)
         {
             if (_status==STATUS_READY)
             {
                 qDebug()<<"闭合了-status==STATUS_READY";
-                // 发送完治疗参数,工控机准备完成
+                // 发送完Treatment Parameters,PC准备Complete
                 yesButtonDown();
 
                 if (_pMessage!=NULL)

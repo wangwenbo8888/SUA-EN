@@ -283,65 +283,65 @@ void QVTKWrap::InitqvtkWIdgetContextMenu()
 
     if (_ShowIrraPointElement==NULL)
     {
-        _ShowIrraPointElement = _qvtkWIdgetContextMenu->addAction("隐藏辐照点");
+        _ShowIrraPointElement = _qvtkWIdgetContextMenu->addAction("Hide Sonication Points");
         connect(_ShowIrraPointElement,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowIrraPoint()));
     }
-    QMenu* levelMenu = _qvtkWIdgetContextMenu->addMenu(tr("辐照层选择"));
+    QMenu* levelMenu = _qvtkWIdgetContextMenu->addMenu(tr("Sonication Plane Selection"));
 
     if (_ShowIrraPointAllLevel==NULL)
     {
-        _ShowIrraPointAllLevel = levelMenu->addAction("显示所有层");
+        _ShowIrraPointAllLevel = levelMenu->addAction("Show All Planes");
         connect(_ShowIrraPointAllLevel,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowIrraPointAllLevel()));
     }
 
     if (_ShowIrraPointTopLevel==NULL)
     {
-        _ShowIrraPointTopLevel = levelMenu->addAction("显示上层");
+        _ShowIrraPointTopLevel = levelMenu->addAction("Show Upper Plane");
         connect(_ShowIrraPointTopLevel,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowIrraPointTopLevel()));
     }
     if (_ShowIrraPointMidlleLevel==NULL)
     {
-        _ShowIrraPointMidlleLevel = levelMenu->addAction("显示中层");
+        _ShowIrraPointMidlleLevel = levelMenu->addAction("Show Middle Plane");
         connect(_ShowIrraPointMidlleLevel,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowIrraPointMidlleLevel()));
     }
 
     if (_ShowIrraPointDownLevel==NULL)
     {
-        _ShowIrraPointDownLevel = levelMenu->addAction("显示下层");
+        _ShowIrraPointDownLevel = levelMenu->addAction("Show Lower Plane");
         connect(_ShowIrraPointDownLevel,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowIrraPointDownLevel()));
     }
     _qvtkWIdgetContextMenu->addSeparator();
     if (_ShowTuborElement==NULL)
     {
-        _ShowTuborElement = _qvtkWIdgetContextMenu->addAction("隐藏肌瘤模型");
+        _ShowTuborElement = _qvtkWIdgetContextMenu->addAction("Hide Fibroid Model");
         connect(_ShowTuborElement,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowTumor()));
     }
-    QMenu* OpacityMenu = _qvtkWIdgetContextMenu->addMenu(tr("肌瘤透明度 "));
+    QMenu* OpacityMenu = _qvtkWIdgetContextMenu->addMenu(tr("Fibroid Opacity "));
     if (_ShowTumorNoOpacity==NULL)
     {
-        _ShowTumorNoOpacity = OpacityMenu->addAction("不透明");
+        _ShowTumorNoOpacity = OpacityMenu->addAction("Opaque");
         connect(_ShowTumorNoOpacity,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowTumorNoOpacity()));
     }
     if (_ShowTumorLowOpacity==NULL)
     {
-        _ShowTumorLowOpacity = OpacityMenu->addAction("低透明度");
+        _ShowTumorLowOpacity = OpacityMenu->addAction("Low Opacity");
         connect(_ShowTumorLowOpacity,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowTumorLowOpacity()));
     }
 
     if (_ShowTumorMidlleOpacity==NULL)
     {
-        _ShowTumorMidlleOpacity = OpacityMenu->addAction("中透明度 ");
+        _ShowTumorMidlleOpacity = OpacityMenu->addAction("Medium Opacity ");
         connect(_ShowTumorMidlleOpacity,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowTumorMidlleOpacity()));
     }
     if (_ShowTumorHighOpacity==NULL)
     {
-        _ShowTumorHighOpacity = OpacityMenu->addAction("高透明度");
+        _ShowTumorHighOpacity = OpacityMenu->addAction("High Opacity");
         connect(_ShowTumorHighOpacity,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_ShowTumorHighOpacity()));
     }
     _qvtkWIdgetContextMenu->addSeparator();
     if (_LockHumanModel==NULL)
     {
-        _LockHumanModel = _qvtkWIdgetContextMenu->addAction("锁定人体模型");
+        _LockHumanModel = _qvtkWIdgetContextMenu->addAction("Lock Body Model");
         connect(_LockHumanModel,SIGNAL(triggered(bool)),this,SLOT(Scene3d_ContextAction_LockHumanModel()));
     }
 }
@@ -356,12 +356,12 @@ void QVTKWrap::Scene3d_ContextAction_ShowTumor()
     if(iVisible)
     {
         _Scene3d_TumorActor->SetVisibility(0);
-        _ShowTuborElement->setText("显示肌瘤模型");
+        _ShowTuborElement->setText("Show Fibroid Model");
     }
     else
     {
         _Scene3d_TumorActor->SetVisibility(1);
-        _ShowTuborElement->setText("隐藏肌瘤模型");
+        _ShowTuborElement->setText("Hide Fibroid Model");
     }
     _qvtkWidget_Scene3d->GetRenderWindow()->Render();
 }
@@ -377,7 +377,7 @@ void QVTKWrap::Scene3d_ContextAction_ShowIrraPoint()
             i.value()->SetVisibility(0);
             ++i;
         }
-        _ShowIrraPointElement->setText("显示辐照区域");
+        _ShowIrraPointElement->setText("Show Sonication Area");
     }
     else
     {
@@ -385,7 +385,7 @@ void QVTKWrap::Scene3d_ContextAction_ShowIrraPoint()
             i.value()->SetVisibility(1);
             ++i;
         }
-        _ShowIrraPointElement->setText("隐藏辐照区域");
+        _ShowIrraPointElement->setText("Hide Sonication Area");
     }
     _qvtkWidget_Scene3d->GetRenderWindow()->Render();
 }
@@ -474,12 +474,12 @@ void QVTKWrap::Scene3d_ContextAction_LockHumanModel()
     if(_Scene3d_OrientationWidget->GetInteractive())
     {
         _Scene3d_OrientationWidget->InteractiveOff();
-        _LockHumanModel->setText("解锁人体模型");
+        _LockHumanModel->setText("Unlock Body Model");
     }
     else
     {
         _Scene3d_OrientationWidget->InteractiveOn();
-        _LockHumanModel->setText("锁定人体模型");
+        _LockHumanModel->setText("Lock Body Model");
     }
     _qvtkWidget_Scene3d->GetRenderWindow()->Render();
 }

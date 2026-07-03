@@ -103,7 +103,7 @@ void QcwThermometer::paintEvent(QPaintEvent *)
 	painter.drawEllipse(-45, 225, 30, -30);
 	painter.restore();
 	
-	/* 绘制液体柱(指示) */
+	/* 绘制液体柱(Indicator) */
 	painter.save();
 	painter.setBrush(m_liquidColor);
 	double val =  400.0 /(m_maxValue - m_minValue)*(m_value - m_minValue);

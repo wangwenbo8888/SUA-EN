@@ -153,10 +153,10 @@ signals:
     void messageReceived(const QString &message);
     void ConnectFailed(DataFlag);
 
-    // 开始排空水箱操作
+    // 开始Drain Water Tank操作
     void DrainTankStart();
 
-    // 向窗口对象发送水箱排水完成消息
+    // 向窗口对象发送Water tank drain complete消息
     void DrainTankFinishedToWindow();
 
 private slots:
@@ -249,10 +249,10 @@ public slots:
     void Send_Message(QString);
     void TreatState(bool);
 
-    // 收到主窗口排空水箱的消息
+    // 收到主窗口Drain Water Tank的消息
     void on_Drain_Tank_from_Window();
 
-    // 收到Q_Water水箱排水完成消息
+    // 收到Q_WaterWater tank drain complete消息
     void DrainTankFinished();
 
 };

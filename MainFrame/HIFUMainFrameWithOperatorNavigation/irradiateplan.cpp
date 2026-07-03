@@ -54,7 +54,7 @@ IrradiatePlan::IrradiatePlan(int focusCount,
 {
     _plan.clear();
     _layer = Layer_end;   // 初始化层
-    // _angle = -100;        // 初始化角度
+    // _angle = -100;        // 初始化Angle
 
     size_t size = x.size();
     for (size_t i = 0; i<size; ++i)
@@ -87,7 +87,7 @@ IrradiatePlan::~IrradiatePlan()
 {
 }
 
-// 更新治疗计划，将未辐照的点全部删除，添加进新的辐照点
+// 更新TreatmentPlan，将未sonication的点全部Delete，Add进新的sonication point
 //void IrradiatePlan::refreshPlan(int angle,
 //                                const QQueue<double>& x,
 //                                const QQueue<double>& y,
@@ -95,16 +95,16 @@ IrradiatePlan::~IrradiatePlan()
 //                                const QQueue<QString>& idBorn,
 //                                QMap<QString,bool>& flag)
 //{
-//    // 删除当前显示的计划
+//    // Delete当前显示的Plan
 //    _displayPlan.clear();
 
-//    // 删除整体计划中已经辐照完的计划
+//    // DeleteOverall Plan中已经sonication完的Plan
 //    Irradiate_Spot spot = *_plan.begin();
 //    int index = _plan.size();
 //    QQueue<Irradiate_Spot>::iterator iter = _plan.begin();
 //    if (flag.empty())
 //    {
-//        // 无辐照完成点，全部删除
+//        // NonesonicationComplete点，全部Delete
 //        _plan.clear();
 //    }
 //    else
@@ -113,7 +113,7 @@ IrradiatePlan::~IrradiatePlan()
 //        {
 //            if (flag.find(iter->id)==flag.end())
 //            {
-//                // 删除未完成的辐照点
+//                // Delete未Complete的sonication point
 //                _plan.erase(iter);
 //                iter = _plan.begin();
 //            }
@@ -136,7 +136,7 @@ IrradiatePlan::~IrradiatePlan()
 //    // qDebug()<<"add spot success !";
 //}
 
-// 更新辐照参数
+// 更新sonication参数
 void IrradiatePlan::refreshIrradiatePara(const double voltage,
                                          const int onTime,
                                          const int offTime,
@@ -152,7 +152,7 @@ void IrradiatePlan::refreshIrradiatePara(const double voltage,
     {
         if (current.find(iter->id)==current.end())
         {
-            // 只更新辐照能量参数
+            // 只更新sonicationEnergy参数
             iter->voltage = voltage;
             iter->pulseCount = pulseCount;
             iter->onTime = onTime;
@@ -166,7 +166,7 @@ void IrradiatePlan::refreshIrradiatePara(const double voltage,
     {
         if (total.find(iter->id)==total.end())
         {
-            // 只更新辐照能量参数
+            // 只更新sonicationEnergy参数
             iter->voltage = voltage;
             iter->pulseCount = pulseCount;
             iter->onTime = onTime;
@@ -236,13 +236,13 @@ void IrradiatePlan::copySpots(QVector<QString>& idVec)
         }
     }
 
-    // 显示计划添加新的辐照点
+    // 显示PlanAdd新的sonication point
     for (iterQueue = temp.begin(); iterQueue != temp.end(); ++iterQueue)
     {
         iterDisplayInsert = _displayPlan.insert(++iterDisplayInsert,*iterQueue);
     }
 
-    // 整个计划添加新的辐照点
+    // 整个PlanAdd新的sonication point
     if (iterTotalInsert!=_plan.end())
     {
         for (iterQueue = temp.begin(); iterQueue != temp.end(); ++iterQueue)
@@ -255,7 +255,7 @@ void IrradiatePlan::copySpots(QVector<QString>& idVec)
 
 void IrradiatePlan::deleteSpots(QVector<QString>& idVec)
 {
-    // 删除current plan中选中的辐照点
+    // Deletecurrent plan中选中的sonication point
     QVector<QString>::iterator iterSet = idVec.begin();
     QQueue<Irradiate_Spot>::iterator iterQueue = _displayPlan.begin();
     for (iterSet = idVec.begin(); iterSet != idVec.end(); ++iterSet)
@@ -270,7 +270,7 @@ void IrradiatePlan::deleteSpots(QVector<QString>& idVec)
         }
     }
 
-    // 删除整个计划中选中的辐照点
+    // Delete整个Plan中选中的sonication point
     for (iterSet = idVec.begin(); iterSet != idVec.end(); ++iterSet)
     {
         for (iterQueue = _plan.begin();iterQueue != _plan.end(); ++iterQueue)
@@ -290,7 +290,7 @@ void IrradiatePlan::itemChanged(QStandardItem* item)
     int column = item->column();
     QQueue<Irradiate_Spot>::iterator iter = _displayPlan.begin()+row;
     int value = item->text().toInt();
-    if (column==3)  //功率
+    if (column==3)  //Power
     {
         iter->voltage = powerToVoltage(value);
     }
@@ -318,7 +318,7 @@ int IrradiatePlan::getAngle(double x,double y)
     }
     else
     {
-        // 四舍五入角度
+        // 四舍五入Angle
         float angle = atan(y/x)*180/PI;
         if (angle < 0.0)
         {
@@ -361,19 +361,19 @@ Layer IrradiatePlan::getLayer(double z)
 {
     if (z>0.145&&z<0.155)
     {
-        // 下层治疗平面
+        // LowerTreatment平面
         return Layer_down;
 
     }
     else if (z<0.145&&z>0.135)
     {
-        // 中层治疗平面
+        // MiddleTreatment平面
         return Layer_middle;
 
     }
     else if(z<0.135&&z>0.125)
     {
-        // 上层治疗平面
+        // UpperTreatment平面
         return Layer_up;
     }
 }
@@ -466,7 +466,7 @@ void IrradiatePlan::updatePlan(const Irradiate_Spot& spot)
     {
         if (iter->id==spot.id)
         {
-            // 只更新辐照能量参数
+            // 只更新sonicationEnergy参数
             iter->voltage = spot.voltage;
             iter->pulseCount = spot.pulseCount;
 //            iter->focusCount = spot.focusCount;
@@ -478,7 +478,7 @@ void IrradiatePlan::updatePlan(const Irradiate_Spot& spot)
     {
         if (iter->id==spot.id)
         {
-            // 只更新辐照能量参数
+            // 只更新sonicationEnergy参数
             iter->voltage = spot.voltage;
             iter->pulseCount = spot.pulseCount;
 //            iter->focusCount = spot.focusCount;
@@ -501,7 +501,7 @@ bool IrradiatePlan::getIrradiateSpot(QMap<QString,bool>& flagMap,Irradiate_Spot&
          iter != _displayPlan.end();++iter)
     {
         qDebug()<<"SSSSSSSSSSSSSSS";
-        // 按顺序找到了未辐照的点
+        // 按顺序找到了未sonication的点
         if (flagMap.find(iter->id)==flagMap.end())
         {
             spot = *iter;

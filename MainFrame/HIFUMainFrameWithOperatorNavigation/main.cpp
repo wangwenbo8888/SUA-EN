@@ -102,8 +102,8 @@ int main(int argc, char *argv[])
 //    if (num >1 )//大于0，用于检测其他进程是否已经开启
 //        //大于1，用于检测自身进程是否已经打开
 //    {
-//       qDebug()<<"程序运行中,如有需要请关闭后台线程";
-//       QMessageBox::information(NULL, "Warning", "程序运行中,如有需要请关闭后台线程",
+//       qDebug()<<"程序RunningMiddle,如有需要请关闭后台线程";
+//       QMessageBox::information(NULL, "Warning", "程序RunningMiddle,如有需要请关闭后台线程",
 //                                QMessageBox::Yes | QMessageBox::Yes);
 //       int pid = getpid();
 //       QProcess p;

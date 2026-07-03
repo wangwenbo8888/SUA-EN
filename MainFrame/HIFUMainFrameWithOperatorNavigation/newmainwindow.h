@@ -84,15 +84,15 @@ class dupumpcontrol;
 //class HifuImageAlgo;
 class Wireless;
 
-// 记录辐照时间相关信息
+// 记录sonicationTime相关信息
 struct progress_stru
 {
-    int pauseOn;       // 脉冲持续时间，单位为毫秒
-    int pauseOff;      // 脉冲停止时间，单位为毫秒
-    int coolingTime;   // 冷却时间，单位为秒
+    int pauseOn;       // 脉冲Duration，单位为毫秒
+    int pauseOff;      // 脉冲StopTime，单位为毫秒
+    int coolingTime;   // Cooling，单位为秒
     int potsCount;     // 点数
-    int pauseCount;    // 脉冲数
-    int currentIndex;  // 当前运行到多少秒
+    int pauseCount;    // Pulses
+    int currentIndex;  // 当前Running到多少秒
     int totalTime;     // 单位秒
 };
 
@@ -106,11 +106,11 @@ struct ProcessInfo{
     QString processName;            //名称
 };
 
-// 辐照区域生成方式
+// sonication区域Generate方式
 enum AREA_GENERATE_TYPE
 {
-    TYPE_DRAW = 0,   // 手动勾画
-    TYPE_AUTO,       // 自动生成
+    TYPE_DRAW = 0,   // Manual Tracing
+    TYPE_AUTO,       // Auto Generate
 
     TYPE_UNKNOWN
 };
@@ -118,10 +118,10 @@ enum AREA_GENERATE_TYPE
 struct header_adjust_stru
 {
     bool isAdjust;
-    double destLR;      // 治疗盘目标位置左右
-    double destFB;      // 治疗盘目标位置前后
-    double currentLR;   // 治疗盘当前位置左右
-    double currentFB;   // 治疗盘当前位置前后
+    double destLR;      // Treatment盘目标位置左右
+    double destFB;      // Treatment盘目标位置前后
+    double currentLR;   // Treatment盘当前位置左右
+    double currentFB;   // Treatment盘当前位置前后
 
     header_adjust_stru()
     {
@@ -136,7 +136,7 @@ struct header_adjust_stru
 
 struct statusProperty
 {
-    bool _bDrawable;           // 记录测量之前scene状态
+    bool _bDrawable;           // 记录测量之前sceneStatus
     bool _bTargetDrawable;
     bool _bMeasureable;
     bool _beamVisiable;
@@ -203,8 +203,8 @@ private slots:
     void realTimeZoomOut();
     void realTimeZoomIn();
 
-    void realTimeShowPath();  // 显示实时图像上声束
-    void realTimeHidePath();  // 隐藏实时图像上声束
+    void realTimeShowPath();  // 显示Live Image上声束
+    void realTimeHidePath();  // 隐藏Live Image上声束
 
     void realTimeShowFocus();
     void realTimeHideFocus();
@@ -213,51 +213,51 @@ private slots:
     void realTimeHideRange();
 
     void realTimeResume();
-    void changeImage();    // 改变计划图像
+    void changeImage();    // 改变Planning Image
 
-    void copyRows();       // 复制辐照点参数
-    void deleteRows();     // 删除福找点参数
-    void stopRows();       // 在此行停止
+    void copyRows();       // 复制sonication point参数
+    void deleteRows();     // Delete福找点参数
+    void stopRows();       // 在此行Stop
     void continueRows();   // 继续此行
 
-    void targetShowElement();    // target窗口显示辐照单元
-    void targetHideElement();    // target窗口隐藏辐照单元
-    void targetResumeImages();   // target窗口图像恢复到原始图像大小
-    void targetZoomOut();        // target窗口图像放大
-    void targetZoomIn();         // target窗口图像缩小
-    void targetShowDeleted();    // target显示删除单元
-    void targetHideDeleted();    // target隐藏删除单元
+    void targetShowElement();    // target窗口Show Sonication Cells
+    void targetHideElement();    // target窗口Hide Sonication Cells
+    void targetResumeImages();   // target窗口图像Restore到原始图像大小
+    void targetZoomOut();        // target窗口Zoom In
+    void targetZoomIn();         // target窗口Zoom Out
+    void targetShowDeleted();    // targetShow Deleted Cells
+    void targetHideDeleted();    // targetHide Deleted Cells
 	
     void targetSelectInvert();   // target反选
-	void targetSmartSelect();    // target智能选择单元
-    void targetResumeDeleted();  // target恢复删除的单元
+	void targetSmartSelect();    // targetSmart Select Cells
+    void targetResumeDeleted();  // targetRestoreDelete的单元
 	
-    void targetShowContours();   // target显示肌瘤轮廓
-    void targetHideContours();   // target隐藏肌瘤轮廓
+    void targetShowContours();   // target显示fibroid轮廓
+    void targetHideContours();   // target隐藏fibroid轮廓
 
-    void targetShowDraw();       // target显示勾画轮廓
-    void targetHideDraw();       // target隐藏勾画轮廓
+    void targetShowDraw();       // targetShow Traced Contour
+    void targetHideDraw();       // targetHide Traced Contour
 
     void targetDrag();           //target手动拖拽轮廓
-    void targetDragConfirm();    //target确认拖拽轮廓
+    void targetDragConfirm();    //targetConfirm拖拽轮廓
 
-    void layerShowElement();     // layer窗口显示辐照单元
-    void layerHideElement();     // layer窗口隐藏辐照单元
-    void layerZoomOut();         // layer窗口放大图像
-    void layerZoomIn();          // layer窗口缩小图像
-    void layerShowDeleted();     // 显示删除的辐照单元
-    void layerHideDeleted();     // 隐藏删除的辐照单元
+    void layerShowElement();     // layer窗口Show Sonication Cells
+    void layerHideElement();     // layer窗口Hide Sonication Cells
+    void layerZoomOut();         // layer窗口Zoom in图像
+    void layerZoomIn();          // layer窗口Zoom out图像
+    void layerShowDeleted();     // 显示Delete的sonication cell
+    void layerHideDeleted();     // 隐藏Delete的sonication cell
 
     void layerSelectInvert();    // 反选
-    void layerResumeDeleted();   // 恢复删除单元
+    void layerResumeDeleted();   // Restore Deleted Cells
 
-    void layerResumeImages();    // layer窗口恢复原始图像大小
+    void layerResumeImages();    // layer窗口Reset to Original Image Size
 
-    void removeUnavailableMenu();    // 辐照开始后删除多余的右键菜单选项
+    void removeUnavailableMenu();    // sonication开始后Delete多余的右键菜单选项
 
-    void openPump();     // 开泵
-    void closePump();    // 关泵
-    void queryStatus();  // 查询状态
+    void openPump();     // Start Pump
+    void closePump();    // Stop Pump
+    void queryStatus();  // QueryStatus
 
     void getPump1();
     void getPump2();
@@ -269,9 +269,9 @@ private slots:
     void setMeter(short premeter);
     void queryMeter();
 
-    void LogHeartBeat();   //治疗log心跳
+    void LogHeartBeat();   //Treatmentlog心跳
 
-    // 保存治疗效果图像
+    // SaveTreatment效果图像
     void saveTreatResult();
 
     void statusUpdated(uint temp1,uint temp2,uint level);
@@ -280,9 +280,9 @@ private slots:
 
     void updateMeterDat(short);
 
-    void setPumpSpeed(int speed);  // 设置泵速度
+    void setPumpSpeed(int speed);  // 设置Pump Speed度
 
-    bool setPos(int angle);    // 设置成像面角度
+    bool setPos(int angle);    // 设置成像面Angle
 
     bool setPos(AID axis,float pos);
 
@@ -554,7 +554,7 @@ private slots:
 
 public slots:
 
-    // 收到水箱排水完成消息
+    // 收到Water tank drain complete消息
     void on_Drain_Water_Finished();
 
     void showTableViewToolTip(const QModelIndex &index);
@@ -563,47 +563,47 @@ public slots:
 
     void refreshAmpPara(DataFlag pFlag,QByteArray& ba);
 
-    void refreshRealtimeImage(QImage image);    // 更新实时图像，方便移动端调用
+    void refreshRealtimeImage(QImage image);    // 更新Live Image，方便Mobile调用
 
-    // 同步实时图像与计划图像与当前扫描图像角度一致
+    // 同步Live Image与Planning Image与当前扫描图像Angle一致
     void synImageAngle(int angle);
 
-    // 刷新直方图
+    // Refresh直方图
     void refreshHistogram();
 
-    // 设置配准时搜索半径
+    // 设置registration时搜索半径
     void setSearchRadius(int);
 
-    // 生成层图像
+    // Generate层图像
     void generateLayer();
 
     void setConfirmSetOrderEnable();
 
-    // 设置是否在辐照标志
+    // 设置是否在sonication标志
     void setIrradiatingFlag(bool b);
 
     void switchChanged(bool status);
-    // 设置治疗开始，确认，继续相关控件可用
+    // 设置Treatment开始，Confirm，继续相关控件可用
     void setTreatmentControlEnable();
 
-    // 设置与灯和开关对应界面图标状态
+    // 设置与灯和开关对应界面图标Status
     void setLighting(APPEND_LABEL label,bool status);
 
-    // 决定是否开启下一个辐照点
+    // 决定是否开启下一个sonication point
     void moveToNextSpot();
-    // 设置冷却进度条进度
+    // 设置Cooling进度条进度
     void setProgressRate(int rate);
 
-    // 设置剩余冷却时间
+    // 设置剩余Cooling
     void setRemainCoolingTimeValue(int value);
 
-    // 设置表格辐照相关行颜色
+    // 设置表格sonication相关行颜色
     void setTableRowColor(QString id,QColor color);
 
-    // 设置block表格辐照相关行颜色
+    // 设置block表格sonication相关行颜色
     void setBlockTableRowColor(QString id, QColor color);
 
-    // 设置target,layer窗口对应辐照点状态对应颜色
+    // 设置target,layer窗口对应sonication pointStatus对应颜色
     void setSpotColor(QString id,QColor color);
 
     void spotSelected(QString id,QColor color);
@@ -641,7 +641,7 @@ public slots:
     void ImageNoSignal();
 signals:
 
-    // 发送水箱开始排水消息
+    // 发送tank开始排水消息
     void sendDrainTank();
 
     void sendGetContour();
@@ -661,17 +661,17 @@ signals:
     void setWirelessRun();
 
     void setIsPause(bool);
-    // 设置超声探头是否转到位
+    // 设置Ultrasound Probe是否转到位
     void setCurrentUSAngle(int);
 
-    // 设置辐照模块颜色
+    // 设置sonication模块颜色
     void setBlockColor(QString,QColor);
 
     void setCurrentBlockId(QString);
 
     void setIrradiating(bool);
 
-    // 设置报告中的患者信息
+    // 设置报告中的Patient information
     void setPatientInfo(QVariant id,QVariant fname,
                         QVariant age,QVariant mobile,
                         QVariant x,QVariant y,QVariant z);
@@ -681,9 +681,9 @@ signals:
                        QVariant totalTime,QVariant deep,
                        QVariant doctor,QVariant pulse,QVariant vol);
 
-    // 复制当前计划辐照点
+    // 复制Current Plansonication point
     void copySpots(QVector<QString>&);
-    // 删除当前计划辐照点
+    // DeleteCurrent Plansonication point
     void deleteSpots(QVector<QString>&);
 
     void showUserManager(bool isPatient);
@@ -715,7 +715,7 @@ signals:
 private:
 
     Ui::NewMainWindow *ui;
-    bool _seriesAcquired;    // 是否在采集图像状态
+    bool _seriesAcquired;    // 是否在采集图像Status
     bool imagesignal;
 
     QThread *grabber_thread;
@@ -734,25 +734,25 @@ private:
     QString m_realPath;
     QString m_tmpPath;
 
-    //定位图像地址
+    //Positioning图像地址
     QString imagePath;
 
-    statusProperty stat;   //状态
+    statusProperty stat;   //Status
 
     int m_networkservice;
 
     bool m_bIsPlanLayerScene;
     LayerScene* _planLayerScene;
     DrawScene* _slicesScene;
-    // 当前实现一个角度对应一个scene，相同角度scene依次排列
+    // 当前实现一个Angle对应一个scene，相同Anglescene依次排列
     QMap<int,DrawScene*> _sceneMap;
     QMap<int,DrawScene*> _targetSceneMap;
-    QMap<int,DrawScene*> _outlineMap;//保存两个轮廓的map
+    QMap<int,DrawScene*> _outlineMap;//Save两个轮廓的map
     // 切割图像
     QMap<int,DrawScene*> _sliceSceneMap;
 
-    QQueue<DrawScene *> _layerScenes;    // 治疗层面辐照点分布
-    QMap<QString,Spot_3d_Status> _3DStatus;    // 3d显示点状态
+    QQueue<DrawScene *> _layerScenes;    // Treatment PlaneSonication Point Distribution
+    QMap<QString,Spot_3d_Status> _3DStatus;    // 3d显示点Status
 
     uchar* _pixData;
     ServiceBuffer *_schedule;
@@ -764,10 +764,10 @@ private:
     IrradiateCore* _core;
     IrradiatePara* _para;
     QTimer *_updatedDateTimer, *_acquisionTimer, *_prepareTimer;
-    QTimer* _refreshRealAngle;    // 刷新实时角度定时器
-    QTimer* _treatmentTimeRemain;     // 此患者剩余治疗时间
+    QTimer* _refreshRealAngle;    // RefreshLiveAngle定时器
+    QTimer* _treatmentTimeRemain;     // 此Patients剩余Treatment time
 
-    QTimer* _treatmentTimer;//治疗时间
+    QTimer* _treatmentTimer;//Treatment time
 
     QTimer* LocationCD;//运动控制防抖
     bool LocationEN = true;
@@ -785,19 +785,19 @@ private:
     bool _contoursVisiable;
     bool appendalarm=false;
 
-    // 删除删除掉的辐照点
+    // DeleteDelete掉的sonication point
     void removeDeleteSpots();
 
-    bool _subSysStatus[5];    // 记录各子系统状态
+    bool _subSysStatus[5];    // 记录各子系统Status
     int _currentImages;
 
     int planrecount=0;
 
     TREAT_PARA _parameter;
-    int m_iLastPower;          // 记录功率数据
+    int m_iLastPower;          // 记录Power数据
 
-    QString _startTime;                        // 治疗开始时间
-    QString _endTime;                          // 治疗结束时间
+    QString _startTime;                        // TreatmentStart time
+    QString _endTime;                          // TreatmentEnd time
     qint64 startTime;
     qint64 endTime;
     int _totalTime;
@@ -807,26 +807,26 @@ private:
     int _seriesSpot;
     int treatedSpot;
     int HalfClipHigh = 0;  // 裁剪图像体中心
-    QString _currentSpotId;                    // 记录当前辐照点id
-    QString _currentSpotIdBorn;                // 记录当前辐照点诞生id
-    QMap<QString,bool> _currentCompleteMap;    // 当前完成辐照点id集合
-    QMap<QString,bool> _totalCompleteMap;      // 所有完成辐照点id集合
+    QString _currentSpotId;                    // 记录当前sonication pointid
+    QString _currentSpotIdBorn;                // 记录当前sonication point诞生id
+    QMap<QString,bool> _currentCompleteMap;    // 当前Completesonication pointid集合
+    QMap<QString,bool> _totalCompleteMap;      // 所有Completesonication pointid集合
 
-    QMap<QString,bool> _currentCompleteBlock;  // 当前完成的block
+    QMap<QString,bool> _currentCompleteBlock;  // 当前Complete的block
     header_adjust_stru m_sHeaderAdjust;
 
     void registContour(DrawScene* scene,
-                       int angle,const QImage& image);  // 配准超声肌瘤和核磁肌瘤轮廓
+                       int angle,const QImage& image);  // registration超声fibroid和核磁fibroid轮廓
     void registRemainContours();
     QMap<int,QPointF> _contoursMoveMap;        // 轮廓映射偏移表
-    // QMap<int,QImage> _contoursMap; // 保存未做映射的核磁肌瘤轮廓,角度为0-180
+    // QMap<int,QImage> _contoursMap; // Save未做映射的核磁fibroid轮廓,Angle为0-180
     QMap<float,QPair<int,QPointF> > mapScore;
     QMap<int,QPointF> m_movPos;
     QMap<int,QImage> m_contours;
 
-    bool _isIrradiating;      // 记录某一点正在辐照，防止用户连续点击了多次开始
+    bool _isIrradiating;      // 记录某一点正在sonication，防止用户连续点击了多次开始
     bool _isOnSaveVideo;
-    bool m_bDrawOutline;   //是否在勾画状态
+    bool m_bDrawOutline;   //是否在TraceStatus
 
 
     HIFUNavigation* _pNavigation;
@@ -834,7 +834,7 @@ private:
 //    Scene3d* _pScene3d;
     Hifu3d* _pHifu3d;
     Choseimage* _pChoseimage;
-    HeaderControl* _pHeaderControl;  //治疗头控制界面
+    HeaderControl* _pHeaderControl;  //Probe控制界面
     IrradiateTables* _tableList;
     IrradiatePlan*   _irradiatePlan;
 
@@ -851,47 +851,47 @@ private:
     quitform* _quitform;
     DrainTankForm* _drainTankForm;
 
-    QMenu* _tableMenu;        // 当前治疗计划右键菜单
-    QAction* _tableCopy;      // 治疗计划右键菜单对应的拷贝操作
-    QAction* _tableDelete;    // 治疗计划右键菜单对应的删除操作
-    QAction* _tableStop;      // 治疗计划右键菜单对应的停止操作
-    QAction* _tableContinue;  // 治疗计划右键菜单对应的继续操作
+    QMenu* _tableMenu;        // 当前TreatmentPlan右键菜单
+    QAction* _tableCopy;      // TreatmentPlan右键菜单对应的拷贝操作
+    QAction* _tableDelete;    // TreatmentPlan右键菜单对应的Delete操作
+    QAction* _tableStop;      // TreatmentPlan右键菜单对应的Stop操作
+    QAction* _tableContinue;  // TreatmentPlan右键菜单对应的继续操作
 
-    QMenu* _realTimeMenu;            // 实时图像窗口右键菜单
-    QAction* _realTimeZoomOut;       // 实时图像窗口右键放大
-    QAction* _realTimeZoomIn;        // 实时图像窗口右键缩小
+    QMenu* _realTimeMenu;            // Live Image窗口右键菜单
+    QAction* _realTimeZoomOut;       // Live Image窗口右键Zoom in
+    QAction* _realTimeZoomIn;        // Live Image窗口右键Zoom out
 
-    QAction* _realTimeShowPath;      // 实时图像窗口显示声窗
-    QAction* _realTimeHidePath;      // 实时图像窗口隐藏声窗
+    QAction* _realTimeShowPath;      // Live Image窗口Show Acoustic Window
+    QAction* _realTimeHidePath;      // Live Image窗口Hide Acoustic Window
 
-    QAction* _realTimeShowFocus;     // 实时图像窗口显示自然焦点
-    QAction* _realTimeHideFocus;     // 实时图像窗口隐藏自然焦点
+    QAction* _realTimeShowFocus;     // Live Image窗口Show Natural Focus
+    QAction* _realTimeHideFocus;     // Live Image窗口Hide Natural Focus
 
-    QAction* _realTimeShowRange;     // 实时图像窗口显示辐照范围
-    QAction* _realTimeHideRange;     // 实时图像窗口隐藏辐照范围
+    QAction* _realTimeShowRange;     // Live Image窗口Show Sonication Range
+    QAction* _realTimeHideRange;     // Live Image窗口Hide Sonication Range
 
-    QAction* _realTimeResume;        // 实时图像窗口右键恢复原始图像大小
-    QAction* _realTimeChange;        // 将实时图像添加进治疗计划图像序列
+    QAction* _realTimeResume;        // Live Image窗口右键Reset to Original Image Size
+    QAction* _realTimeChange;        // 将Live ImageAdd进TreatmentPlanning ImageSeries
 
     QMenu* _targetMenu;              // target窗口右键菜单
-    QAction* _targetShowElement;     // 显示辐照单元
-    QAction* _targetHideElement;     // 隐藏辐照单元
+    QAction* _targetShowElement;     // Show Sonication Cells
+    QAction* _targetHideElement;     // Hide Sonication Cells
     QAction* _targetResumeImages;    // 还原原始图像
-    QAction* _targetZoomOut;         // 图像放大
-    QAction* _targetZoomIn;          // 图像缩小
-    QAction* _targetShowDeleted;     // 显示删除图像
-    QAction* _targetHideDeleted;     // 隐藏删除图像
+    QAction* _targetZoomOut;         // Zoom In
+    QAction* _targetZoomIn;          // Zoom Out
+    QAction* _targetShowDeleted;     // 显示Delete图像
+    QAction* _targetHideDeleted;     // 隐藏Delete图像
     QAction* _targetSelectInvert;    // 反选
-    QAction* _targetSmartSelect;     // 智能选择辐照单元
-    QAction* _targetResumeDelected;   // 恢复删除的辐照单元
-    QAction* _targetShowContours;    // 显示肌瘤轮廓
-    QAction* _targetHideContours;    // 隐藏肌瘤轮廓
+    QAction* _targetSmartSelect;     // 智能Selectsonication cell
+    QAction* _targetResumeDelected;   // RestoreDelete的sonication cell
+    QAction* _targetShowContours;    // 显示fibroid轮廓
+    QAction* _targetHideContours;    // 隐藏fibroid轮廓
 
-    QAction* _targetShowDraw;         // 显示勾画轮廓
-    QAction* _targetHideDraw;          // 隐藏勾画轮廓
+    QAction* _targetShowDraw;         // Show Traced Contour
+    QAction* _targetHideDraw;          // Hide Traced Contour
 
-    QAction* _targetDrag;               //手动拖拽配准轮廓
-    QAction* _targetDragConfirm;        //确认拖拽
+    QAction* _targetDrag;               //手动拖拽Register Contours
+    QAction* _targetDragConfirm;        //Confirm拖拽
 
     QMenu* _layerMenu;
     QAction* _layerShowElement;
@@ -899,14 +899,14 @@ private:
     QAction* _layerZoomOut;
     QAction* _layerZoomIn;
     QAction* _layerResumeImages;
-    QAction* _layerShowDeleted;     // 显示删除图像
-    QAction* _layerHideDeleted;     // 隐藏删除图像
+    QAction* _layerShowDeleted;     // 显示Delete图像
+    QAction* _layerHideDeleted;     // 隐藏Delete图像
 
     QAction* _layerSelectInvert;    // 反选
-    QAction* _layerResumeDelected;  // 恢复删除辐照点
+    QAction* _layerResumeDelected;  // RestoreDeletesonication point
 
     QMenu* _researchMenu;        // 科研对应右键菜单
-    QAction* _researchShow;      // 显示输入参数对话框
+    QAction* _researchShow;      // 显示Input参数对话框
 
     QMessageBox* _pMessage;       // 弹出对话框
 
@@ -920,20 +920,20 @@ private:
     void initAppend();
     void setUserModel();
 
-    void setLocationTips();   //设置机械移动tips
+    void setLocationTips();   //设置Motion Systemtips
 
-    void initTableMenu();       // 初始化治疗表格右键菜单
-    void initRealtimeMenu();    // 初始化实时图像右键菜单
+    void initTableMenu();       // 初始化Treatment表格右键菜单
+    void initRealtimeMenu();    // 初始化Live Image右键菜单
     void initTargetMenu();      // 初始化target窗口右键菜单
-    void initLayerMenu();       // 初始化治疗层窗口右键菜单
+    void initLayerMenu();       // 初始化Treatment层窗口右键菜单
     void initReserarchMenu();   // 初始化科研右键菜单
-    void initIrradiatePlan();   // 初始化辐照计划对象
+    void initIrradiatePlan();   // 初始化Sonication Plan对象
 
-    void inintBlockPlan();    // 初始化block计划
+    void inintBlockPlan();    // 初始化blockPlan
 
-    void initTreatPara();       // 初始化治疗参数
-    void setParameter();        // 设置治疗参数
-    void setControlRange(Element ele);     // 设置治疗参数控件值范围
+    void initTreatPara();       // 初始化Treatment Parameters
+    void setParameter();        // 设置Treatment Parameters
+    void setControlRange(Element ele);     // 设置Treatment Parameters控件值范围
 
     void initComboBox();
     void initHIFUService();    // 初始化HIFUService
@@ -944,11 +944,11 @@ private:
 
     void synReportInfo();        // 同步报告信息
 
-    void resumeMeasureLength();  // 恢复当前scene长度测量状态
+    void resumeMeasureLength();  // Restore当前scene长度测量Status
 
     int  getTargetSceneAbove(int angle);
     int  getTargetSceneBelow(int angle);
-    void initSmartPlanPanel();    // 初始化智能勾画控件
+    void initSmartPlanPanel();    // 初始化智能Trace控件
 
     void showDeletedElement();
     void hideDeletedElement();
@@ -960,42 +960,42 @@ private:
     void resetScenes();
     bool isNextRowContinue();    // 判断下一行继续标志是否为绿
 
-    // 定位前先设置一些按钮不可用
+    // Positioning前先设置一些按钮不可用
     void disableBeforeSetPos();
-    // 设置治疗层面相关控件不可用
+    // 设置Treatment Plane相关控件不可用
     void disableLayerControl();
-    // 设置治疗层面相关控件可用
+    // 设置Treatment Plane相关控件可用
     void enableLayerControl();
 
-    // 设置停止按钮可用
+    // 设置Stop按钮可用
     void enableStopButton();
-    // 设置停止按钮不可用
+    // 设置Stop按钮不可用
     void disableStopButton();
 
-    // 设置计划制定控件不可用
+    // 设置Plan制定控件不可用
     void setWholePlanControlDisable();
-    // 设置辐照整体计划制定控件可用
+    // 设置sonicationOverall Plan制定控件可用
     void setWholePlanControlEnable();
 
-    // 设置治疗开始，确认，继续相关控件不可用
+    // 设置Treatment开始，Confirm，继续相关控件不可用
     void setTreatmentControlDisable();
 
     // 设置运动控制相关控件不可用
     void setLocationControlEnable(bool);
 
-    // 设置修改治疗计划控件可用
+    // 设置修改TreatmentPlan控件可用
     void setModifyPlanControlEnable();
 
-    // 设置修改治疗计划控件不可用
+    // 设置修改TreatmentPlan控件不可用
     void setModifyPlanControlDisable();
 
-    // 设置治疗参数控件不可用
+    // 设置Treatment Parameters控件不可用
     void setTreatmentParaControlDisable();
 
-    // 设置治疗参数控件可用
+    // 设置Treatment Parameters控件可用
     void setTreatmentParaControlEnable();
 
-    // 保存制定计划的目标图像
+    // Save制定Plan的目标图像
     void saveTargetImages();
 
     void createPlanFold();
@@ -1021,33 +1021,33 @@ private:
 
     void setScenesUndrawable();
 
-    // 清理大肌瘤治疗计划环境
+    // 清理Large Fibroid TreatmentPlan环境
     void clearBigMyoma();
 
-    void createMask(uchar* data);    // 根据勾画的区域创建三维模型边界
+    void createMask(uchar* data);    // 根据Trace的区域创建三维模型边界
 
     // 设置各控件tooltip
     void setToolTip();
 
 
-    //测量治疗深度
+    //测量Treatment depth
 
 
-    // 设置当前辐照过的点背景为绿色
+    // 设置当前sonication过的点背景为绿色
     void setBackground();
-    // 刷新当前计划显示表格
+    // RefreshCurrent Plan显示表格
     void refreshCurrentTable(QQueue<Irradiate_Spot>& plan);
 
     void refreshBlocksTable(QQueue<Irradiate_Block>& blocks);
 
-    // 获取此次治疗剩余时间，单位为秒
+    // 获取此次TreatmentRemaining time，单位为秒
     QString getRemainTotalTime();
-    // 获取整体治疗时间
+    // 获取整体Treatment time
     QString getTotalTime();
 
     void refreshRemainTime();
 
-    // 刷新整体计划显示表格
+    // RefreshOverall Plan显示表格
     // void refreshTotalTable();
 
     void combinePlan(DENSITY_TYPE density);
@@ -1055,10 +1055,10 @@ private:
     // 检查指标盘是否转到位
     void checkHeader();
 
-    //更新患者信息
+    //更新Patient information
     void updateInfo(const QString &msg);
 
-    QString getTimeString(int time);    // 由以秒为单位得到小时，分，秒表示的时间
+    QString getTimeString(int time);    // 由以秒为单位得到小时，分，秒表示的Time
 
     void DelayClose();
     QTimer delayTimer;
@@ -1067,10 +1067,10 @@ private:
     // 直方图
     PaintedWidget* _pWidget;
 
-    int m_iPatientOrientation;  //患者朝向，左侧为0，右侧为1
-    int m_iRotate;    // 大肌瘤治疗时每一个block旋转角度
+    int m_iPatientOrientation;  //Patients朝向，左侧为0，右侧为1
+    int m_iRotate;    // Large Fibroid Treatment时每一个block旋转Angle
 
-    float m_f3dDelta;   // 重建横断面图像时中心层面相对于自然焦点深度的偏移量
+    float m_f3dDelta;   // 重建横断面图像时中心Plane相对于focus深度的偏移量
 
     int m_iSearchRadius;
     int bPingSuccess = 0;
@@ -1081,10 +1081,10 @@ private:
     QMediaPlayer* _pMediaPlayer;
     QMediaPlaylist* _playlist;
 
-    Irradiate_model m_eModel;  // 辐照区域生成方式
+    Irradiate_model m_eModel;  // sonication区域Generate方式
 
 
-    // 用于计算剩余治疗时间的数据结构
+    // 用于计算剩余Treatment time的数据结构
     TOTAL_TIME m_totalTime;
 
     bool isdoublepump;
@@ -1111,7 +1111,7 @@ private:
 
     QVector<ProcessInfo> m_vec;//用于存放后台线程所有信息
 
-    //更新治疗log
+    //更新Treatmentlog
     void updateLogFile(QString name, QByteArray& log);
     void updateLog(const QString &msg);
 

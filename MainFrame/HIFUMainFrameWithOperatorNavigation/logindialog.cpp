@@ -54,9 +54,9 @@ LoginDialog::~LoginDialog()
 
 void LoginDialog::on_pushButtonLogin_clicked()
 {
-//    qDebug()<<"进入m_db中0000";
+//    qDebug()<<"进入m_dbMiddle0000";
 //    try{
-//        qDebug()<<"进入m_db中1111";
+//        qDebug()<<"进入m_dbMiddle1111";
         QString nameToCheck=ui->lineEditUserName->text();
         QString pwToCheck=ui->lineEditPassWord->text();
 
@@ -69,7 +69,7 @@ void LoginDialog::on_pushButtonLogin_clicked()
 
 //        if (pwToCheck.size()<6)
 //        {
-//            QMessageBox::information(0,"Notice","密码不得少于6个字符！",QMessageBox::Ok);
+//            QMessageBox::information(0,"Notice","Password不得少于6个字符！",QMessageBox::Ok);
 //            ui->lineEditPassWord->setText("");
 //            return;
 //        }
@@ -83,7 +83,7 @@ void LoginDialog::on_pushButtonLogin_clicked()
 //        QString hash_username = hash.result().toHex().toUpper();
         hash.addData(pwToCheck.toLatin1().data());
         QString hash_pw = hash.result().toHex().toUpper();
-//        qDebug()<<"账号111111："<<nameToCheck<<"\n密码："<<hash_pw;
+//        qDebug()<<"账号111111："<<nameToCheck<<"\nPassword："<<hash_pw;
 
         m_db = QSqlDatabase::addDatabase("QSQLITE");
         m_db.setDatabaseName("D:/HIFU-V1.0/backups/database.db");
@@ -98,7 +98,7 @@ void LoginDialog::on_pushButtonLogin_clicked()
         {
             QSqlQuery loginquery("SELECT name,userName,pw FROM LoginInfo",m_db);
             //loginquery.exec("SELECT name,userName,pw FROM LoginInfo");
-//            qDebug()<<"进入m_db中";
+//            qDebug()<<"进入m_dbMiddle";
             while(loginquery.next())
             {
                 QString userName = loginquery.value(1).toString();
@@ -142,7 +142,7 @@ void LoginDialog::on_pushButtonLogin_clicked()
             {
                 emit ShowUserManager(true);
                 DelayClose();
-    //            QMessageBox::information(0,"Notice","该用户无管理员权限！",QMessageBox::Ok);
+    //            QMessageBox::information(0,"Notice","该用户无Administrator权限！",QMessageBox::Ok);
             }
 //            emit ShowUserManager(true);
 //            DelayClose();
@@ -182,7 +182,7 @@ void LoginDialog::on_commandLinkButton_clicked()
 
 //    if (pwToCheck.size()>20)
 //    {
-//        QMessageBox::information(0,"Notice","密码不能超过20个字符！",QMessageBox::Ok);
+//        QMessageBox::information(0,"Notice","Password不能超过20个字符！",QMessageBox::Ok);
 //        ui->lineEditPassWord->setText("");
 //        return;
 //    }
@@ -223,12 +223,12 @@ void LoginDialog::on_commandLinkButton_clicked()
 //        else
 //        {
 //            emit ShowUserManager(true);
-//            QMessageBox::information(0,"Notice","该用户无管理员权限！",QMessageBox::Ok);
+//            QMessageBox::information(0,"Notice","该用户无Administrator权限！",QMessageBox::Ok);
 //        }
 //    }
 //    else
 //    {
-//        QMessageBox::information(0,"Notice","用户名或密码错误！",QMessageBox::Ok);
+//        QMessageBox::information(0,"Notice","Incorrect username or password.！",QMessageBox::Ok);
 //        ui->lineEditPassWord->setText("");
 //    }
 //    }

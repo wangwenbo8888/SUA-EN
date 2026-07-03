@@ -9,25 +9,25 @@
 #include "commondefine.h"
 // #define PI 3.1415926
 
-// 辐照计划文件
+// Sonication Plan文件
 enum Layer
 {
-    Layer_down = 0,   // 下层辐照点
-    Layer_middle,     // 中层辐照点
-    Layer_up,         // 上层辐照点
+    Layer_down = 0,   // Lowersonication point
+    Layer_middle,     // Middlesonication point
+    Layer_up,         // Uppersonication point
 
     Layer_end
 };
 
 enum Irradiate_model
 {
-    Model_inner_to_outer = 0,    // 从内到外辐照
+    Model_inner_to_outer = 0,    // 从内到外sonication
     Model_outer_to_inner,
 
     Model_unknown
 };
 
-// 辐照点信息
+// sonication point信息
 struct NewPoint3d
 {
     double x;
@@ -38,54 +38,54 @@ struct NewPoint3d
 int powerToVoltage(int power);
 int energyToVoltage(int energy);
 
-// 各辐照点参数
+// 各sonication point参数
 struct Irradiate_Spot
 {
-    QString id;          // 辐照点id
+    QString id;          // sonication pointid
     QString idBorn;      // 创建的时候对应的点ID
     int focusCount;      // 焦点个数，单焦点还是多焦点
-    int pulseCount;      // 脉冲个数
-    int coolingTime;     // 冷却时间
+    int pulseCount;      // Pulse
+    int coolingTime;     // Cooling
     double voltage;         // 电压
-    int onTime;          // 施加脉冲持续时间
-    int offTime;         // 停止脉冲持续时间
-    int usAngle;         // 做计划时对应的超声探头角度
-    double spotAngle;        // 辐照点与中心连线与x轴夹角
-    Layer layer;         // 辐照点所处的层
+    int onTime;          // 施加脉冲Duration
+    int offTime;         // Stop脉冲Duration
+    int usAngle;         // 做Plan时对应的Ultrasound ProbeAngle
+    double spotAngle;        // sonication point与中心连线与x轴夹角
+    Layer layer;         // sonication point所处的层
     Circle circle;          // 圈
-    NewPoint3d position;    // 辐照点对应的空间位置
-    bool isIrradiated;   // 是否辐照过
+    NewPoint3d position;    // sonication point对应的空间位置
+    bool isIrradiated;   // 是否sonication过
 
     Irradiate_Spot()
     {
-        id = -1;               // 辐照点id
+        id = -1;               // sonication pointid
         idBorn = -1;
         focusCount = 0;        // 焦点个数，单焦点还是多焦点
-        pulseCount = 0;        // 脉冲个数
-        coolingTime = 0;       // 冷却时间
+        pulseCount = 0;        // Pulse
+        coolingTime = 0;       // Cooling
         voltage = 0;           // 电压
-        onTime = 0;            // 施加脉冲持续时间
-        offTime = 0;           // 停止脉冲持续时间
-        usAngle = 0;           // 做计划时对应的超声探头角度
+        onTime = 0;            // 施加脉冲Duration
+        offTime = 0;           // Stop脉冲Duration
+        usAngle = 0;           // 做Plan时对应的Ultrasound ProbeAngle
         spotAngle = 0;
         circle = Circle_end;   // 圈
-        layer = Layer_end;     // 辐照点所处的层
+        layer = Layer_end;     // sonication point所处的层
         isIrradiated= false;
     }
 
     void operator = (const Irradiate_Spot& spot)
     {
-        id     = spot.id;                       // 辐照点id
+        id     = spot.id;                       // sonication pointid
         idBorn = spot.idBorn;                   // 创建时点id
         focusCount  = spot.focusCount;          // 焦点个数，单焦点还是多焦点
-        pulseCount  = spot.pulseCount;          // 脉冲个数
-        coolingTime = spot.coolingTime;         // 冷却时间
+        pulseCount  = spot.pulseCount;          // Pulse
+        coolingTime = spot.coolingTime;         // Cooling
         voltage = spot.voltage;                 // 电压
-        onTime  = spot.onTime;                  // 施加脉冲持续时间
-        offTime = spot.offTime;                 // 停止脉冲持续时间
-        usAngle = spot.usAngle;                 // 做计划时对应的超声探头角度
+        onTime  = spot.onTime;                  // 施加脉冲Duration
+        offTime = spot.offTime;                 // Stop脉冲Duration
+        usAngle = spot.usAngle;                 // 做Plan时对应的Ultrasound ProbeAngle
         spotAngle   = spot.spotAngle;
-        layer   = spot.layer;                   // 辐照点所处的层
+        layer   = spot.layer;                   // sonication point所处的层
         circle  = spot.circle;                  // 半径平方
         position.x   = spot.position.x;
         position.y   = spot.position.y;
@@ -116,7 +116,7 @@ struct Irradiate_Spot
        return (angle_temp);
     }
 
-    // 从下向上，从小角度到大角度，从超声探头正方向到负方向排列
+    // 从下向上，从小Angle到大Angle，从Ultrasound Probe正方向到负方向排列
     bool operator < (const Irradiate_Spot& spot) const
     {
         if (layer < spot.layer)
@@ -153,7 +153,7 @@ struct Irradiate_Spot
         }
     }
 
-    // 获取功率
+    // 获取Power
     QString getPower()
     {
         return getDisplayPower(voltage*voltage);
@@ -169,13 +169,13 @@ struct Irradiate_Spot
     {
         switch (layer) {
         case Layer_down:
-            return "下层";
+            return "Lower";
             break;
         case Layer_middle:
-            return "中层";
+            return "Middle";
             break;
         case Layer_up:
-            return "上层";
+            return "Upper";
             break;
 
         default:
@@ -198,15 +198,15 @@ struct Irradiate_Spot
 //            return getLayer(layer);
 //            break;
 //        case 2:
-//            // 角度
+//            // Angle
 //            return QString(QString::number(usAngle)).append("°");
 //            break;
 //        case 3:
-//            // 能量
-//            return QString(QString::number(getEnergy())).append("瓦");
+//            // Energy
+//            return QString(QString::number(getEnergy())).append("W");
 //            break;
 //        case 4:
-//            // 脉冲数
+//            // Pulses
 //            return QString(QString::number(pulseCount));
 //            break;
 
@@ -233,12 +233,12 @@ struct Irradiate_Spot
             break;
 
         case 3:
-            // 能量
+            // Energy
             return getPower();
             break;
         case 4:
 
-            // 脉冲数
+            // Pulses
             return QString::number(pulseCount);
             break;
 

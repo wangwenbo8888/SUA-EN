@@ -29,8 +29,8 @@ AddUser::AddUser(QWidget *parent) :
             ->setStyleSheet("QHeaderView::section {color: black;font: 75 12pt \"微软雅黑\";border: 1px solid #6c6c6c;}");
     ui->tableView->verticalHeader()
             ->setStyleSheet("QHeaderView::section {color: black;font: 75 10pt \"微软雅黑\";border: 1px solid #6c6c6c;}");
-    this->ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);  //单击选择一行
-    this->ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection); //设置只能选择一行，不能多行选中
+    this->ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);  //单击Select一行
+    this->ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection); //设置只能Select一行，不能多行选中
     this->ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);   //设置每行内容不可更改
     ui->tableView->setModel(model);
     SetTableViewHeader();
@@ -94,7 +94,7 @@ void AddUser::SetTableViewHeader()
     model->setHorizontalHeaderItem(0,new QStandardItem(QObject::tr("Name")));
     model->setHorizontalHeaderItem(1,new QStandardItem(QObject::tr("ID")));
 //    model->setHeaderData(1,Qt::Horizontal,QObject::tr("ID"));
-//    QStringList labels = QObject::trUtf8("姓名,ID").simplified().split(",");
+//    QStringList labels = QObject::trUtf8("Name,ID").simplified().split(",");
 
 //    model->setHorizontalHeaderLabels(labels);
 
@@ -119,7 +119,7 @@ void AddUser::SetTableViewHeader()
 //    {
 //        ui->label_connectstatus->setText("Database connection failed.");
 //        QMessageBox::critical(0, QObject::tr("Notice"),
-//                                          "添加失败！\n错误信息："+mysql.lastError().text());
+//                                          "Add failed.\nError:"+mysql.lastError().text());
 //        return;
 //    }
 //    else
@@ -147,7 +147,7 @@ void AddUser::SetDefaultDataMode(QueryDataType data)
         ui->tabWidget->setTabEnabled(0,false);
     }
 }
-//添加患者
+//AddPatients
 void AddUser::on_pushButton_PaCommit_clicked()
 {
     QDate date1 = QDate::fromString(ui->LineEdit_Birth->text(),"yyyy-M-d");
@@ -172,7 +172,7 @@ void AddUser::on_pushButton_PaCommit_clicked()
     PID = uuid(1).toString();
     SID = ui->LineEdit_SID->text();
     Pname = ui->lineEdit_PaName->text();
-    QString gender = "女";
+    QString gender = "Female";
     QString PaAge = ui->lineEdit_PaAge->text();
     QString mobile = ui->lineEdit_PaMobile->text();
     QString depth = ui->lineEdit_PaDepth->text();
@@ -243,13 +243,13 @@ void AddUser::on_pushButton_PaCommit_clicked()
     else
     {
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "添加失败！\n错误信息："+updateQuery.lastError().text());
+                                          "Add failed.\nError:"+updateQuery.lastError().text());
         m_db.close();
         this->reject();
     }
 
 }
-//添加医生
+//AddPhysicians
 void AddUser::on_pushButton_DrCommit_clicked()
 {
     QSqlDatabase m_db = QSqlDatabase::addDatabase("QSQLITE");
@@ -320,8 +320,8 @@ void AddUser::on_pushButton_DrCommit_clicked()
 //    QString hash_uservalue = hash256.result().toHex().toUpper();
     hash256.addData(pw.toLatin1().data());
     QString hash_pwvalue = hash256.result().toHex().toUpper();
-    qDebug()<<"账号hash:"<<ui->lineEdit_DrLoginUserName->text()<<" 密码hash："<<hash_pwvalue
-           <<"密码明码："<<pw;
+    qDebug()<<"账号hash:"<<ui->lineEdit_DrLoginUserName->text()<<" Passwordhash："<<hash_pwvalue
+           <<"Password明码："<<pw;
 
     QSqlQuery updateQuery;
     if(updateQuery.exec(strSQl))
@@ -339,7 +339,7 @@ void AddUser::on_pushButton_DrCommit_clicked()
         else
         {
             QMessageBox::critical(0, QObject::tr("Notice"),
-                                  "添加登录信息记录失败！\n错误信息："+updateQuery.lastError().text());
+                                  "Failed to add login information.\nError:"+updateQuery.lastError().text());
         }
 
         qDebug()<<insertId;
@@ -349,7 +349,7 @@ void AddUser::on_pushButton_DrCommit_clicked()
     else
     {
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "添加基本信息记录失败！\n错误信息："+updateQuery.lastError().text());
+                                          "Failed to add basic information.\nError:"+updateQuery.lastError().text());
         m_db.close();
         this->reject();
     }
@@ -368,7 +368,7 @@ void AddUser::on_pushButton_findname_clicked()
     {
         ui->label_connectstatus->setText("Database connection failed.");
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "添加失败！\n错误信息："+mysql.lastError().text());
+                                          "Add failed.\nError:"+mysql.lastError().text());
         return;
     }
     else
@@ -392,7 +392,7 @@ void AddUser::on_pushButton_findname_clicked()
         return;
     }
     QSqlQuery findquery_patient;
-//    findquery_patient.exec("select 编号,姓名,年龄,电话,家庭住址 from 病人信息 where 姓名='"+patientname+"'");
+//    findquery_patient.exec("select ID,Name,Age,Phone,Home Address from 病人信息 where Name='"+patientname+"'");
     findquery_patient.exec("select id,name,age,telephone,address from patient where name='"+patientname+"'");
     QSqlRecord rec = findquery_patient.record();
     QSqlError rec_err = findquery_patient.lastError();
@@ -427,7 +427,7 @@ void AddUser::on_pushButton_findname_clicked()
 //        birthday.push_back(findquery_patient.value(4).toString());
         address.push_back(findquery_patient.value(4).toString());
 
-//        QMessageBox::information(NULL,"Notice","查找成功：",QMessageBox::Yes);
+//        QMessageBox::information(NULL,"Notice","Find成功：",QMessageBox::Yes);
 //        qDebug()<<"name:"<<name<<" age:"<<age<<" telephone:"<<telephone<<" birathday:"<<birthday<<" address:"<<address;
     }
 
@@ -471,7 +471,7 @@ void AddUser::on_tableView_clicked(const QModelIndex &index)
     {
         ui->label_connectstatus->setText("Database connection failed.");
         QMessageBox::critical(0, QObject::tr("Notice"),
-                                          "添加失败！\n错误信息："+mysql.lastError().text());
+                                          "Add failed.\nError:"+mysql.lastError().text());
         return;
     }
     else
@@ -514,7 +514,7 @@ void AddUser::on_tableView_clicked(const QModelIndex &index)
         sizeX.push_back(findquery_inspect.value(1).toString());
         sizeY.push_back(findquery_inspect.value(2).toString());
         sizeZ.push_back(findquery_inspect.value(3).toString());
-//        QMessageBox::information(NULL,"Notice","查找成功：",QMessageBox::Yes);
+//        QMessageBox::information(NULL,"Notice","Find成功：",QMessageBox::Yes);
         qDebug()<<"deep:"<<deep<<" sizeX:"<<sizeX<<" sizeY:"<<sizeY<<" sizeZ:"<<sizeZ;
     }
 

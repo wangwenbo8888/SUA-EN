@@ -104,7 +104,7 @@ void PaintedWidget::paintEvent(QPaintEvent *)
         return;
     }
 
-    // 判断是否在辐照
+    // 判断是否在sonication
     if (isIrradiating())
     {
         return;
@@ -149,7 +149,7 @@ void PaintedWidget::paintEvent(QPaintEvent *)
     float xstep = float(wid-delta) / 256;
     float ystep = float(hei-delta) / maxcount;
 
-    //  字体放大
+    //  字体Zoom in
     QFont font("微软雅黑",20,QFont::Bold,false);
     p.setFont(font);
 

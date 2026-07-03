@@ -15,11 +15,11 @@ class SelfTestDlg;
 
 enum selfSubSys
 {
-    iappned = 0,    // 控制盒
-    ilocation,   // 机械移动
-    iwarter,   // 水循环
+    iappned = 0,    // Control Box
+    ilocation,   // Motion System
+    iwarter,   // Circulation
     inetwork,      // 网络
-    iimagegraber   //超声图像
+    iimagegraber   //Ultrasound Image
 };
 
 class SelfTestDlg : public QDialog

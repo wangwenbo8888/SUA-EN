@@ -53,8 +53,8 @@ MainDialog::MainDialog(QWidget *parent) :
                 ->setStyleSheet("QHeaderView::section {color: black;font: 75 12pt \"微软雅黑\";border: 1px solid #6c6c6c;}");
     ui->tableView->verticalHeader()
                 ->setStyleSheet("QHeaderView::section {color: black;font: 75 10pt \"微软雅黑\";border: 1px solid #6c6c6c;}");
-    this->ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);  //单击选择一行
-    this->ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection); //设置只能选择一行，不能多行选中
+    this->ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);  //单击Select一行
+    this->ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection); //设置只能Select一行，不能多行选中
     this->ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);   //设置每行内容不可更改
     ui->tableView->setModel(model);
 
@@ -101,21 +101,21 @@ void MainDialog::setToolTip()
 //    ui->spinBox_long_axis->setStyleSheet("QToolTip{border:1px solid black; background: white; color:black; font-size:12px;}");
 //    ui->spinBox_short_axis->setStyleSheet("QToolTip{border:1px solid black; background: white; color:black; font-size:12px;}");
 //    ui->spinBox_thick_axis->setStyleSheet("QToolTip{border:1px solid black; background: white; color:black; font-size:12px;}");
-//    ui->spinBox_long_axis->setToolTip("椭圆长轴半径，最大105mm");
-//    ui->spinBox_short_axis->setToolTip("椭圆短轴半径，最大105mm");
-//    ui->spinBox_thick_axis->setToolTip("椭圆厚度半径，最大105mm");
+//    ui->spinBox_long_axis->setToolTip("Ellipse major-axis radius, max 105 mm");
+//    ui->spinBox_short_axis->setToolTip("Ellipse minor-axis radius, max 105 mm");
+//    ui->spinBox_thick_axis->setToolTip("Ellipse thickness radius, max 105 mm");
 
 //    ui->lineEdit_inputname->setStyleSheet("QToolTip{border:1px solid black; background: white; color:black; font-size:12px;}");
-//    ui->lineEdit_inputname->setToolTip("输入姓名为拼音时需要大写，且姓名之间使用空格隔开！");
+//    ui->lineEdit_inputname->setToolTip("InputName为拼音时需要大写，且Name之间使用空格隔开！");
 
 }
 
 void MainDialog::SetTableViewHeader()
 {
-    model->setHorizontalHeaderItem(0,new QStandardItem(QObject::tr("姓名")));
+    model->setHorizontalHeaderItem(0,new QStandardItem(QObject::tr("Name")));
 //    model->setHorizontalHeaderItem(1,new QStandardItem(QObject::tr("ID")));
 //    model->setHeaderData(1,Qt::Horizontal,QObject::tr("ID"));
-//    QStringList labels = QObject::trUtf8("姓名,ID").simplified().split(",");
+//    QStringList labels = QObject::trUtf8("Name,ID").simplified().split(",");
 //    model->setHorizontalHeaderLabels(labels);
 
     this->ui->tableView->setColumnWidth(0,150);
@@ -131,16 +131,16 @@ void MainDialog::self_echoscu()
     QDir dirtemp;
     QString rootpath=dirtemp.currentPath();
     rootpath=rootpath.left(rootpath.indexOf(":")+1);//存储在当前项目的盘
-    rootpath.append("/DuShuai/branch20210315/dependency/dcmtk/bin/");//默认的dicom图像存储地址
+    rootpath.append("/DuShuai/branch20210315/dependency/dcmtk/bin/");//Default的dicom图像存储地址
     QString path=rootpath;
     QDir dir(path);
 //    if(path.isEmpty()||!dir.exists())
 //    {
-//        QMessageBox::warning(NULL,"提示","未找到图像默认地址！");
+//        QMessageBox::warning(NULL,"Notice","Default image address not found.");
 //        return;
 //    }
 
-//    qDebug()<<"默认地址："<<path;
+//    qDebug()<<"Default地址："<<path;
 
     QString process = path+"echoscu.exe";
     QStringList parameter;
@@ -149,9 +149,9 @@ void MainDialog::self_echoscu()
     QString SCPport = "11110";
     QString ACME_STORE = "ACME_STORE";
     QString ACME = "ACME1";
-    //输入参数
+    //Input参数
 //    parameter << "--debug localhost 11110 -aec ACME_STORE -aet ACME1";
-    //输入的参数如果含有空格则需要对单个字符串进行分离
+    //Input的参数如果含有空格则需要对单个字符串进行分离
     parameter << "-d" <<AEtitle <<SCPport <<"-aec"<<ACME_STORE<<"-aet"<< ACME;
     qDebug() << parameter;
     echoscu.start(process,parameter);
@@ -167,17 +167,17 @@ void MainDialog::self_echoscu()
         {
             if (echooutput.contains("Received Echo Response (Success)"))
             {
-                qDebug()<<"连接中。。。";
+                qDebug()<<"Connecting...";
                 isechoscufailed = 1;
-                ui->label_echoscustate->setText("连接中。。。");
+                ui->label_echoscustate->setText("Connecting...");
                 return;
             }
             else {
                 if(isechoscufailed)
                 {
-//                    QMessageBox::warning(NULL,"提示","连接服务器失败！");
+//                    QMessageBox::warning(NULL,"Notice","Connect to Server失败！");
                     isechoscufailed=0;
-                    ui->label_echoscustate->setText("连接已断开！");
+                    ui->label_echoscustate->setText("Connection lost.");
                     return;
                 }
                 else return;
@@ -196,16 +196,16 @@ void MainDialog::self_echoscu()
 //    QDir dirtemp;
 //    QString rootpath=dirtemp.currentPath();
 //    rootpath=rootpath.left(rootpath.indexOf(":")+1);//存储在当前项目的盘
-//    rootpath.append("/SVN/dependency/dcmtk/bin/");//默认的dicom图像存储地址
+//    rootpath.append("/SVN/dependency/dcmtk/bin/");//Default的dicom图像存储地址
 //    QString path=rootpath;
 //    QDir dir(path);
 //    if(path.isEmpty()||!dir.exists())
 //    {
-//        QMessageBox::warning(NULL,"提示","未找到默认地址！");
+//        QMessageBox::warning(NULL,"Notice","Default address not found.");
 //        return;
 //    }
 
-//    qDebug()<<"默认地址："<<path;
+//    qDebug()<<"Default地址："<<path;
 
 //    QString process = path+"echoscu.exe";
 //    QStringList parameter;
@@ -214,9 +214,9 @@ void MainDialog::self_echoscu()
 //    QString SCPport = "11110";
 //    QString ACME_STORE = "ACME_STORE";
 //    QString ACME = "ACME1";
-//    //输入参数
+//    //Input参数
 //    //parameter << "--debug localhost 11110 -aec ACME_STORE -aet ACME1";
-//    //输入的参数如果含有空格则需要对单个字符串进行分离
+//    //Input的参数如果含有空格则需要对单个字符串进行分离
 //    parameter << "-d" <<AEtitle <<SCPport <<"-aec"<<ACME_STORE<<"-aet"<< ACME;
 //    qDebug() << parameter;
 //    echoscu.start(process,parameter);
@@ -232,17 +232,17 @@ void MainDialog::self_echoscu()
 //        {
 //            if (echooutput.contains("Received Echo Response (Success)"))
 //            {
-//                QMessageBox::warning(NULL,"提示","连接服务器成功！");
+//                QMessageBox::warning(NULL,"Notice","Connect to Server成功！");
 //                return;
 //            }
 //            else {
-//                QMessageBox::warning(NULL,"提示","连接服务器失败！");
+//                QMessageBox::warning(NULL,"Notice","Connect to Server失败！");
 //                return;
 //            }
 
 //        }
 ////    }
-////        qDebug()<<"完成";
+////        qDebug()<<"Complete";
 //}
 
 void MainDialog::on_pushButton_findname_clicked()
@@ -252,16 +252,16 @@ void MainDialog::on_pushButton_findname_clicked()
     QDir dirtemp;
     QString rootpath=dirtemp.currentPath();
     rootpath=rootpath.left(rootpath.indexOf(":")+1);//存储在当前项目的盘
-    rootpath.append("/DuShuai/branch20210315/dependency/dcmtk/bin/");//默认的dicom图像存储地址
+    rootpath.append("/DuShuai/branch20210315/dependency/dcmtk/bin/");//Default的dicom图像存储地址
     QString path=rootpath;
     QDir dir(path);
     if(path.isEmpty()||!dir.exists())
     {
-        QMessageBox::warning(NULL,"提示","未找到默认地址！");
+        QMessageBox::warning(NULL,"Notice","Default address not found.");
         return;
     }
 
-    qDebug()<<"默认地址："<<path;
+    qDebug()<<"Default地址："<<path;
 
     QString find_process = path+"findscu.exe";
     QStringList find_parameter;
@@ -269,12 +269,12 @@ void MainDialog::on_pushButton_findname_clicked()
     QString patientid = "PatientID";
     if(ui->lineEdit_inputname->text().indexOf(" ",0)==0)
     {
-        QMessageBox::warning(NULL,"提示","姓名首位不能为空格！");
+        QMessageBox::warning(NULL,"Notice","Name cannot start with a space.");
         return;
     }
     if(ui->lineEdit_inputname->text().isEmpty())
     {
-        QMessageBox::warning(NULL,"提示","姓名输入不能为空！");
+        QMessageBox::warning(NULL,"Notice","Name is required.");
         return;
     }
     find_parameter << "-v"<<"-P"<<"localhost" <<"11110" <<"-aec"<<"ACME_STORE"<<"-aet"<< "ACME1"
@@ -343,12 +343,12 @@ void MainDialog::on_pushButton_findname_clicked()
                 QStandardItem *itemname = new QStandardItem(PatientName[i]);
                 model->setItem(i,0,itemname);
             }
-            QMessageBox::warning(NULL,"提示","查找成功！");
+            QMessageBox::warning(NULL,"Notice","Found.");
             return;
         }
         else
         {
-            QMessageBox::warning(NULL,"提示","查找失败！");
+            QMessageBox::warning(NULL,"Notice","Search failed.");
             return;
         }
     }
@@ -362,16 +362,16 @@ void MainDialog::on_pushButton_nameconfirm_clicked()
     QDir dirtemp;
     QString rootpath=dirtemp.currentPath();
     rootpath=rootpath.left(rootpath.indexOf(":")+1);//存储在当前项目的盘
-    rootpath.append("/DuShuai/branch20210315/dependency/dcmtk/bin/");//默认的dicom图像存储地址
+    rootpath.append("/DuShuai/branch20210315/dependency/dcmtk/bin/");//Default的dicom图像存储地址
     QString path=rootpath;
     QDir dir(path);
     if(path.isEmpty()||!dir.exists())
     {
-        QMessageBox::warning(NULL,"提示","未找到图像默认地址！");
+        QMessageBox::warning(NULL,"Notice","Default image address not found.");
         return;
     }
 
-//    qDebug()<<"默认地址："<<path;
+//    qDebug()<<"Default地址："<<path;
 
     QString find_process = path+"findscu.exe";
     QStringList find_parameter;
@@ -399,7 +399,7 @@ void MainDialog::on_pushButton_nameconfirm_clicked()
     {
         if (find_output.contains("Find Response: 1 (Pending)"))
         {
-            int Index_datepath = find_output.indexOf("(0008,0020)");//查找时间
+            int Index_datepath = find_output.indexOf("(0008,0020)");//FindTime
             int Index_uidpath = find_output.indexOf("(0020,000d)");
             int Studynum = 0;
             QVector<int> Index_studydate;
@@ -446,7 +446,7 @@ void MainDialog::on_pushButton_nameconfirm_clicked()
 //             ui->comboBox_series->setEnabled(true);
              if(find_output.contains("Received Final Find Response (Success)"))
              {
-                 QMessageBox::warning(NULL,"提示","查找成功！");
+                 QMessageBox::warning(NULL,"Notice","Found.");
                  ui->pushButton_movestudy->setEnabled(true);
                  ui->pushButton_movestudy->setStyleSheet(SELECTED);
                  return;
@@ -454,7 +454,7 @@ void MainDialog::on_pushButton_nameconfirm_clicked()
 
        }
        else {
-            QMessageBox::warning(NULL,"提示","查找失败！");
+            QMessageBox::warning(NULL,"Notice","Search failed.");
             return;
             }
 
@@ -475,7 +475,7 @@ void MainDialog::on_pushButton_movestudy_clicked()
 {
     if(ui->comboBox_date->currentText().isEmpty())
     {
-        QMessageBox::warning(NULL,"提示","未选择时间!");
+        QMessageBox::warning(NULL,"Notice","Select a time.");
         return;
     }
     QProcess movescu(this);
@@ -484,16 +484,16 @@ void MainDialog::on_pushButton_movestudy_clicked()
     QDir dirtemp;
     QString root_path=dirtemp.currentPath();
     QString rootpath=root_path.left(root_path.indexOf(":")+1);//存储在当前项目的盘
-    rootpath.append("/DuShuai/branch20210315/dependency/dcmtk/bin/");//默认的dicom图像存储地址
+    rootpath.append("/DuShuai/branch20210315/dependency/dcmtk/bin/");//Default的dicom图像存储地址
     QString path=rootpath;
     QDir dir(path);
     if(path.isEmpty()||!dir.exists())
     {
-        QMessageBox::warning(NULL,"提示","未找到图像默认地址！");
+        QMessageBox::warning(NULL,"Notice","Default image address not found.");
         return;
     }
 
-//    qDebug()<<"默认地址："<<path;
+//    qDebug()<<"Default地址："<<path;
 
     QString move_process = path+"movescu.exe";
     QStringList move_parameter;
@@ -503,7 +503,7 @@ void MainDialog::on_pushButton_movestudy_clicked()
     QString ACME = "ACME1";
     QString port ="1234";
 
-    //新建文件夹存储下载的核磁图像
+    //新建文件夹存储下载的MRI images
     QDateTime time;
 //    QDir dirtemp;
     QString str_time = time.currentDateTime().toString("yyMMdd_hhmmss");
@@ -516,7 +516,7 @@ void MainDialog::on_pushButton_movestudy_clicked()
     QString SavePath = movestudy_path;
     QString Studydate = "StudyDate="+ui->comboBox_date->currentText();
     qDebug()<<"UID is："<<ui->comboBox_date->currentText();
-    //输入的参数如果含有空格则需要对单个字符串进行分离
+    //Input的参数如果含有空格则需要对单个字符串进行分离
     move_parameter << "-v" <<"-S"<<AEtitle <<SCPport <<"-aec"<<ACME_STORE<<"-aet"<<
                       ACME<<"-aem"<<ACME<<"--port"<<port<<"-od"<<SavePath<<"-k"<<
                       "QueryRetrieveLevel=STUDY"<<"-k"<<patient_id<<"-k"<<
@@ -533,10 +533,10 @@ void MainDialog::on_pushButton_movestudy_clicked()
     {
         if (moveoutput.contains("Received Final Move Response (Success)"))
         {
-            QMessageBox::warning(NULL,"提示","下载成功！下载地址为"+SavePath);
+            QMessageBox::warning(NULL,"Notice","Download complete. Saved to"+SavePath);
         }
         else {
-            QMessageBox::warning(NULL,"提示","下载失败！");
+            QMessageBox::warning(NULL,"Notice","Download failed.");
             return;
         }
     }
@@ -556,10 +556,10 @@ void MainDialog::on_pushButton_movestudy_clicked()
         QString absolute_file_path = file_info.absoluteFilePath();
         string_list.append(absolute_file_path);
     }
-    qDebug()<<"核磁图像数量："<<dicomlist.count();
+    qDebug()<<"MRI images数量："<<dicomlist.count();
     if (string_list.isEmpty())
     {
-        QMessageBox::warning(NULL, QStringLiteral("提示"), QStringLiteral("没有可读取的核磁图像"));
+        QMessageBox::warning(NULL, QStringLiteral("Notice"), QStringLiteral("No readable MRI images found."));
         return;
     }
     dcm_list = string_list;
@@ -652,7 +652,7 @@ void MainDialog::on_pushButton_movestudy_clicked()
         }
     }
 
-        //添加description
+        //Adddescription
         ui->comboBox_series->clear();
         for(int i=0;i<Description.count();i++)
         {
@@ -669,7 +669,7 @@ void MainDialog::on_pushButton_input_clicked()
 {
     if(ui->comboBox_series->currentText().isEmpty())
     {
-        QMessageBox::warning(NULL,"提示","未选择series!");
+        QMessageBox::warning(NULL,"Notice","Select a series.");
         return;
     }
     QString str_name = ui->comboBox_series->currentText();
@@ -686,7 +686,7 @@ void MainDialog::on_pushButton_input_clicked()
     if(!dir.exists(path))
     {
         dir.mkpath(path);
-//        QMessageBox::warning(NULL,"提示","路径为空，已新建文件夹！");
+//        QMessageBox::warning(NULL,"Notice","路径为空，已新建文件夹！");
 
     }
     QString fileName;
@@ -725,7 +725,7 @@ void MainDialog::on_pushButton_input_clicked()
                 QString str_num = QString::number(num,10);
                 dcmfilename.append(str_num);
 
-                qDebug()<<"文件路径和文件名："<<dcmfilename;
+                qDebug()<<"File Path和文件名："<<dcmfilename;
                 dcmfile.copy(dcmfilename);
                 num++;
 
@@ -733,5 +733,5 @@ void MainDialog::on_pushButton_input_clicked()
             }
         }
     }
-    QMessageBox::warning(NULL,"提示","导入成功！");
+    QMessageBox::warning(NULL,"Notice","Imported successfully.");
 }

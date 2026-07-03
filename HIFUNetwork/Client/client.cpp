@@ -248,14 +248,14 @@ void Client::connectfailed()
 //    qDebug() << "heartcount = "<< heartcount;
 //    if(heartcount>5)
 //    {
-//        qDebug() << "网络连接断开";
+//        qDebug() << "Network Connection Lost";
 //        heartcount = 0;
 //        //emit connectfail();
 //        if(!netwarning)
 //        {
 //            netwarning = true;
             emit statusUpdated(INQUIRY, NETWORK_DISCONNECTED);
-            QMessageBox msgBox("网络连接断开","请确保工控机连接正常",
+            QMessageBox msgBox("Network Connection Lost","Make sure the control PC is connected.",
                                QMessageBox::Warning,
                                QMessageBox::Ok | QMessageBox::Escape,
                                QMessageBox::NoButton,

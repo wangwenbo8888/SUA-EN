@@ -55,7 +55,7 @@ GLfloat* ModelManager::getVersPos()           // 三角形顶点位置首地址
     return _versPos;
 }
 // 初始化可视化窗口各模型
-// 一个肌瘤模型，三个治疗层面模型，一个人体模型，111个治疗点模型
+// 一个fibroid模型，三个Treatment Plane模型，一个人体模型，111pcsTreatment点模型
 void ModelManager::initScene()
 {
     Mesh* pPlane = new Mesh;
@@ -117,7 +117,7 @@ void ModelManager::initScene()
     addModel(pWoman,matrix);
 #endif
 
-    // 添加下面平面
+    // Add下面平面
     matrix[0] = 0.8f;
     matrix[1] = 0.0f;
     matrix[2] = 0.0f;
@@ -132,7 +132,7 @@ void ModelManager::initScene()
     matrix[11] = 0.0f;
     addModel(pPlane,matrix);
 
-    // 添加中间平面
+    // Add中间平面
     matrix[0] = 0.8f;
     matrix[1] = 0.0f;
     matrix[2] = 0.0f;
@@ -147,7 +147,7 @@ void ModelManager::initScene()
     matrix[11] = 0.0f;
     addModel(pPlane,matrix);
 
-    // 添加上面平面
+    // Add上面平面
     matrix[0] = 0.8f;
     matrix[1] = 0.0f;
     matrix[2] = 0.0f;
@@ -181,9 +181,9 @@ void ModelManager::initScene()
         matrix[7] = 10.0f*(i-1);
         matrix[3] = 0.0;
         matrix[11] = 0.0;
-        addModel(pSpot,matrix); // 添加最中间点
+        addModel(pSpot,matrix); // Add最中间点
         radius = 2.0;
-        for (int j = 0; j < 6; ++j) // 添加内圈6个点
+        for (int j = 0; j < 6; ++j) // Add内圈6个点
         {
             theta = j*2.0*PI/6.0;
             matrix[3] = radius*cos(theta);
@@ -192,7 +192,7 @@ void ModelManager::initScene()
         }
 
         radius = 4.0;
-        for (int j = 0; j < 12; ++j) // 添加内圈6个点
+        for (int j = 0; j < 12; ++j) // Add内圈6个点
         {
             theta = j*2.0*PI/12.0;
             matrix[3] = radius*cos(theta);
@@ -201,7 +201,7 @@ void ModelManager::initScene()
         }
 
         radius = 6.0;
-        for (int j = 0; j < 18; ++j) // 添加内圈6个点
+        for (int j = 0; j < 18; ++j) // Add内圈6个点
         {
             theta = j*2.0*PI/18.0;
             matrix[3] = radius*cos(theta);

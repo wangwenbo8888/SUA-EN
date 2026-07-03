@@ -21,7 +21,7 @@ PrintDialog::PrintDialog(QWidget *parent) :
     preview = new QPrintPreviewWidget (printer,this);
 
     this->ui->verticalLayout_printview->addWidget(preview);
-    connect(preview, SIGNAL(paintRequested(QPrinter*)),this,SLOT(printPreview(QPrinter *)));//关联打印预览的内容
+    connect(preview, SIGNAL(paintRequested(QPrinter*)),this,SLOT(printPreview(QPrinter *)));//关联Print预览的内容
     preview->show();
     //preview->setZoomMode(QPrintPreviewWidget::FitToWidth);
 
@@ -34,7 +34,7 @@ PrintDialog::~PrintDialog()
     delete printer;
     delete ui;
 }
-//打印
+//Print
 void PrintDialog::on_pushButton_print_clicked()
 {
 //    QTextDocument *ted = new QTextDocument;
@@ -53,7 +53,7 @@ void PrintDialog::printPreview(QPrinter *p)
     ted->print(p);
     delete ted;
 }
-//设置患者信息槽
+//设置Patient information槽
 void PrintDialog::setPatientInfo(QVariant id, QVariant fname, QVariant age,
                                  QVariant mobile, QVariant x, QVariant y, QVariant z)
 {
@@ -70,11 +70,11 @@ void PrintDialog::setPatientInfo(QVariant id, QVariant fname, QVariant age,
 
 }
 
-//设置治疗信息槽
+//设置Treatment信息槽
 void PrintDialog::setTerapyInfo(QVariant rate, QVariant startTime, QVariant endTime,
                                 QVariant number, QVariant energy, QVariant deep, QVariant doctor, QVariant pulse)
 {
-    // 更新治疗效果图
+    // 更新Treatment效果图
     QPixmap pixUp("E:/upimage.bmp");
     QPixmap pixMiddle("E:/middleimage.bmp");
     QPixmap pixDown("E:/downimage.bmp");
@@ -155,38 +155,38 @@ void PrintDialog::SaveReportInfoToDB()
     }
 }
 
-//生成文档样式html
+//Generate文档样式html
 QString PrintDialog::getHtmlStr()
 {
     m_strPeintHtml=QString("<p align=\"center\">\
-            <span style=\"font-size: 24px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">中惠医疗HIFU治疗报告</span></strong></span>\
+            <span style=\"font-size: 24px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">Zhonghui Medical HIFU Treatment Report</span></strong></span>\
         </p>\
         <p align=\"right\">\
-            打印时间：%1\
+            PrintTime：%1\
         </p>\
         <p>\
-            <span style=\"font-size: 20px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">患者信息</span></strong></span>\
+            <span style=\"font-size: 20px;\"><strong><span style=\"font-family: 微软雅黑,Microsoft YaHei;\">Patient information</span></strong></span>\
         </p>\
         <hr/>\
         <table width=\"595\">\
             <tbody>\
                 <tr class=\"firstRow\">\
                     <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">患者ID：%2<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Patient ID：%2<br/></span>\
                     </td>\
                     <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">姓名：%3<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Name:%3<br/></span>\
                     </td>\
                     <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">性别：%4<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Sex：%4<br/></span>\
                     </td>\
                 </tr>\
                 <tr>\
                     <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">年龄：%5<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Age：%5<br/></span>\
                     </td>\
                     <td rowspan=\"1\" colspan=\"2\" style=\"border-width: 1px; border-style: solid;\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">联系电话：%6<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Phone：%6<br/></span>\
                     </td>\
                 </tr>\
             </tbody>\
@@ -196,22 +196,22 @@ QString PrintDialog::getHtmlStr()
             <tbody>\
                 <tr class=\"firstRow\">\
                     <td rowspan=\"1\" colspan=\"2\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">肿瘤大小：%7 * %8 * %9 mm3<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Fibroid Size：%7 * %8 * %9 mm3<br/></span>\
                     </td>\
                 </tr>\
                 <tr>\
                     <td width=\"402\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 16px;\">开始时间：%11<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 16px;\">Start time:%11<br/></span>\
                     </td>\
                     <td width=\"402\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 16px;\">结束时间：%12</span><br/>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 16px;\">End time:%12</span><br/>\
                     </td>\
                 </tr>\
             </tbody>\
         </table>\
         <hr/>\
         <p>\
-            <span style=\"font-family: 微软雅黑,Microsoft YaHei;\"><strong><span style=\"font-size: 20px;\">治疗结论</span></strong></span>\
+            <span style=\"font-family: 微软雅黑,Microsoft YaHei;\"><strong><span style=\"font-size: 20px;\">Treatment结论</span></strong></span>\
         </p>\
         <table width=\"620\">\
             <tbody>\
@@ -224,34 +224,34 @@ QString PrintDialog::getHtmlStr()
         </table>\
         <hr/>\
         <p>\
-            <strong><span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 20px;\">治疗参数</span></strong>\
+            <strong><span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 20px;\">Treatment Parameters</span></strong>\
         </p>\
         <table width=\"600\">\
             <tbody>\
                 <tr class=\"firstRow\">\
                     <td width=\"250\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">辐照点数：%14 个<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Sonication Points：%14 pcs<br/></span>\
                     </td>\
                     <td width=\"250\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">单点能量：%15 焦<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Energy per Point：%15 Focus<br/></span>\
                     </td>\
                     <td width=\"250\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">整体能量：%16 焦<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Total Energy：%16 Focus<br/></span>\
                     </td>\
                 </tr>\
                 <tr>\
                     <td width=\"402\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">治疗深度：%17 cm<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Treatment depth：%17 cm<br/></span>\
                     </td>\
                     <td width=\"250\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">脉冲个数：%18 个</span><br/>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Pulse：%18 pcs</span><br/>\
                     </td>\
                 </tr>\
             </tbody>\
         </table>\
         <hr/>\
         <p>\
-            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">治疗效果</span></strong>\
+            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">Treatment效果</span></strong>\
         </p>\
         <table>\
             <tbody>\
@@ -268,20 +268,20 @@ QString PrintDialog::getHtmlStr()
                 </tr>\
                 <tr>\
                     <td style=\"word-break: break-all;\" width=\"261\" valign=\"middle\" align=\"center\">\
-                        <span style=\"font-size: 18px; font-family: 微软雅黑,Microsoft YaHei;\">下层<br/></span>\
+                        <span style=\"font-size: 18px; font-family: 微软雅黑,Microsoft YaHei;\">Lower<br/></span>\
                     </td>\
                     <td style=\"word-break: break-all;\" width=\"261\" valign=\"middle\" align=\"center\">\
-                        <span style=\"font-size: 18px; font-family: 微软雅黑,Microsoft YaHei;\">中层<br/></span>\
+                        <span style=\"font-size: 18px; font-family: 微软雅黑,Microsoft YaHei;\">Middle<br/></span>\
                     </td>\
                     <td style=\"word-break: break-all;\" width=\"261\" valign=\"middle\" align=\"center\">\
-                        <span style=\"font-size: 18px; font-family: 微软雅黑,Microsoft YaHei;\">上层</span><br/>\
+                        <span style=\"font-size: 18px; font-family: 微软雅黑,Microsoft YaHei;\">Upper</span><br/>\
                     </td>\
                 </tr>\
             </tbody>\
         </table>\
         <hr/>\
         <p>\
-            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">主治医师：</span></strong><span style=\"font-size: 18px; font-family: 微软雅黑,Microsoft YaHei;\">%19</span><br/>\
+            <strong><span style=\"font-size: 20px; font-family: 微软雅黑,Microsoft YaHei;\">Attending Physician:</span></strong><span style=\"font-size: 18px; font-family: 微软雅黑,Microsoft YaHei;\">%19</span><br/>\
         </p>")
             .arg(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"))
             .arg(ui->lineEdit_id->text())

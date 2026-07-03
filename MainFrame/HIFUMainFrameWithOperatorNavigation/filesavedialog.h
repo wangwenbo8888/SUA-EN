@@ -46,7 +46,7 @@ private:
     QString sNmaeDefault;
     QString *pFilePath;
     QString *pFileName;
-    QString sFPath;//保存路径
+    QString sFPath;//Save路径
 
     QString temp_path;//缓存
 

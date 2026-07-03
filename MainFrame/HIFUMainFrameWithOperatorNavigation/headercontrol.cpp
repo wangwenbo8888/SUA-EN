@@ -114,13 +114,13 @@ void HeaderControl::on_spinBox_bed_left_right_editingFinished()
             return;
         else if(posx>Rec_PosX)
         {
-            emit setRodPos(1,1,posx-Rec_PosX);//向左移动posx-Rec_PosX距离
+            emit setRodPos(1,1,posx-Rec_PosX);//向左移动posx-Rec_PosXDistance
             Rec_PosX=posx;
             qDebug()<<"Rec_PosX3====="<<Rec_PosX;
         }
         else if(posx<Rec_PosX)
         {
-            emit setRodPos(1,2,Rec_PosX-posx);//向右移动Rec_PosX-posx距离
+            emit setRodPos(1,2,Rec_PosX-posx);//向右移动Rec_PosX-posxDistance
             Rec_PosX=posx;
             qDebug()<<"Rec_PosX4====="<<Rec_PosX;
         }

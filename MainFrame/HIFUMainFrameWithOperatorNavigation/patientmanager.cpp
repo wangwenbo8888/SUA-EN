@@ -84,7 +84,7 @@ bool PatientManager::createPatientDir(QString nameid)
             PatientManager::paReportDir=paReportDir_default;
         }
 
-        // 保存治疗结构化数据
+        // SaveTreatment结构化数据
         if(isDirExist(patientDir+"Treatment/")){
             PatientManager::paTreatmentDir_default=patientDir+"Treatment/";
             PatientManager::paTreatmentDir=paTreatmentDir_default;
