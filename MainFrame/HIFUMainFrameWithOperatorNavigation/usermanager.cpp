@@ -175,34 +175,25 @@ void UserManager::SetTableViewHeader(int dataType)
     switch (dataType) {
     case 1:
 //        qDebug()<<"病人数据表头";
-        model1->setHeaderData(0,Qt::Horizontal,QObject::tr("id"));
-        model1->setHeaderData(1,Qt::Horizontal,QObject::tr("pid"));
-        model1->setHeaderData(2,Qt::Horizontal,QObject::tr("case ID"));
+        model1->setHeaderData(0,Qt::Horizontal,QObject::tr("ID"));
+        model1->setHeaderData(1,Qt::Horizontal,QObject::tr("PID"));
+        model1->setHeaderData(2,Qt::Horizontal,QObject::tr("Case ID"));
         model1->setHeaderData(3,Qt::Horizontal,QObject::tr("Name"));
         model1->setHeaderData(4,Qt::Horizontal,QObject::tr("Sex"));
         model1->setHeaderData(5,Qt::Horizontal,QObject::tr("Date of Birth"));
         model1->setHeaderData(6,Qt::Horizontal,QObject::tr("Age"));
         model1->setHeaderData(7,Qt::Horizontal,QObject::tr("Phone"));
-        model1->setHeaderData(8,Qt::Horizontal,QObject::tr("Treatment depth"));
+        model1->setHeaderData(8,Qt::Horizontal,QObject::tr("Treatment Depth"));
         model1->setHeaderData(9,Qt::Horizontal,QObject::tr("Fibroid Size (X)"));
         model1->setHeaderData(10,Qt::Horizontal,QObject::tr("Fibroid Size (Y)"));
         model1->setHeaderData(11,Qt::Horizontal,QObject::tr("Fibroid Size (Z)"));
         model1->setHeaderData(12,Qt::Horizontal,QObject::tr("Address"));
-        model1->setHeaderData(13,Qt::Horizontal,QObject::tr("attending physician"));
+        model1->setHeaderData(13,Qt::Horizontal,QObject::tr("Attending Physician"));
         this->ui->tableView->setColumnWidth(0,0);
         this->ui->tableView->setColumnWidth(1,0);
-        this->ui->tableView->setColumnWidth(2,200);
-        this->ui->tableView->setColumnWidth(3,100);
-        this->ui->tableView->setColumnWidth(4,50);
-        this->ui->tableView->setColumnWidth(5,200);
         this->ui->tableView->setColumnWidth(6,0);
-        this->ui->tableView->setColumnWidth(7,150);
-        this->ui->tableView->setColumnWidth(8,100);
-        this->ui->tableView->setColumnWidth(9,100);
-        this->ui->tableView->setColumnWidth(10,100);
-        this->ui->tableView->setColumnWidth(11,100);
         this->ui->tableView->setColumnWidth(12,0);
-        this->ui->tableView->setColumnWidth(13,300);
+        this->ui->tableView->resizeColumnsToContents();
         break;
     case 2:
 //        qDebug()<<"Physicians数据表头";
@@ -216,16 +207,7 @@ void UserManager::SetTableViewHeader(int dataType)
         model->setHeaderData(7,Qt::Horizontal,QObject::tr("Administrator"));
         model->setHeaderData(8,Qt::Horizontal,QObject::tr("Phone"));
         model->setHeaderData(9,Qt::Horizontal,QObject::tr("Email"));
-        this->ui->tableView->setColumnWidth(0,100);
-        this->ui->tableView->setColumnWidth(1,145);
-        this->ui->tableView->setColumnWidth(2,145);
-        this->ui->tableView->setColumnWidth(3,150);
-        this->ui->tableView->setColumnWidth(4,100);
-        this->ui->tableView->setColumnWidth(5,100);
-        this->ui->tableView->setColumnWidth(6,100);
-        this->ui->tableView->setColumnWidth(7,100);
-        this->ui->tableView->setColumnWidth(8,200);
-        this->ui->tableView->setColumnWidth(9,300);
+        this->ui->tableView->resizeColumnsToContents();
         break;
     default:
         break;
