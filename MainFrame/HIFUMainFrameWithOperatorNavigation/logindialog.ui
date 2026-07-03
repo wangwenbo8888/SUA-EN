@@ -274,9 +274,9 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_Pversion">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>260</x>
       <y>530</y>
-      <width>121</width>
+      <width>151</width>
       <height>21</height>
      </rect>
     </property>
@@ -296,9 +296,9 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_Fversion">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>260</x>
       <y>550</y>
-      <width>171</width>
+      <width>211</width>
       <height>21</height>
      </rect>
     </property>

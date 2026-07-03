@@ -40,8 +40,8 @@
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>5</y>
+      <x>450</x>
+      <y>0</y>
       <width>20</width>
       <height>51</height>
      </rect>
@@ -55,7 +55,7 @@
      <rect>
       <x>20</x>
       <y>5</y>
-      <width>251</width>
+      <width>415</width>
       <height>50</height>
      </rect>
     </property>
@@ -68,9 +68,9 @@
     <widget class="QCommandLinkButton" name="commandLinkButton_Patient">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>5</x>
        <y>5</y>
-       <width>110</width>
+       <width>191</width>
        <height>41</height>
       </rect>
      </property>
@@ -89,7 +89,7 @@
       <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>Patient information</string>
+      <string>Patient Information</string>
      </property>
      <property name="icon">
       <iconset resource="resource.qrc">
@@ -111,9 +111,9 @@
     <widget class="QCommandLinkButton" name="commandLinkButton_Doctor">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>200</x>
        <y>5</y>
-       <width>110</width>
+       <width>210</width>
        <height>41</height>
       </rect>
      </property>
@@ -155,7 +155,7 @@
    <widget class="Line" name="line_2">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>677</x>
       <y>5</y>
       <width>20</width>
       <height>51</height>
@@ -168,9 +168,9 @@
    <widget class="QCommandLinkButton" name="commandLinkButton_delete">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>571</x>
       <y>10</y>
-      <width>71</width>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
@@ -199,7 +199,7 @@
    <widget class="QCommandLinkButton" name="commandLinkButton_add">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>485</x>
       <y>10</y>
       <width>71</width>
       <height>41</height>
@@ -230,7 +230,7 @@
    <widget class="QCommandLinkButton" name="commandLinkButton_quit">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>712</x>
       <y>10</y>
       <width>71</width>
       <height>41</height>
@@ -264,7 +264,7 @@
     <rect>
      <x>50</x>
      <y>13</y>
-     <width>201</width>
+     <width>580</width>
      <height>31</height>
     </rect>
    </property>
@@ -411,7 +411,7 @@ gridline-color: rgb(217, 217, 217);</string>
         <string notr="true">color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
-        <string>case ID</string>
+        <string>Case ID</string>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -536,7 +536,7 @@ gridline-color: rgb(217, 217, 217);</string>
      <rect>
       <x>450</x>
       <y>70</y>
-      <width>100</width>
+      <width>130</width>
       <height>35</height>
      </rect>
     </property>
@@ -662,11 +662,14 @@ gridline-color: rgb(217, 217, 217);</string>
        <rect>
         <x>40</x>
         <y>20</y>
-        <width>281</width>
+        <width>321</width>
         <height>458</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout_Patient">
+       <property name="labelAlignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
        <property name="horizontalSpacing">
         <number>15</number>
        </property>
@@ -684,7 +687,7 @@ gridline-color: rgb(217, 217, 217);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>case ID</string>
+          <string>Case ID</string>
          </property>
         </widget>
        </item>
@@ -718,10 +721,7 @@ gridline-color: rgb(217, 217, 217);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>     Name</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          <string>Name</string>
          </property>
         </widget>
        </item>
@@ -780,7 +780,7 @@ gridline-color: rgb(217, 217, 217);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>     Age</string>
+          <string>Age</string>
          </property>
         </widget>
        </item>
@@ -808,7 +808,7 @@ gridline-color: rgb(217, 217, 217);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string> Phone</string>
+          <string>Phone</string>
          </property>
         </widget>
        </item>
@@ -836,7 +836,7 @@ gridline-color: rgb(217, 217, 217);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string> Treatment depth</string>
+          <string>Treatment Depth</string>
          </property>
         </widget>
        </item>
@@ -864,7 +864,7 @@ gridline-color: rgb(217, 217, 217);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string> Fibroid Size</string>
+          <string>Fibroid Size</string>
          </property>
         </widget>
        </item>
@@ -892,10 +892,7 @@ gridline-color: rgb(217, 217, 217);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>         x</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          <string>x</string>
          </property>
         </widget>
        </item>
@@ -923,7 +920,7 @@ gridline-color: rgb(217, 217, 217);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>         y</string>
+          <string>y</string>
          </property>
         </widget>
        </item>
@@ -951,7 +948,7 @@ gridline-color: rgb(217, 217, 217);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>         z</string>
+          <string>z</string>
          </property>
         </widget>
        </item>
@@ -1007,7 +1004,7 @@ gridline-color: rgb(217, 217, 217);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>attending physician</string>
+          <string>Attending Physician</string>
          </property>
         </widget>
        </item>
@@ -1272,11 +1269,14 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
        <rect>
         <x>50</x>
         <y>20</y>
-        <width>271</width>
+        <width>301</width>
         <height>326</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout_Doctor">
+       <property name="labelAlignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
        <property name="horizontalSpacing">
         <number>17</number>
        </property>
@@ -1294,7 +1294,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>  Physician ID</string>
+          <string>Physician ID</string>
          </property>
         </widget>
        </item>
@@ -1325,10 +1325,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>   Last Name</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          <string>Last Name</string>
          </property>
         </widget>
        </item>
@@ -1356,7 +1353,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>   First Name</string>
+          <string>First Name</string>
          </property>
         </widget>
        </item>
@@ -1384,7 +1381,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>  Sex</string>
+          <string>Sex</string>
          </property>
         </widget>
        </item>
@@ -1412,7 +1409,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>  Age</string>
+          <string>Age</string>
          </property>
         </widget>
        </item>
@@ -1440,7 +1437,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>  Title</string>
+          <string>Title</string>
          </property>
         </widget>
        </item>
@@ -1468,7 +1465,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string> Administrator</string>
+          <string>Administrator</string>
          </property>
         </widget>
        </item>
@@ -1496,10 +1493,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>  Phone</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          <string>Phone</string>
          </property>
         </widget>
        </item>
@@ -1527,7 +1521,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>  Email</string>
+          <string>Email</string>
          </property>
         </widget>
        </item>
@@ -1558,7 +1552,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>  Full Name</string>
+          <string>Full Name</string>
          </property>
         </widget>
        </item>
@@ -1603,7 +1597,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
        <rect>
         <x>80</x>
         <y>510</y>
-        <width>231</width>
+        <width>261</width>
         <height>41</height>
        </rect>
       </property>
