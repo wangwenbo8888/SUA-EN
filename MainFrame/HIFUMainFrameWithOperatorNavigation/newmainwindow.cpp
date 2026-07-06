@@ -1867,7 +1867,7 @@ void NewMainWindow::initAppend()
         ui->label_switch->setPixmap(QPixmap(QString(ICON_PIC_PATH).append("踏板关.png")));
     }
 
-    ui->label_switch_text->setText(QString("foot switch"));
+    ui->label_switch_text->setText(QString("Foot Switch"));
 
     emit SendSubSysStatus(iappned,true);
 }

@@ -194,6 +194,8 @@ void UserManager::SetTableViewHeader(int dataType)
         this->ui->tableView->setColumnWidth(6,0);
         this->ui->tableView->setColumnWidth(12,0);
         this->ui->tableView->resizeColumnsToContents();
+        for (int c = 0; c < model1->columnCount(); ++c)
+            this->ui->tableView->horizontalHeader()->setSectionResizeMode(c, QHeaderView::Interactive);
         break;
     case 2:
 //        qDebug()<<"Physicians数据表头";
@@ -208,7 +210,7 @@ void UserManager::SetTableViewHeader(int dataType)
         model->setHeaderData(8,Qt::Horizontal,QObject::tr("Phone"));
         model->setHeaderData(9,Qt::Horizontal,QObject::tr("Email"));
         for (int c = 0; c < model->columnCount(); ++c)
-            this->ui->tableView->horizontalHeader()->setSectionResizeMode(c, QHeaderView::Stretch);
+            this->ui->tableView->horizontalHeader()->setSectionResizeMode(c, QHeaderView::Interactive);
         break;
     default:
         break;
