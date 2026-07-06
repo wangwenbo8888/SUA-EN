@@ -22,7 +22,7 @@ const QString UNCHANGED = "color:rgb(255,255,255);";
 
 const QString SELECTED_NO_ROUND = "background-color: rgb(250, 255, 240);color:rgb(0,0,0);";
 const QString NOT_SELECTED = "background-color: rgb(55, 55, 55);border-radius:5px;";
-const QString EDIT_AVAIABLE = "background-color: rgb(250, 255, 240);background-image: url(:/plan/img/操作栏/button01.png);"
+const QString EDIT_AVAIABLE = "background-color: rgb(250, 255, 240);background-image: url(:/plan/img/actionbar/button01.png);"
                               "color: rgb(0, 0, 0);";
 
 const QString UNABLE = "background-color: rgb(0, 0, 0);border-radius:5px;";

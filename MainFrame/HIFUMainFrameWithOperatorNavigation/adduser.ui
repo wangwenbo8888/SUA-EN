@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>390</width>
+    <width>420</width>
     <height>489</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>361</width>
+     <width>391</width>
      <height>441</height>
     </rect>
    </property>
@@ -35,7 +35,7 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <property name="documentMode">
     <bool>false</bool>
@@ -58,18 +58,21 @@
       <rect>
        <x>30</x>
        <y>24</y>
-       <width>281</width>
+       <width>311</width>
        <height>361</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout">
+      <property name="labelAlignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
       <property name="horizontalSpacing">
        <number>15</number>
       </property>
       <item row="0" column="0">
        <widget class="QLabel" name="Label">
         <property name="text">
-         <string>  case ID</string>
+         <string>case ID</string>
         </property>
        </widget>
       </item>
@@ -79,7 +82,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>   Name</string>
+         <string>Name</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -92,7 +95,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>   Sex</string>
+         <string>Sex</string>
         </property>
        </widget>
       </item>
@@ -125,7 +128,7 @@
       <item row="4" column="0">
        <widget class="QLabel" name="label_7">
         <property name="text">
-         <string>   Age</string>
+         <string>Age</string>
         </property>
        </widget>
       </item>
@@ -135,7 +138,7 @@
       <item row="5" column="0">
        <widget class="QLabel" name="label_8">
         <property name="text">
-         <string> Phone</string>
+         <string>Phone</string>
         </property>
        </widget>
       </item>
@@ -145,7 +148,7 @@
       <item row="6" column="0">
        <widget class="QLabel" name="label_26">
         <property name="text">
-         <string> Treatment depth</string>
+         <string>Treatment depth</string>
         </property>
        </widget>
       </item>
@@ -158,7 +161,7 @@
          <string>Fibroid Size (X)</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -188,7 +191,7 @@
       <item row="10" column="0">
        <widget class="QLabel" name="label_27">
         <property name="text">
-         <string> Home Address</string>
+         <string>Home Address</string>
         </property>
        </widget>
       </item>
@@ -208,7 +211,7 @@
       <item row="3" column="0">
        <widget class="QLabel" name="Label_Birth">
         <property name="text">
-         <string>Date of Birth</string>
+          <string>Date of Birth (YYYY-MM-DD)</string>
         </property>
        </widget>
       </item>
@@ -230,7 +233,7 @@
     <widget class="QPushButton" name="pushButton_PaCommit1">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>220</x>
        <y>360</y>
        <width>121</width>
        <height>31</height>
@@ -247,7 +250,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_25">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>350</x>
        <y>60</y>
        <width>31</width>
        <height>16</height>
@@ -260,7 +263,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_28">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>350</x>
        <y>218</y>
        <width>31</width>
        <height>16</height>
@@ -273,7 +276,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_29">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>350</x>
        <y>245</y>
        <width>31</width>
        <height>16</height>
@@ -286,7 +289,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_30">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>350</x>
        <y>270</y>
        <width>31</width>
        <height>16</height>
@@ -299,7 +302,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QPushButton" name="pushButton_PaCommit">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>220</x>
        <y>390</y>
        <width>121</width>
        <height>31</height>
@@ -359,25 +362,25 @@ color: rgb(0, 0, 0);</string>
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="label_32">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>110</y>
-       <width>51</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Arial</family>
-       <pointsize>8</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>YYYY-MM-DD</string>
-     </property>
-    </widget>
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>342</x>
+        <y>110</y>
+        <width>51</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     <zorder>lineEdit_findname</zorder>
     <zorder>tableView</zorder>
     <zorder>formLayoutWidget</zorder>
@@ -400,18 +403,21 @@ color: rgb(0, 0, 0);</string>
       <rect>
        <x>40</x>
        <y>10</y>
-       <width>271</width>
+       <width>301</width>
        <height>226</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout_2">
+      <property name="labelAlignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
       <property name="horizontalSpacing">
        <number>17</number>
       </property>
       <item row="0" column="0">
        <widget class="QLabel" name="label_14">
         <property name="text">
-         <string>   Last Name</string>
+         <string>Last Name</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -424,7 +430,7 @@ color: rgb(0, 0, 0);</string>
       <item row="1" column="0">
        <widget class="QLabel" name="label_15">
         <property name="text">
-         <string>   First Name</string>
+         <string>First Name</string>
         </property>
        </widget>
       </item>
@@ -434,14 +440,14 @@ color: rgb(0, 0, 0);</string>
       <item row="3" column="0">
        <widget class="QLabel" name="label_22">
         <property name="text">
-         <string>  Sex</string>
+         <string>Sex</string>
         </property>
        </widget>
       </item>
       <item row="4" column="0">
        <widget class="QLabel" name="label_16">
         <property name="text">
-         <string>  Age</string>
+         <string>Age</string>
         </property>
        </widget>
       </item>
@@ -451,7 +457,7 @@ color: rgb(0, 0, 0);</string>
       <item row="5" column="0">
        <widget class="QLabel" name="label_17">
         <property name="text">
-         <string>  Title</string>
+         <string>Title</string>
         </property>
        </widget>
       </item>
@@ -461,17 +467,17 @@ color: rgb(0, 0, 0);</string>
       <item row="6" column="0">
        <widget class="QLabel" name="label_18">
         <property name="text">
-         <string> Administrator</string>
+         <string>Administrator</string>
         </property>
        </widget>
       </item>
       <item row="7" column="0">
        <widget class="QLabel" name="label_19">
         <property name="text">
-         <string>  Phone</string>
+         <string>Phone</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -481,7 +487,7 @@ color: rgb(0, 0, 0);</string>
       <item row="8" column="0">
        <widget class="QLabel" name="label_20">
         <property name="text">
-         <string>  Email</string>
+         <string>Email</string>
         </property>
        </widget>
       </item>
@@ -498,7 +504,7 @@ color: rgb(0, 0, 0);</string>
       <item row="2" column="0">
        <widget class="QLabel" name="label_23">
         <property name="text">
-         <string>  Full Name</string>
+         <string>Full Name</string>
         </property>
        </widget>
       </item>
@@ -536,7 +542,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QPushButton" name="pushButton_DrCommit">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>220</x>
        <y>370</y>
        <width>121</width>
        <height>31</height>
@@ -555,7 +561,7 @@ color: rgb(0, 0, 0);</string>
       <rect>
        <x>40</x>
        <y>250</y>
-       <width>271</width>
+       <width>301</width>
        <height>111</height>
       </rect>
      </property>
@@ -567,15 +573,18 @@ color: rgb(0, 0, 0);</string>
        <rect>
         <x>10</x>
         <y>20</y>
-        <width>251</width>
+        <width>281</width>
         <height>81</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout_3">
+       <property name="labelAlignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
        <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string> Username</string>
+           <string>Username</string>
          </property>
         </widget>
        </item>
@@ -585,7 +594,7 @@ color: rgb(0, 0, 0);</string>
        <item row="1" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>  Password</string>
+           <string>Password</string>
          </property>
         </widget>
        </item>
@@ -616,7 +625,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>350</x>
        <y>10</y>
        <width>31</width>
        <height>16</height>
@@ -629,7 +638,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>350</x>
        <y>37</y>
        <width>31</width>
        <height>16</height>
@@ -642,7 +651,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_13">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>350</x>
        <y>63</y>
        <width>31</width>
        <height>16</height>
@@ -655,7 +664,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_21">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>350</x>
        <y>272</y>
        <width>31</width>
        <height>16</height>
@@ -668,7 +677,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_24">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>350</x>
        <y>300</y>
        <width>31</width>
        <height>16</height>
@@ -681,7 +690,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_31">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>350</x>
        <y>326</y>
        <width>31</width>
        <height>16</height>
@@ -696,7 +705,7 @@ color: rgb(0, 0, 0);</string>
   <widget class="QPushButton" name="pushButton_Cancel">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>300</x>
      <y>455</y>
      <width>101</width>
      <height>31</height>

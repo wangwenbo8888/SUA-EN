@@ -26,6 +26,17 @@ Release/
 # Generated UI headers
 ui_*.h
 
+# Generated MOC/QRC files
+moc_*.cpp
+qrc_*.cpp
+moc_predefs.h
+
+# Build artifacts in source
+*.exp
+*.lib
+*.res
+*.bak
+
 # QML cache
 qml_qmlcache.qrc
 

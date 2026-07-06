@@ -1,40 +1,40 @@
 <RCC>
     <qresource prefix="/icons">
         <file>img/quit.png</file>
-        <file>img/分隔线.png</file>
-        <file>img/底部icon/网络通信.png</file>
-        <file>img/底部icon/超声驱动.png</file>
-        <file>img/底部icon/超声驱动-不正常.png</file>
-        <file>img/底部icon/机电联动控制.png</file>
-        <file>img/底部icon/机电联动控制-不正常.png</file>
-        <file>img/底部icon/水循环.png</file>
-        <file>img/底部icon/水循环-不正常.png</file>
-        <file>img/底部icon/网络通信-不正常.png</file>
-        <file>img/底部icon/图像采集卡-不正常.png</file>
-        <file>img/底部icon/图像采集卡.png</file>
+        <file>img/separator.png</file>
+        <file>img/bottomicon/Network.png</file>
+        <file>img/bottomicon/Ultrasound-Driver.png</file>
+        <file>img/bottomicon/Ultrasound-Driver-abnormal.png</file>
+        <file>img/bottomicon/Mechatronic-Control.png</file>
+        <file>img/bottomicon/Mechatronic-Control-abnormal.png</file>
+        <file>img/bottomicon/Circulation.png</file>
+        <file>img/bottomicon/Circulation-abnormal.png</file>
+        <file>img/bottomicon/Network-abnormal.png</file>
+        <file>img/bottomicon/Image-Grabber-abnormal.png</file>
+        <file>img/bottomicon/Image-Grabber.png</file>
         <file>img/quitform.png</file>
-        <file>img/底部icon/机械移动.png</file>
-        <file>img/底部icon/机械移动-不正常.png</file>
-        <file>img/底部icon/网络接口.png</file>
-        <file>img/底部icon/网络接口-不正常.png</file>
+        <file>img/bottomicon/Motion-System.png</file>
+        <file>img/bottomicon/Motion-System-abnormal.png</file>
+        <file>img/bottomicon/Network-Interface.png</file>
+        <file>img/bottomicon/Network-Interface-abnormal.png</file>
         <file>img/LOGO.ico</file>
     </qresource>
     <qresource prefix="/plan">
-        <file>img/操作栏/button01.png</file>
-        <file>img/操作栏/button01-1.png</file>
-        <file>img/操作栏/button02.png</file>
-        <file>img/操作栏/button02-1.png</file>
-        <file>img/操作栏/保存视频.png</file>
-        <file>img/操作栏/保存视频-选中.png</file>
-        <file>img/操作栏/保存图像.png</file>
-        <file>img/操作栏/保存图像-选中.png</file>
-        <file>img/操作栏/打印数据.png</file>
-        <file>img/操作栏/打印数据-选中.png</file>
-        <file>img/操作栏/添加靶区.png</file>
-        <file>img/操作栏/添加靶区-选中.png</file>
-        <file>img/操作栏/重置辐照点.png</file>
-        <file>img/操作栏/重置辐照点-选中.png</file>
-        <file>img/操作栏/trash.jpg</file>
+        <file>img/actionbar/button01.png</file>
+        <file>img/actionbar/button01-1.png</file>
+        <file>img/actionbar/button02.png</file>
+        <file>img/actionbar/button02-1.png</file>
+        <file>img/actionbar/save-video.png</file>
+        <file>img/actionbar/save-video-selected.png</file>
+        <file>img/actionbar/save-image.png</file>
+        <file>img/actionbar/save-image-selected.png</file>
+        <file>img/actionbar/print-data.png</file>
+        <file>img/actionbar/print-data-selected.png</file>
+        <file>img/actionbar/add-target.png</file>
+        <file>img/actionbar/add-target-selected.png</file>
+        <file>img/actionbar/reset-irradiation.png</file>
+        <file>img/actionbar/reset-irradiation-selected.png</file>
+        <file>img/actionbar/trash.jpg</file>
     </qresource>
     <qresource prefix="/umimg">
         <file>UMImage/add_32px.png</file>
@@ -46,12 +46,12 @@
         <file>UMImage/Patient_32px.png</file>
         <file>UMImage/user_32px.png</file>
         <file>UMImage/usermanager_32px.png</file>
-        <file>img/登录页面/密码.png</file>
-        <file>img/登录页面/账号.png</file>
+        <file>img/loginpage/password.png</file>
+        <file>img/loginpage/account.png</file>
         <file>UMImage/logo.png</file>
-        <file>UMImage/登录button.png</file>
-        <file>UMImage/登录背景色.png</file>
-        <file>UMImage/登录框.png</file>
+        <file>UMImage/login-button.png</file>
+        <file>UMImage/login-bgcolor.png</file>
+        <file>UMImage/login-frame.png</file>
         <file>UMImage/printer_32px.png</file>
         <file>UMImage/error_48px.png</file>
         <file>UMImage/loading_48px.gif</file>

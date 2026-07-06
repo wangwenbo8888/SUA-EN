@@ -1795,13 +1795,13 @@ void NewMainWindow::initHIFUService()
 
     if (_hifuHttpServer->StartServer())
     {
-        ui->label_network_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/网络接口.png")));
+        ui->label_network_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Network-Interface.png")));
         ui->label_network_text->setStyleSheet(WORK);
         ui->label_alarm_light->setPixmap(QPixmap(QString(ICON_PIC_PATH).append("green.png")));
     }
     else
     {
-        ui->label_network_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/网络接口-不正常.png")));
+        ui->label_network_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Network-Interface-abnormal.png")));
         ui->label_network_text->setStyleSheet(NOT_WORK);
         networkready=false;
         ui->label_alarm_light->setPixmap(QPixmap(QString(ICON_PIC_PATH).append("red.png")));
@@ -2343,7 +2343,7 @@ void NewMainWindow::initSchedule() {
 //            this,SLOT(refreshAmpPara(DataFlag,QByteArray&)));
 
     // 设置Ultrasound Driver图标可用  TODO要QueryUltrasound Driver是否真的可用
-    ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Ultrasound Driver.png")));
+    ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Ultrasound-Driver.png")));
     ui->label_hifu_driver_text->setStyleSheet(WORK);
 
     _plan = new Plan(this);
@@ -2527,7 +2527,7 @@ void NewMainWindow::initWater()
 #ifdef DEBUG
         ui->label_status->setText("Status: water is available");
 #endif
-        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Circulation.png")));
+        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Circulation.png")));
         ui->label_water_text->setStyleSheet(WORK);
         _subSysStatus[WATER_CIRCLE]= true;    // Circulation系统正常
         emit SendSubSysStatus(iwarter,true);
@@ -2539,7 +2539,7 @@ void NewMainWindow::initWater()
 #ifdef DEBUG
         ui->label_status->setText("Status: water is not available");
 #endif
-        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Circulation-不正常.png")));
+        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Circulation-abnormal.png")));
         ui->label_water_text->setStyleSheet(NOT_WORK);
         _subSysStatus[WATER_CIRCLE]= false;
         emit SendSubSysStatus(iwarter,false);
@@ -2558,7 +2558,7 @@ void NewMainWindow::initCore()
         qDebug()<<"inetwork init succeeded!!!";
         _core->setcurrentCompleteMap(&_currentCompleteMap);
         emit SendSubSysStatus(inetwork,true);
-        ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Ultrasound Driver.png")));
+        ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Ultrasound-Driver.png")));
         ui->label_hifu_driver_text->setStyleSheet(WORK);
         _subSysStatus[POWER_AMP]= true;    // 功放输出正常
         _subSysStatus[NET_WORK]= true;     // 网络正常
@@ -2669,12 +2669,12 @@ void NewMainWindow::statusUpdated(uint temp1,uint temp2,uint level)
     if(level==0x70)
     {
         // Water Level Low，图标灰掉
-//        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Circulation-不正常.png")));
+//        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Circulation-abnormal.png")));
 //        ui->label_water_text->setStyleSheet(NOT_WORK);
 //        ui->label_levle_value->setText("Low");
 //        waterready=false;
 //        ui->label_alarm_light->setPixmap(QPixmap(QString(ICON_PIC_PATH).append("red.png")));
-        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Circulation.png")));
+        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Circulation.png")));
         ui->label_water_text->setStyleSheet(WORK);
         ui->label_levle_value->setText("High");
         waterready=true;
@@ -2685,7 +2685,7 @@ void NewMainWindow::statusUpdated(uint temp1,uint temp2,uint level)
     else if(level==0x71)
     {
         // Water Level Normal，图标变亮
-        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Circulation.png")));
+        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Circulation.png")));
         ui->label_water_text->setStyleSheet(WORK);
         ui->label_levle_value->setText("Middle");
         waterready=true;
@@ -2694,7 +2694,7 @@ void NewMainWindow::statusUpdated(uint temp1,uint temp2,uint level)
     }
     else if(level==0x72)
     {
-        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Circulation.png")));
+        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Circulation.png")));
         ui->label_water_text->setStyleSheet(WORK);
         ui->label_levle_value->setText("High");
         waterready=true;
@@ -2703,11 +2703,11 @@ void NewMainWindow::statusUpdated(uint temp1,uint temp2,uint level)
     }
     else
     {
-//        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Circulation-不正常.png")));
+//        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Circulation-abnormal.png")));
 //        ui->label_water_text->setStyleSheet(NOT_WORK);
 //        waterready=false;
 //        ui->label_alarm_light->setPixmap(QPixmap(QString(ICON_PIC_PATH).append("red.png")));
-        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Circulation.png")));
+        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Circulation.png")));
         ui->label_water_text->setStyleSheet(WORK);
         waterready=true;
         if(powerampready&&networkready&&waterready&&locationready&&appendready)
@@ -2760,13 +2760,13 @@ void NewMainWindow::on_status_updated(DataFlag dFlag)
     switch (dFlag) {
     case POWER_AMPLIFIERS_READY:
         ui->label_status->setText("Status: driver is available");
-        ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Ultrasound Driver.png")));
+        ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Ultrasound-Driver.png")));
         ui->label_hifu_driver_text->setStyleSheet(WORK);
         powerampready = true;
         break;
     case POWER_AMPLIFIERS_NOT_READY:
         ui->label_status->setText("Status: driver is nonavailable");
-        ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Ultrasound Driver-不正常.png")));
+        ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Ultrasound-Driver-abnormal.png")));
         ui->label_hifu_driver_text->setStyleSheet(NOT_WORK);
         ui->label_alarm_light->setPixmap(QPixmap(QString(ICON_PIC_PATH).append("red.png")));
         _append->setRedOn();
@@ -2778,7 +2778,7 @@ void NewMainWindow::on_status_updated(DataFlag dFlag)
         break;
     case NETWORK_CONNECTED:
         ui->label_status->setText("Status: network is connected");
-        ui->label_network_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/网络接口.png")));
+        ui->label_network_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Network-Interface.png")));
         ui->label_network_text->setStyleSheet(WORK);
         qDebug()<<"Network Communication***********正常";
         _subSysStatus[NET_WORK]=true;
@@ -2796,7 +2796,7 @@ void NewMainWindow::on_status_updated(DataFlag dFlag)
         break;
     case NETWORK_DISCONNECTED:
         ui->label_status->setText("Status: network is disconnected");
-        ui->label_network_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/网络接口-不正常.png")));
+        ui->label_network_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Network-Interface-abnormal.png")));
         ui->label_network_text->setStyleSheet(NOT_WORK);
         qDebug()<<"Network Communication***********不正常";
         networkready=false;
@@ -2815,24 +2815,24 @@ void NewMainWindow::on_status_updated(DataFlag dFlag)
         break;
     case IMAGE_GRABBER_AVAILABLE:
         ui->label_status->setText("Status: image grabber is connected");
-        ui->label_grabber_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/图像采集卡.png")));
+        ui->label_grabber_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Image-Grabber.png")));
         ui->label_grabber_text->setStyleSheet(WORK);
         break;
     case IMAGE_GRABBER_NONAVAILABLE:
         ui->label_status->setText("Status: image grabber is disconnected");
-        ui->label_grabber_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/图像采集卡-不正常.png")));
+        ui->label_grabber_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Image-Grabber-abnormal.png")));
         ui->label_grabber_text->setStyleSheet(NOT_WORK);
         break;
     case POSITION_AVAILABLE:
-        ui->label_position_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Motion System.png")));
+        ui->label_position_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Motion-System.png")));
         ui->label_position_text->setStyleSheet(WORK);
         break;
     case POSITION_NONAVAILABLE:
-        ui->label_position_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Motion System-不正常.png")));
+        ui->label_position_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Motion-System-abnormal.png")));
         ui->label_position_text->setStyleSheet(NOT_WORK);
         break;
     case WATER_CYCLE_AVAILABLE:
-        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Circulation.png")));
+        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Circulation.png")));
         ui->label_water_text->setStyleSheet(WORK);
         waterready=true;
         if(powerampready&&networkready&&waterready&&locationready&&appendready)
@@ -2843,7 +2843,7 @@ void NewMainWindow::on_status_updated(DataFlag dFlag)
         break;
 
     case WATER_CYCLE_NONAVAILABLE:
-        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Circulation-不正常.png")));
+        ui->label_water_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Circulation-abnormal.png")));
         ui->label_water_text->setStyleSheet(NOT_WORK);
         waterready=false;
         ui->label_alarm_light->setPixmap(QPixmap(QString(ICON_PIC_PATH).append("red.png")));
@@ -2899,13 +2899,13 @@ void NewMainWindow::on_status_updated(DataFlag dFlag)
 
     case POWER_AMPLIFIERS_AVAILABLE:
         ui->label_status->setText("Status: driver is available");
-        ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Ultrasound Driver.png")));
+        ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Ultrasound-Driver.png")));
         ui->label_hifu_driver_text->setStyleSheet(WORK);
         powerampready = true;
         break;
     case POWER_AMPLIFIERS_NONAVAILABLE:
         ui->label_status->setText("Status: driver is nonavailable");
-        ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Ultrasound Driver-不正常.png")));
+        ui->label_hifu_driver_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Ultrasound-Driver-abnormal.png")));
         ui->label_hifu_driver_text->setStyleSheet(NOT_WORK);
         ui->label_alarm_light->setPixmap(QPixmap(QString(ICON_PIC_PATH).append("red.png")));
         _append->setRedOn();
@@ -8428,7 +8428,7 @@ void NewMainWindow::stopsonication()
 void NewMainWindow::netconnected()
 {
     ui->label_status->setText("Status: network is connected");
-    ui->label_network_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/网络接口.png")));
+    ui->label_network_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Network-Interface.png")));
     ui->label_network_text->setStyleSheet(WORK);
     networkready=true;
     if(powerampready&&networkready&&waterready&&locationready&&appendready)
@@ -8524,7 +8524,7 @@ void NewMainWindow::LocationAlarm()
 {
     locationerror++;
     if(locationerror>10 && locationready){
-        ui->label_position_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/底部icon/Motion System-不正常.png")));
+        ui->label_position_icon->setPixmap(QPixmap::fromImage(QImage(":/icons/img/bottomicon/Motion-System-abnormal.png")));
         ui->label_position_text->setStyleSheet(NOT_WORK);
         ui->label_alarm_light->setPixmap(QPixmap(QString(ICON_PIC_PATH).append("red.png")));
         _append->setRedOn();

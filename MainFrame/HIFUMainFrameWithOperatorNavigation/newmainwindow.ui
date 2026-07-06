@@ -294,7 +294,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       </rect>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/底部icon/Network-不正常.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/bottomicon/Network-abnormal.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -340,7 +340,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/分隔线.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/separator.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -365,7 +365,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/底部icon/Ultrasound Driver-不正常.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/bottomicon/Ultrasound-Driver-abnormal.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -411,7 +411,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/分隔线.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/separator.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -436,7 +436,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/底部icon/机电联动控制-不正常.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/bottomicon/Mechatronic-Control-abnormal.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -482,7 +482,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/分隔线.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/separator.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -507,7 +507,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/底部icon/Circulation-不正常.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/bottomicon/Circulation-abnormal.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -553,7 +553,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/分隔线.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/separator.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -578,7 +578,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/底部icon/图像采集卡-不正常.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/bottomicon/Image-Grabber-abnormal.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -621,7 +621,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       </rect>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/底部icon/Network-不正常.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/bottomicon/Network-abnormal.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -667,7 +667,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/分隔线.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/separator.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -686,7 +686,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/分隔线.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/separator.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -732,7 +732,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/分隔线.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/separator.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -778,7 +778,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/分隔线.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/separator.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -851,7 +851,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/分隔线.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/separator.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -897,7 +897,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resource.qrc">:/icons/img/分隔线.png</pixmap>
+      <pixmap resource="resource.qrc">:/icons/img/separator.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -3217,7 +3217,7 @@ color: rgb(255, 255, 255);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resource.qrc">:/icons/img/分隔线.png</pixmap>
+     <pixmap resource="resource.qrc">:/icons/img/separator.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_real_time_angle">
@@ -4416,7 +4416,7 @@ background-color: rgb(55, 55, 55);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/plan/img/操作栏/button01.png);
+        <string notr="true">background-image: url(:/plan/img/actionbar/button01.png);
 background-color: rgb(76, 79, 81);
 color: rgb(0, 0, 0);</string>
        </property>
@@ -4945,14 +4945,14 @@ color: rgb(0, 0, 0);</string>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(76, 79, 81);
 color: rgb(0, 0, 0);
-background-image: url(:/plan/img/操作栏/button01.png);</string>
+background-image: url(:/plan/img/actionbar/button01.png);</string>
        </property>
        <property name="text">
         <string>circulation</string>
        </property>
        <property name="icon">
         <iconset resource="resource.qrc">
-         <normaloff>:/icons/img/底部icon/Circulation.png</normaloff>:/icons/img/底部icon/Circulation.png</iconset>
+         <normaloff>:/icons/img/bottomicon/Circulation.png</normaloff>:/icons/img/bottomicon/Circulation.png</iconset>
        </property>
        <property name="iconSize">
         <size>

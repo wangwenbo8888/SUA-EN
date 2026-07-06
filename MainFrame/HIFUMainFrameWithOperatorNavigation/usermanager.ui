@@ -333,15 +333,21 @@ gridline-color: rgb(217, 217, 217);</string>
    <property name="gridStyle">
     <enum>Qt::SolidLine</enum>
    </property>
-   <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>25</number>
-   </attribute>
-   <attribute name="verticalHeaderMinimumSectionSize">
-    <number>30</number>
-   </attribute>
-   <attribute name="verticalHeaderDefaultSectionSize">
-    <number>40</number>
-   </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>120</number>
+    </attribute>
+    <attribute name="horizontalHeaderMinimumSectionSize">
+     <number>50</number>
+    </attribute>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderMinimumSectionSize">
+     <number>30</number>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>40</number>
+    </attribute>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">

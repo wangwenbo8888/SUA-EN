@@ -10,10 +10,10 @@ echo === qmake ===
 if errorlevel 1 exit /b 1
 
 echo === nmake clean ===
-nmake /f Makefile.Release clean >nul 2>&1
+nmake /f Makefile clean >nul 2>&1
 
 echo === nmake ===
-nmake /f Makefile.Release
+nmake /f Makefile
 if errorlevel 1 exit /b 1
 
 echo === SUCCESS ===

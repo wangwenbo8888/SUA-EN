@@ -207,7 +207,8 @@ void UserManager::SetTableViewHeader(int dataType)
         model->setHeaderData(7,Qt::Horizontal,QObject::tr("Administrator"));
         model->setHeaderData(8,Qt::Horizontal,QObject::tr("Phone"));
         model->setHeaderData(9,Qt::Horizontal,QObject::tr("Email"));
-        this->ui->tableView->resizeColumnsToContents();
+        for (int c = 0; c < model->columnCount(); ++c)
+            this->ui->tableView->horizontalHeader()->setSectionResizeMode(c, QHeaderView::Stretch);
         break;
     default:
         break;

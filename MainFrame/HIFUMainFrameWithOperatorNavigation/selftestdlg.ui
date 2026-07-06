@@ -257,7 +257,7 @@ color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="text">
-    <string>Alert box</string>
+    <string>Alert Box</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_location">
