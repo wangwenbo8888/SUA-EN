@@ -4903,12 +4903,12 @@ void NewMainWindow::initPlanTable()
     _pCurrentModel->setHeaderData(4,Qt::Horizontal,QString("Pulses"));
     _pCurrentModel->setHeaderData(5,Qt::Horizontal,QString("Continue"));
 
-    ui->tableView_current_plan->setColumnWidth(0,55);
+    ui->tableView_current_plan->setColumnWidth(0,35);
     ui->tableView_current_plan->setColumnWidth(1,55);
     ui->tableView_current_plan->setColumnWidth(2,55);
     ui->tableView_current_plan->setColumnWidth(3,55);
-    ui->tableView_current_plan->setColumnWidth(4,55);
-    ui->tableView_current_plan->setColumnWidth(5,35);
+    ui->tableView_current_plan->setColumnWidth(4,65);
+    ui->tableView_current_plan->setColumnWidth(5,80);
     ui->tableView_current_plan->verticalHeader()->hide();
 
 }
@@ -5752,12 +5752,12 @@ void NewMainWindow::refreshCurrentTable(QQueue<Irradiate_Spot>& plan)
     _pCurrentModel->setHeaderData(4,Qt::Horizontal,QString("Pulses"));
     _pCurrentModel->setHeaderData(5,Qt::Horizontal,QString("Continue"));
 
-    ui->tableView_current_plan->setColumnWidth(0,55);
+    ui->tableView_current_plan->setColumnWidth(0,35);
     ui->tableView_current_plan->setColumnWidth(1,55);
     ui->tableView_current_plan->setColumnWidth(2,55);
     ui->tableView_current_plan->setColumnWidth(3,55);
-    ui->tableView_current_plan->setColumnWidth(4,55);
-    ui->tableView_current_plan->setColumnWidth(5,35);
+    ui->tableView_current_plan->setColumnWidth(4,65);
+    ui->tableView_current_plan->setColumnWidth(5,80);
     ui->tableView_current_plan->verticalHeader()->hide();
 
     connect(_pCurrentModel,SIGNAL(dataChanged(QModelIndex,QModelIndex)),
