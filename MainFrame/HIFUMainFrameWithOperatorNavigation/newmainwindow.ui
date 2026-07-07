@@ -115,22 +115,22 @@ border-color: rgb(76, 79, 81);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-     <widget class="QToolButton" name="toolButton_therapy">
-      <property name="geometry">
-       <rect>
-        <x>270</x>
-        <y>10</y>
-        <width>121</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
+    <widget class="QToolButton" name="toolButton_therapy">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>10</y>
+       <width>121</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(4, 222, 230);
@@ -140,22 +140,22 @@ color: rgb(255, 255, 255);</string>
       <string>Treatment</string>
      </property>
     </widget>
-     <widget class="QToolButton" name="toolButton_acquire_image">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>11</y>
-        <width>110</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
+    <widget class="QToolButton" name="toolButton_acquire_image">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>11</y>
+       <width>110</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(4, 222, 230);
@@ -210,38 +210,38 @@ color: rgb(255, 255, 255);</string>
       <string>PushButton</string>
      </property>
     </widget>
-     <widget class="QPushButton" name="pushButton_return">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>11</y>
-        <width>131</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
+    <widget class="QPushButton" name="pushButton_return">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>11</y>
+       <width>131</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(250, 255, 240);border-radius:5px;</string>
-      </property>
-      <property name="text">
-       <string>Back to Info</string>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
+     </property>
+     <property name="text">
+      <string>Back to Info</string>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
     </widget>
+   </widget>
    <widget class="QLabel" name="label_window_title">
     <property name="geometry">
      <rect>
@@ -4316,33 +4316,6 @@ background-color: rgb(55, 55, 55);</string>
        <string notr="true">background-color: rgb(76, 79, 81);
 background-color: rgb(55, 55, 55);</string>
       </property>
-      <widget class="QLabel" name="label_target_irradiate_plan">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>60</y>
-         <width>171</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="mouseTracking">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(129, 129, 129);</string>
-       </property>
-       <property name="text">
-        <string>Sonication Plan</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_power_value">
        <property name="geometry">
         <rect>
@@ -4406,8 +4379,8 @@ background-color: rgb(55, 55, 55);</string>
         <rect>
          <x>20</x>
          <y>620</y>
-         <width>161</width>
-         <height>45</height>
+         <width>171</width>
+         <height>40</height>
         </rect>
        </property>
        <property name="font">
@@ -4933,8 +4906,8 @@ color: rgb(0, 0, 0);</string>
         <rect>
          <x>20</x>
          <y>710</y>
-         <width>151</width>
-         <height>45</height>
+         <width>171</width>
+         <height>40</height>
         </rect>
        </property>
        <property name="font">
@@ -5082,33 +5055,6 @@ background-image: url(:/plan/img/actionbar/button01.png);</string>
        </property>
        <property name="text">
         <string>cm</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_image_append">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>680</y>
-         <width>191</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="mouseTracking">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(129, 129, 129);</string>
-       </property>
-       <property name="text">
-        <string>Support Systems</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_consume_time_2">
@@ -6337,6 +6283,116 @@ color: rgb(0, 0, 0);</string>
         <string>+</string>
        </property>
       </widget>
+      <widget class="QGroupBox" name="groupBox_sonication_plan">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>49</y>
+         <width>288</width>
+         <height>621</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid white; border-radius: 4px; margin-top: 20px; color: rgb(129, 129, 129);</string>
+       </property>
+       <property name="title">
+        <string>Sonication Plan</string>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_support_systems">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>669</y>
+         <width>288</width>
+         <height>236</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid white; border-radius: 4px; margin-top: 20px; color: rgb(129, 129, 129);</string>
+       </property>
+       <property name="title">
+        <string>Support Systems</string>
+       </property>
+      </widget>
+      <zorder>groupBox_support_systems</zorder>
+      <zorder>groupBox_sonication_plan</zorder>
+      <zorder>label_power_value</zorder>
+      <zorder>horizontalSlider_power</zorder>
+      <zorder>commandLinkButton_generate_plan</zorder>
+      <zorder>label_separator_7</zorder>
+      <zorder>label_separator_9</zorder>
+      <zorder>label_cooling_time</zorder>
+      <zorder>horizontalSlider_cooling_time</zorder>
+      <zorder>label_cooling_time_value</zorder>
+      <zorder>label_on_time</zorder>
+      <zorder>label_off_time</zorder>
+      <zorder>label_pulse_number</zorder>
+      <zorder>horizontalSlider_on_time</zorder>
+      <zorder>horizontalSlider_pulse_number</zorder>
+      <zorder>horizontalSlider_off_time</zorder>
+      <zorder>label_on_time_value</zorder>
+      <zorder>label_off_time_value</zorder>
+      <zorder>label_pulse_number_value</zorder>
+      <zorder>label_power</zorder>
+      <zorder>label_power_unit</zorder>
+      <zorder>label_on_time_unit</zorder>
+      <zorder>label_off_time_unit</zorder>
+      <zorder>label_pulse_number_unit</zorder>
+      <zorder>label_cooling_time_unit</zorder>
+      <zorder>commandLinkButton_water_circle</zorder>
+      <zorder>comboBox_part</zorder>
+      <zorder>label_part</zorder>
+      <zorder>label_deepth</zorder>
+      <zorder>comboBox_deepth</zorder>
+      <zorder>label_deepth_unit</zorder>
+      <zorder>label_consume_time_2</zorder>
+      <zorder>progressBar_cooling_time</zorder>
+      <zorder>pushButton_resume_para</zorder>
+      <zorder>tabWidget_irrad_area</zorder>
+      <zorder>label_remain_cooling_time_unit</zorder>
+      <zorder>label_remain_cooling_time_value</zorder>
+      <zorder>label_irradiate_model</zorder>
+      <zorder>comboBox_irradiate_model</zorder>
+      <zorder>label_irradiate_density</zorder>
+      <zorder>checkBox_density_high</zorder>
+      <zorder>checkBox_density_middle</zorder>
+      <zorder>checkBox_density_low</zorder>
+      <zorder>label_speed</zorder>
+      <zorder>label_temp</zorder>
+      <zorder>label_level</zorder>
+      <zorder>label_speed_value_in</zorder>
+      <zorder>label_temp1_value</zorder>
+      <zorder>label_temp2_value</zorder>
+      <zorder>label_temp2_unit</zorder>
+      <zorder>label_temp1_unit</zorder>
+      <zorder>label_levle_value</zorder>
+      <zorder>label_speed_2</zorder>
+      <zorder>label_speed_value_out</zorder>
+      <zorder>label_meter</zorder>
+      <zorder>label_meter_value</zorder>
+      <zorder>pushButton_pump1control</zorder>
+      <zorder>pushButton_pump2control</zorder>
+      <zorder>pushButton_pump1speeddown</zorder>
+      <zorder>pushButton_pump1speedup</zorder>
+      <zorder>pushButton_pump2speeddown</zorder>
+      <zorder>pushButton_pump2speedup</zorder>
      </widget>
      <widget class="QWidget" name="widget_3" native="true">
       <property name="geometry">
@@ -6351,68 +6407,68 @@ color: rgb(0, 0, 0);</string>
        <string notr="true">background-color: rgb(76, 79, 81);
 background-color: rgb(55, 55, 55);</string>
       </property>
-       <widget class="QPushButton" name="pushButton_stop">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>100</y>
-          <width>250</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>微软雅黑</family>
-          <pointsize>16</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);
+      <widget class="QPushButton" name="pushButton_stop">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>100</y>
+         <width>250</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(255, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string>Stop</string>
-        </property>
-        <property name="flat">
-         <bool>false</bool>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_treatment_report">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>200</y>
-          <width>250</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>微软雅黑</family>
-          <pointsize>16</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);
+       </property>
+       <property name="text">
+        <string>Stop</string>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_treatment_report">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>200</y>
+         <width>250</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(250, 255, 240);border-radius:5px;</string>
-        </property>
-        <property name="text">
-         <string>Treatment Report</string>
-        </property>
-        <property name="flat">
-         <bool>false</bool>
-        </property>
-       </widget>
+       </property>
+       <property name="text">
+        <string>Treatment Report</string>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
      </widget>
      <widget class="QTableView" name="tableView_current_plan_2">
       <property name="geometry">
@@ -6471,94 +6527,94 @@ background-color: rgb(55, 55, 55);</string>
          <weight>75</weight>
          <bold>true</bold>
         </font>
-        </property>
-        <property name="text">
-         <string>Next Plane</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_start_treat">
-        <property name="geometry">
-         <rect>
-          <x>39</x>
-          <y>20</y>
-          <width>121</width>
-          <height>35</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>微软雅黑</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Start</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_modify_para">
-        <property name="geometry">
-         <rect>
-          <x>39</x>
-          <y>100</y>
-          <width>121</width>
-          <height>35</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>微软雅黑</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Modified para</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_confirm_para">
-        <property name="geometry">
-         <rect>
-          <x>170</x>
-          <y>100</y>
-          <width>121</width>
-          <height>35</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>微软雅黑</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Confirm Changes</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_replan">
-        <property name="geometry">
-         <rect>
-          <x>39</x>
-          <y>60</y>
-          <width>121</width>
-          <height>35</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>微软雅黑</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Replan</string>
-        </property>
+       </property>
+       <property name="text">
+        <string>Next Plane</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_start_treat">
+       <property name="geometry">
+        <rect>
+         <x>39</x>
+         <y>20</y>
+         <width>121</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_modify_para">
+       <property name="geometry">
+        <rect>
+         <x>39</x>
+         <y>100</y>
+         <width>121</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Modified para</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_confirm_para">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>100</y>
+         <width>121</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Confirm Changes</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_replan">
+       <property name="geometry">
+        <rect>
+         <x>39</x>
+         <y>60</y>
+         <width>121</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Replan</string>
+       </property>
       </widget>
      </widget>
     </widget>
