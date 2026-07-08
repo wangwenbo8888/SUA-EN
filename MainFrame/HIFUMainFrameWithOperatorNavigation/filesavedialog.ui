@@ -55,7 +55,10 @@
     </property>
     <property name="font">
      <font>
+      <family>微软雅黑</family>
       <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="inputMask">
@@ -77,6 +80,8 @@
     <property name="font">
      <font>
       <family>微软雅黑</family>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -89,9 +94,9 @@
    <widget class="QCheckBox" name="checkBox_defaultFilePath">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>30</x>
       <y>50</y>
-      <width>51</width>
+      <width>71</width>
       <height>20</height>
      </rect>
     </property>
@@ -133,7 +138,10 @@
     </property>
     <property name="font">
      <font>
+      <family>微软雅黑</family>
       <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -156,6 +164,8 @@
      <font>
       <family>微软雅黑</family>
       <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">

@@ -247,7 +247,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
      <rect>
       <x>30</x>
       <y>15</y>
-      <width>511</width>
+      <width>161</width>
       <height>25</height>
      </rect>
     </property>
@@ -738,9 +738,9 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
     <widget class="QLabel" name="label_time_treatment">
      <property name="geometry">
       <rect>
-       <x>1050</x>
+       <x>1030</x>
        <y>0</y>
-       <width>141</width>
+       <width>181</width>
        <height>52</height>
       </rect>
      </property>
@@ -756,7 +756,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string notr="true">color: rgb(146, 146, 146);</string>
      </property>
      <property name="text">
-      <string>Treatment Time</string>
+      <string>Used Time</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -784,9 +784,9 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
     <widget class="QLabel" name="label_time_remain">
      <property name="geometry">
       <rect>
-       <x>1240</x>
+       <x>1220</x>
        <y>0</y>
-       <width>141</width>
+       <width>171</width>
        <height>52</height>
       </rect>
      </property>
@@ -802,7 +802,7 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
       <string notr="true">color: rgb(146, 146, 146);</string>
      </property>
      <property name="text">
-      <string>Remaining Time</string>
+      <string>Left Time</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -811,9 +811,9 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
     <widget class="QLabel" name="label_totalTime">
      <property name="geometry">
       <rect>
-       <x>1630</x>
+       <x>1620</x>
        <y>0</y>
-       <width>161</width>
+       <width>171</width>
        <height>52</height>
       </rect>
      </property>
@@ -857,9 +857,9 @@ background-color: rgb(250, 255, 240);border-radius:5px;</string>
     <widget class="QLabel" name="label_totalPoint">
      <property name="geometry">
       <rect>
-       <x>1420</x>
+       <x>1410</x>
        <y>0</y>
-       <width>161</width>
+       <width>191</width>
        <height>52</height>
       </rect>
      </property>
@@ -6012,7 +6012,7 @@ background-color: rgb(55, 55, 55);</string>
         <rect>
          <x>110</x>
          <y>850</y>
-         <width>51</width>
+         <width>71</width>
          <height>20</height>
         </rect>
        </property>

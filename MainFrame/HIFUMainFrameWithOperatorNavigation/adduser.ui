@@ -72,7 +72,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="Label">
         <property name="text">
-         <string>case ID</string>
+         <string>Case ID</string>
         </property>
        </widget>
       </item>
@@ -201,7 +201,7 @@
       <item row="11" column="0">
        <widget class="QLabel" name="Label_3">
         <property name="text">
-         <string>attending physician</string>
+         <string>Attending physician</string>
         </property>
        </widget>
       </item>
@@ -211,7 +211,7 @@
       <item row="3" column="0">
        <widget class="QLabel" name="Label_Birth">
         <property name="text">
-          <string>Date of Birth (YYYY-MM-DD)</string>
+         <string>Date of Birth (YYYY-MM-DD)</string>
         </property>
        </widget>
       </item>
@@ -362,25 +362,25 @@ color: rgb(0, 0, 0);</string>
       <string/>
      </property>
     </widget>
-     <widget class="QLabel" name="label_32">
-      <property name="geometry">
-       <rect>
-        <x>342</x>
-        <y>110</y>
-        <width>51</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Arial</family>
-        <pointsize>8</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+    <widget class="QLabel" name="label_32">
+     <property name="geometry">
+      <rect>
+       <x>342</x>
+       <y>110</y>
+       <width>51</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
     <zorder>lineEdit_findname</zorder>
     <zorder>tableView</zorder>
     <zorder>formLayoutWidget</zorder>
@@ -584,7 +584,7 @@ color: rgb(0, 0, 0);</string>
        <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
-           <string>Username</string>
+          <string>Username</string>
          </property>
         </widget>
        </item>
@@ -594,7 +594,7 @@ color: rgb(0, 0, 0);</string>
        <item row="1" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
-           <string>Password</string>
+          <string>Password</string>
          </property>
         </widget>
        </item>

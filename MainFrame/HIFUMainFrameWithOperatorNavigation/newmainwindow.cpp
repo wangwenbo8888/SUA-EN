@@ -5268,8 +5268,8 @@ void NewMainWindow::synReportInfo()
 
     outputTreatmentLog("80%",_startTime,_endTime,QString::number(_totalSpot),totalTime,deep,"Zhonghui",pulse);
     emit setTerapyInfo("80%",_startTime,_endTime,QString::number(_totalSpot),totalTime,deep,"Zhonghui",pulse,getDisplayPower(value*value));
-    ui->label_totalPoint->setText("Total irradiation points "+QString::number(_totalSpot));
-    ui->label_totalTime->setText("Total irradiation time "+totalTime+"S");
+    ui->label_totalPoint->setText("Total Points "+QString::number(_totalSpot));
+    ui->label_totalTime->setText("Total Time "+totalTime+"S");
 //    emit saveReport();
 
     if(!is_first_treat)
@@ -5335,8 +5335,8 @@ void NewMainWindow::on_pushButton_treatment_report_clicked()
             +TreatedUnit+","+QString::number(_totalTime)+","
             +imagePath+"/Target_Image_Sequence_0_degree.jpg"+","
             +imagePath+"/Target_Image_Sequence_90_degree.jpg"+"!!!");
-    ui->label_totalPoint->setText("Total irradiation points ");
-    ui->label_totalTime->setText("Total irradiation time ");
+    ui->label_totalPoint->setText("Total Points ");
+    ui->label_totalTime->setText("Total Time ");
     TID.clear();
 
     _printDialog->show();
@@ -5532,7 +5532,7 @@ qDebug()<<"disp size3====="<<_irradiatePlan->getDisplaySize();
     if(is_plan_completed)
     {
         refreshRemainTime();
-        QString str = "Remaining time " + getTimeString(m_totalTime.remainTime);
+        QString str = "Left time " + getTimeString(m_totalTime.remainTime);
         ui->label_time_remain->setText(str);
         is_plan_completed = false;
     }
@@ -8989,7 +8989,7 @@ void NewMainWindow::on_checkBox_density_low_clicked()
 
 void NewMainWindow::on_treatmentTime_updated(){
     m_totalTime.spendTime++;
-    QString str = "Treatment time " + getTimeString(m_totalTime.spendTime);
+    QString str = "Used time " + getTimeString(m_totalTime.spendTime);
     ui->label_time_treatment->setText(str);
 }
 
