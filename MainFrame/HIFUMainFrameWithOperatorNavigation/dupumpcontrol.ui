@@ -251,7 +251,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QSpinBox" name="spinBox_pump1_speed">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>130</x>
       <y>160</y>
       <width>61</width>
       <height>22</height>
@@ -278,9 +278,9 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_thermometer_right_value_2">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>20</x>
       <y>160</y>
-      <width>41</width>
+      <width>101</width>
       <height>21</height>
      </rect>
     </property>
@@ -336,7 +336,7 @@ color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="title">
-    <string>Water bag temp</string>
+    <string>Water Bag Temp</string>
    </property>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
@@ -379,7 +379,7 @@ color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="title">
-    <string>Water Circulation Level</string>
+    <string>Level</string>
    </property>
    <widget class="QLabel" name="label_WaterLow">
     <property name="geometry">
@@ -394,7 +394,7 @@ color: rgb(255, 255, 255);</string>
      <string notr="true">background-color: rgb(197, 197, 197);</string>
     </property>
     <property name="text">
-     <string>Low Level</string>
+     <string>Low</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -413,7 +413,7 @@ color: rgb(255, 255, 255);</string>
      <string notr="true">background-color: rgb(197, 197, 197);</string>
     </property>
     <property name="text">
-     <string>Normal Level</string>
+     <string>Nor</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -432,7 +432,7 @@ color: rgb(255, 255, 255);</string>
      <string notr="true">background-color: rgb(197, 197, 197);</string>
     </property>
     <property name="text">
-     <string>High Level</string>
+     <string>High</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -462,10 +462,10 @@ color: rgb(255, 255, 255);</string>
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>30</y>
-      <width>711</width>
-      <height>361</height>
+      <x>10</x>
+      <y>70</y>
+      <width>801</width>
+      <height>321</height>
      </rect>
     </property>
    </widget>
@@ -473,8 +473,8 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>40</y>
-      <width>81</width>
+      <y>30</y>
+      <width>171</width>
       <height>31</height>
      </rect>
     </property>
@@ -493,9 +493,9 @@ color: rgb(255, 255, 255);</string>
    <widget class="QToolButton" name="toolButton_refresh_voltage">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>81</width>
+      <x>190</x>
+      <y>30</y>
+      <width>141</width>
       <height>31</height>
      </rect>
     </property>
@@ -635,7 +635,7 @@ font: 14pt &quot;微软雅黑&quot;;</string>
    <widget class="QSpinBox" name="spinBox_pump2_speed">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>130</x>
       <y>160</y>
       <width>61</width>
       <height>22</height>
@@ -662,9 +662,9 @@ font: 14pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_thermometer_right_value_3">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>20</x>
       <y>160</y>
-      <width>41</width>
+      <width>101</width>
       <height>21</height>
      </rect>
     </property>
@@ -723,9 +723,9 @@ font: 14pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_Meter">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>100</y>
-      <width>71</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -738,13 +738,13 @@ font: 14pt &quot;微软雅黑&quot;;</string>
      </font>
     </property>
     <property name="text">
-     <string>Set Pressure</string>
+     <string>Set Pres</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_Meter">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>110</x>
       <y>100</y>
       <width>61</width>
       <height>20</height>
@@ -799,9 +799,9 @@ font: 14pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_Meter_3">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>50</y>
-      <width>71</width>
+      <width>101</width>
       <height>21</height>
      </rect>
     </property>
@@ -814,15 +814,15 @@ font: 14pt &quot;微软雅黑&quot;;</string>
      </font>
     </property>
     <property name="text">
-     <string>Current Pressure</string>
+     <string>Current Pres</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_RecMeter">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>120</x>
       <y>50</y>
-      <width>61</width>
+      <width>41</width>
       <height>21</height>
      </rect>
     </property>
@@ -839,9 +839,9 @@ font: 14pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>176</x>
       <y>50</y>
-      <width>41</width>
+      <width>31</width>
       <height>20</height>
      </rect>
     </property>
@@ -860,9 +860,9 @@ font: 14pt &quot;微软雅黑&quot;;</string>
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>176</x>
       <y>100</y>
-      <width>41</width>
+      <width>31</width>
       <height>20</height>
      </rect>
     </property>
@@ -1136,7 +1136,7 @@ font: 14pt &quot;微软雅黑&quot;;</string>
     <rect>
      <x>150</x>
      <y>570</y>
-     <width>91</width>
+     <width>131</width>
      <height>31</height>
     </rect>
    </property>
@@ -1161,9 +1161,9 @@ font: 14pt &quot;微软雅黑&quot;;</string>
   <widget class="QToolButton" name="toolButton_pumpout">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>290</x>
      <y>570</y>
-     <width>91</width>
+     <width>161</width>
      <height>31</height>
     </rect>
    </property>
@@ -1188,9 +1188,9 @@ font: 14pt &quot;微软雅黑&quot;;</string>
   <widget class="QToolButton" name="toolButton_waterout">
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>460</x>
      <y>570</y>
-     <width>91</width>
+     <width>181</width>
      <height>31</height>
     </rect>
    </property>
@@ -1215,9 +1215,9 @@ font: 14pt &quot;微软雅黑&quot;;</string>
   <widget class="QToolButton" name="toolButton_cooler">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>660</x>
      <y>570</y>
-     <width>91</width>
+     <width>101</width>
      <height>31</height>
     </rect>
    </property>
@@ -1242,9 +1242,9 @@ font: 14pt &quot;微软雅黑&quot;;</string>
   <widget class="QToolButton" name="toolButton_bottle">
    <property name="geometry">
     <rect>
-     <x>590</x>
+     <x>780</x>
      <y>570</y>
-     <width>91</width>
+     <width>191</width>
      <height>31</height>
     </rect>
    </property>
