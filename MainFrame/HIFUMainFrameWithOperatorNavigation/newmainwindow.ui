@@ -3126,15 +3126,15 @@ text-align: left;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_current_month">
-    <property name="geometry">
-     <rect>
-      <x>1460</x>
-      <y>20</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
+    <widget class="QLabel" name="label_current_month">
+     <property name="geometry">
+      <rect>
+       <x>1460</x>
+       <y>20</y>
+       <width>50</width>
+       <height>20</height>
+      </rect>
+     </property>
     <property name="font">
      <font>
       <family>微软雅黑</family>
@@ -3153,15 +3153,15 @@ text-align: left;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_current_day">
-    <property name="geometry">
-     <rect>
-      <x>1510</x>
-      <y>20</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
+    <widget class="QLabel" name="label_current_day">
+     <property name="geometry">
+      <rect>
+       <x>1515</x>
+       <y>20</y>
+       <width>45</width>
+       <height>20</height>
+      </rect>
+     </property>
     <property name="font">
      <font>
       <family>微软雅黑</family>

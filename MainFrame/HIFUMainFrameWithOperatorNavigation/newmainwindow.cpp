@@ -3,6 +3,7 @@
 
 #include <QDate>
 #include <QTime>
+#include <QLocale>
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QTextDocument>
@@ -1904,7 +1905,7 @@ void NewMainWindow::initComboBox()
 void NewMainWindow::initDate() {
     QDate date = QDate::currentDate();
     ui->label_current_day->setText(QString("%1").arg(date.day()));
-    ui->label_current_month->setText(QString("%1").arg(date.month()));
+    ui->label_current_month->setText(QLocale(QLocale::English).toString(date, "MMM"));
 
     _startTime = "";
     startTime = 0;
@@ -8226,7 +8227,7 @@ void NewMainWindow::on_pushButton_pump1control_clicked()
             msgBox.exec();
             return;
         }
-        ui->pushButton_pump1control->setText("Stop Pump");
+        ui->pushButton_pump1control->setText("Stop");
         ui->pushButton_pump1control->setEnabled(false);
         ui->pushButton_pump1control->setStyleSheet("background-color: rgb(55, 55, 55)");
         ui->pushButton_pump1speedup->setEnabled(false);
@@ -8241,7 +8242,7 @@ void NewMainWindow::on_pushButton_pump1control_clicked()
     }
     else
     {
-        ui->pushButton_pump1control->setText("Start Pump");
+        ui->pushButton_pump1control->setText("Start");
         ui->pushButton_pump1control->setEnabled(false);
         ui->pushButton_pump1control->setStyleSheet("background-color: rgb(55, 55, 55)");
         ui->pushButton_pump1speedup->setEnabled(false);
@@ -8260,7 +8261,7 @@ void NewMainWindow::on_pushButton_pump2control_clicked()
 {
     if(!m_bPump2Open)
     {
-        ui->pushButton_pump2control->setText("Stop Pump");
+        ui->pushButton_pump2control->setText("Stop");
         ui->pushButton_pump2control->setEnabled(false);
         ui->pushButton_pump2control->setStyleSheet("background-color: rgb(55, 55, 55)");
         ui->pushButton_pump2speedup->setEnabled(false);
@@ -8275,7 +8276,7 @@ void NewMainWindow::on_pushButton_pump2control_clicked()
     }
     else
     {
-        ui->pushButton_pump2control->setText("Start Pump");
+        ui->pushButton_pump2control->setText("Start");
         ui->pushButton_pump2control->setEnabled(false);
         ui->pushButton_pump2control->setStyleSheet("background-color: rgb(55, 55, 55)");
         ui->pushButton_pump2speedup->setEnabled(false);
@@ -8313,7 +8314,7 @@ void NewMainWindow::on_pushButton_pump2speedup_clicked()
 void NewMainWindow::pump1open()
 {
     m_bPump1Open=true;
-    ui->pushButton_pump1control->setText("Stop Pump");
+    ui->pushButton_pump1control->setText("Stop");
     ui->pushButton_pump1control->setEnabled(true);
     ui->pushButton_pump1control->setStyleSheet("background-color: rgb(255, 255, 255)");
     ui->pushButton_pump1speedup->setEnabled(true);
@@ -8325,7 +8326,7 @@ void NewMainWindow::pump1open()
 void NewMainWindow::pump1close()
 {
     m_bPump1Open=false;
-    ui->pushButton_pump1control->setText("Start Pump");
+    ui->pushButton_pump1control->setText("Start");
     ui->pushButton_pump1control->setEnabled(true);
     ui->pushButton_pump1control->setStyleSheet("background-color: rgb(255, 255, 255)");
     ui->pushButton_pump1speedup->setEnabled(false);
@@ -8347,7 +8348,7 @@ void NewMainWindow::pump1lock()
 void NewMainWindow::pump2open()
 {
     m_bPump2Open=true;
-    ui->pushButton_pump2control->setText("Stop Pump");
+    ui->pushButton_pump2control->setText("Stop");
     ui->pushButton_pump2control->setEnabled(true);
     ui->pushButton_pump2control->setStyleSheet("background-color: rgb(255, 255, 255)");
     ui->pushButton_pump2speedup->setEnabled(true);
@@ -8359,7 +8360,7 @@ void NewMainWindow::pump2open()
 void NewMainWindow::pump2close()
 {
     m_bPump2Open=false;
-    ui->pushButton_pump2control->setText("Start Pump");
+    ui->pushButton_pump2control->setText("Start");
     ui->pushButton_pump2control->setEnabled(true);
     ui->pushButton_pump2control->setStyleSheet("background-color: rgb(255, 255, 255)");
     ui->pushButton_pump2speedup->setEnabled(false);
