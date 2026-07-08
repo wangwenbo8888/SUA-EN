@@ -93,7 +93,7 @@
     <rect>
      <x>370</x>
      <y>70</y>
-     <width>271</width>
+     <width>121</width>
      <height>41</height>
     </rect>
    </property>
@@ -109,7 +109,7 @@
     <string notr="true">background-color: rgb(250, 255, 240);color:rgb(0,0,0);border-radius:5px;</string>
    </property>
    <property name="text">
-    <string>Back to Information Management</string>
+    <string>Back to Info</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_11">
