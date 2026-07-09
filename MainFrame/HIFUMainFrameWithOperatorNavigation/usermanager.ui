@@ -774,6 +774,9 @@ gridline-color: rgb(217, 217, 217);</string>
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="label_7">
+         <property name="visible">
+          <bool>false</bool>
+         </property>
          <property name="font">
           <font>
            <family>微软雅黑</family>
@@ -792,6 +795,9 @@ gridline-color: rgb(217, 217, 217);</string>
        </item>
        <item row="4" column="1">
         <widget class="QLineEdit" name="lineEdit_PaAge">
+         <property name="visible">
+          <bool>false</bool>
+         </property>
          <property name="font">
           <font>
            <family>微软雅黑</family>
@@ -1026,6 +1032,9 @@ gridline-color: rgb(217, 217, 217);</string>
        </item>
        <item row="13" column="0">
         <widget class="QLabel" name="pIDLabel">
+         <property name="visible">
+          <bool>false</bool>
+         </property>
          <property name="font">
           <font>
            <family>微软雅黑</family>
@@ -1044,6 +1053,9 @@ gridline-color: rgb(217, 217, 217);</string>
        </item>
        <item row="13" column="1">
         <widget class="QLineEdit" name="LineEdit_PID">
+         <property name="visible">
+          <bool>false</bool>
+         </property>
          <property name="font">
           <font>
            <family>微软雅黑</family>

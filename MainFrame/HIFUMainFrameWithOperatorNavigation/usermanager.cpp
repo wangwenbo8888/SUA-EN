@@ -37,6 +37,8 @@ UserManager::UserManager(QWidget *parent) :
 
     ui->LineEdit_PID->setVisible(false);
     ui->pIDLabel->setVisible(false);
+    ui->label_7->setVisible(false);
+    ui->lineEdit_PaAge->setVisible(false);
     ui->radioButton_SAge->setVisible(false);
     ui->radioButton_SMobile->setVisible(false);
 
@@ -189,13 +191,12 @@ void UserManager::SetTableViewHeader(int dataType)
         model1->setHeaderData(11,Qt::Horizontal,QObject::tr("Fibroid Size (Z)"));
         model1->setHeaderData(12,Qt::Horizontal,QObject::tr("Address"));
         model1->setHeaderData(13,Qt::Horizontal,QObject::tr("Attending Physician"));
-        this->ui->tableView->setColumnWidth(0,0);
-        this->ui->tableView->setColumnWidth(1,0);
-        this->ui->tableView->setColumnWidth(6,0);
-        this->ui->tableView->setColumnWidth(12,0);
+        this->ui->tableView->setColumnHidden(0,true);
+        this->ui->tableView->setColumnHidden(1,true);
+        this->ui->tableView->setColumnHidden(6,true);
+        this->ui->tableView->setColumnHidden(12,true);
         this->ui->tableView->resizeColumnsToContents();
-        for (int c = 0; c < model1->columnCount(); ++c)
-            this->ui->tableView->horizontalHeader()->setSectionResizeMode(c, QHeaderView::Interactive);
+        this->ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         break;
     case 2:
 //        qDebug()<<"Physicians数据表头";
@@ -209,8 +210,7 @@ void UserManager::SetTableViewHeader(int dataType)
         model->setHeaderData(7,Qt::Horizontal,QObject::tr("Administrator"));
         model->setHeaderData(8,Qt::Horizontal,QObject::tr("Phone"));
         model->setHeaderData(9,Qt::Horizontal,QObject::tr("Email"));
-        for (int c = 0; c < model->columnCount(); ++c)
-            this->ui->tableView->horizontalHeader()->setSectionResizeMode(c, QHeaderView::Interactive);
+        this->ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         break;
     default:
         break;
