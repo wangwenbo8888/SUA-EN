@@ -179,12 +179,12 @@ void UserManager::SetTableViewHeader(int dataType)
 //        qDebug()<<"病人数据表头";
         model1->setHeaderData(0,Qt::Horizontal,QObject::tr("ID"));
         model1->setHeaderData(1,Qt::Horizontal,QObject::tr("PID"));
-        model1->setHeaderData(2,Qt::Horizontal,QObject::tr("Case ID"));
+        model1->setHeaderData(2,Qt::Horizontal,QObject::tr("Medical Record No."));
         model1->setHeaderData(3,Qt::Horizontal,QObject::tr("Name"));
         model1->setHeaderData(4,Qt::Horizontal,QObject::tr("Sex"));
         model1->setHeaderData(5,Qt::Horizontal,QObject::tr("Date of Birth"));
         model1->setHeaderData(6,Qt::Horizontal,QObject::tr("Age"));
-        model1->setHeaderData(7,Qt::Horizontal,QObject::tr("Phone"));
+        model1->setHeaderData(7,Qt::Horizontal,QObject::tr("Telephone"));
         model1->setHeaderData(8,Qt::Horizontal,QObject::tr("Treatment Depth"));
         model1->setHeaderData(9,Qt::Horizontal,QObject::tr("Fibroid Size (X)"));
         model1->setHeaderData(10,Qt::Horizontal,QObject::tr("Fibroid Size (Y)"));
@@ -208,7 +208,7 @@ void UserManager::SetTableViewHeader(int dataType)
         model->setHeaderData(5,Qt::Horizontal,QObject::tr("Age"));
         model->setHeaderData(6,Qt::Horizontal,QObject::tr("Position"));
         model->setHeaderData(7,Qt::Horizontal,QObject::tr("Administrator"));
-        model->setHeaderData(8,Qt::Horizontal,QObject::tr("Phone"));
+        model->setHeaderData(8,Qt::Horizontal,QObject::tr("Telephone"));
         model->setHeaderData(9,Qt::Horizontal,QObject::tr("Email"));
         this->ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         break;
@@ -737,7 +737,7 @@ void UserManager::on_commandLinkButton_delete_clicked()
             return;
         }
         QMessageBox msgBox("Delete Information",
-                           "Delete this physician record, including login information?\nPhysician ID:"+m_DrDataRow.id_str+"\nPhysician Name:"+m_DrDataRow.fullName,
+                           "Delete this physician record, including login information?\nUser ID:"+m_DrDataRow.id_str+"\nPhysician Name:"+m_DrDataRow.fullName,
                            QMessageBox::Critical,
                            QMessageBox::Yes | QMessageBox::Default,
                            QMessageBox::No | QMessageBox::Escape,
@@ -754,7 +754,7 @@ void UserManager::on_commandLinkButton_delete_clicked()
             return;
         }
 //        int ensure=QMessageBox::warning(0, QObject::tr("Warning"),
-//                                         "Delete this physician record, including login information?\nPhysician ID:"+m_DrDataRow.id_str+"\nPhysician Name:"+m_DrDataRow.fullName,
+//                                         "Delete this physician record, including login information?\nUser ID:"+m_DrDataRow.id_str+"\nPhysician Name:"+m_DrDataRow.fullName,
 //                                         QMessageBox::Ok,QMessageBox::Cancel);
 //        if(ensure==QMessageBox::Cancel)
 //        {

@@ -8989,7 +8989,7 @@ void NewMainWindow::on_checkBox_density_low_clicked()
 
 void NewMainWindow::on_treatmentTime_updated(){
     m_totalTime.spendTime++;
-    QString str = "Used time " + getTimeString(m_totalTime.spendTime);
+    QString str = "Elapsed Time " + getTimeString(m_totalTime.spendTime);
     ui->label_time_treatment->setText(str);
 }
 

@@ -72,7 +72,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="Label">
         <property name="text">
-         <string>Case ID</string>
+         <string>Medical Record No.</string>
         </property>
        </widget>
       </item>
@@ -135,15 +135,15 @@
       <item row="4" column="1">
        <widget class="QLineEdit" name="lineEdit_PaAge"/>
       </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="label_8">
-        <property name="text">
-         <string>Phone</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QLineEdit" name="lineEdit_PaMobile"/>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>Telephone</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="lineEdit_PaMobile"/>
       </item>
       <item row="6" column="0">
        <widget class="QLabel" name="label_26">
@@ -471,16 +471,16 @@ color: rgb(0, 0, 0);</string>
         </property>
        </widget>
       </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="label_19">
-        <property name="text">
-         <string>Phone</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_19">
+         <property name="text">
+          <string>Telephone</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
       <item row="7" column="1">
        <widget class="QLineEdit" name="lineEdit_DrMobile"/>
       </item>

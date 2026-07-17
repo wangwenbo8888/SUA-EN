@@ -336,7 +336,7 @@ color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="title">
-    <string>Water Bag Temp</string>
+    <string>Water Bag Temperature</string>
    </property>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
@@ -413,7 +413,7 @@ color: rgb(255, 255, 255);</string>
      <string notr="true">background-color: rgb(197, 197, 197);</string>
     </property>
     <property name="text">
-     <string>Nor</string>
+     <string>Med</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -738,7 +738,7 @@ font: 14pt &quot;微软雅黑&quot;;</string>
      </font>
     </property>
     <property name="text">
-     <string>Set Pres</string>
+     <string>Set Press</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_Meter">
@@ -814,7 +814,7 @@ font: 14pt &quot;微软雅黑&quot;;</string>
      </font>
     </property>
     <property name="text">
-     <string>Current Pres</string>
+     <string>Curr. Press</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_RecMeter">

@@ -320,7 +320,7 @@ color: rgb(255, 255, 255);</string>
     <string notr="true">color: rgb(0, 0, 0);</string>
    </property>
    <property name="text">
-    <string>Enrollment ID:</string>
+     <string>Patient ID:</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_name">
@@ -1062,7 +1062,7 @@ color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="text">
-    <string>None</string>
+     <string>No</string>
    </property>
    <property name="checked">
     <bool>true</bool>
@@ -1107,7 +1107,7 @@ color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="text">
-    <string>None</string>
+     <string>No</string>
    </property>
    <property name="checked">
     <bool>true</bool>

@@ -169,7 +169,7 @@ QString PrintDialogClinic::getHtmlStr(QString check1,QString check2)
             <tbody>\
                 <tr class=\"firstRow\">\
                     <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Enrollment ID:%1<br/></span>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Patient ID:%1<br/></span>\
                     </td>\
                     <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
                         <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Name:%2<br/></span>\
@@ -270,7 +270,7 @@ QString PrintDialogClinic::getHtmlStr(QString check1,QString check2)
 //            <tbody>\
 //                <tr class=\"firstRow\">\
 //                    <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
-//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Enrollment ID:%1<br/></span>\
+//                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Patient ID:%1<br/></span>\
 //                    </td>\
 //                    <td style=\"border-width: 1px; border-style: solid;\" width=\"261\" valign=\"top\">\
 //                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Name:%2<br/></span>\
@@ -465,7 +465,7 @@ void PrintDialogClinic::on_lineEdit_date_textChanged(const QString &arg)
 void PrintDialogClinic::on_checkBox_2_clicked()
 {
     ui->checkBox->setChecked(false);
-    check1 = "None";
+    check1 = "No";
     preview->updatePreview();
     ui->checkBox_2->setChecked(true);
 
@@ -491,7 +491,7 @@ void PrintDialogClinic::on_checkBox_3_clicked()
 void PrintDialogClinic::on_checkBox_4_clicked()
 {
     ui->checkBox_3->setChecked(false);
-    check2 = "None";
+    check2 = "No";
     preview->updatePreview();
     ui->checkBox_4->setChecked(true);
 }

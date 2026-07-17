@@ -436,7 +436,7 @@
 | 返回信息管理 | Back to Information Management | |
 | 治疗报告打印 | Treatment Report Print | |
 | 保存报告 | Save Report | |
-| 入组号： | Enrollment ID: | |
+| 入组号： | Patient ID: | |
 | 治疗深度（cm）: | Treatment Depth (cm): | |
 | 辐照总功率(W)： | Total Sonication Power (W): | |
 | 治疗日期： | Treatment Date: | |

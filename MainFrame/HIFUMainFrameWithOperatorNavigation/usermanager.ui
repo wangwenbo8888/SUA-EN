@@ -416,16 +416,16 @@ gridline-color: rgb(217, 217, 217);</string>
        <property name="styleSheet">
         <string notr="true">color: rgb(255, 255, 255);</string>
        </property>
-       <property name="text">
-        <string>Case ID</string>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-      </widget>
+        <property name="text">
+         <string>Medical Record No.</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
      </item>
      <item>
       <widget class="QRadioButton" name="radioButton_SFirstName">
@@ -482,12 +482,12 @@ gridline-color: rgb(217, 217, 217);</string>
        <property name="styleSheet">
         <string notr="true">color: rgb(255, 255, 255);</string>
        </property>
-       <property name="text">
-        <string>Phone</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+        <property name="text">
+         <string>Telephone</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
    </widget>
    <widget class="QLineEdit" name="lineEdit_SFieldText">
     <property name="geometry">
@@ -692,13 +692,13 @@ gridline-color: rgb(217, 217, 217);</string>
          <property name="styleSheet">
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
-         <property name="text">
-          <string>Case ID</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="lineEdit_SID">
+          <property name="text">
+           <string>Medical Record No.</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="lineEdit_SID">
          <property name="font">
           <font>
            <family>微软雅黑</family>
@@ -820,7 +820,7 @@ gridline-color: rgb(217, 217, 217);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>Phone</string>
+          <string>Telephone</string>
          </property>
         </widget>
        </item>
@@ -1312,7 +1312,7 @@ image: url(:/umimg/UMImage/patient_oritention_right.png);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>Physician ID</string>
+          <string>User ID</string>
          </property>
         </widget>
        </item>

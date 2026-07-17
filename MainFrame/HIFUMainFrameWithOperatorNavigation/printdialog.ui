@@ -856,7 +856,7 @@ background-color: rgb(255, 255, 255);</string>
     <string notr="true">color: rgb(0, 0, 0);</string>
    </property>
    <property name="text">
-    <string>Pulse</string>
+    <string>Pulse Count</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_23">

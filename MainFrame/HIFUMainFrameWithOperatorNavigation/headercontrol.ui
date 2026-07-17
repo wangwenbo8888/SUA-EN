@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Therapy Head Fine Control</string>
+   <string>Therapy Head Precision Control</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(76, 79, 81);
@@ -36,7 +36,7 @@ border-color: rgb(76, 79, 81);</string>
     <enum>QTabWidget::Rounded</enum>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <property name="iconSize">
     <size>
@@ -64,7 +64,7 @@ border-color: rgb(76, 79, 81);</string>
    </property>
    <widget class="QWidget" name="tab_head">
     <attribute name="title">
-     <string>Probe</string>
+     <string>Transducer</string>
     </attribute>
     <widget class="QLabel" name="label_left_right_unit">
      <property name="geometry">
@@ -530,7 +530,7 @@ border-color: rgb(76, 79, 81);</string>
    </widget>
    <widget class="QWidget" name="tab">
     <attribute name="title">
-     <string>Table</string>
+     <string>Bed</string>
     </attribute>
     <widget class="QPushButton" name="pushButton_forward">
      <property name="geometry">

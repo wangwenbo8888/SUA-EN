@@ -60,4 +60,12 @@
         <file>UMImage/patient_oritention_right.png</file>
         <file>UMImage/unknown_48px.png</file>
     </qresource>
+    <qresource prefix="/arrows">
+        <file alias="up.png">img/arrows/up.png</file>
+        <file alias="down.png">img/arrows/down.png</file>
+        <file alias="left.png">img/arrows/left.png</file>
+        <file alias="right.png">img/arrows/right.png</file>
+        <file alias="front.png">img/arrows/front.png</file>
+        <file alias="back.png">img/arrows/back.png</file>
+    </qresource>
 </RCC>

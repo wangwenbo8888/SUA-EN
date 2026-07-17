@@ -244,7 +244,7 @@ QString PrintDialog::getHtmlStr()
                         <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Treatment depth：%17 cm<br/></span>\
                     </td>\
                     <td width=\"250\" valign=\"top\">\
-                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Pulse：%18 pcs</span><br/>\
+                        <span style=\"font-family: 微软雅黑,Microsoft YaHei; font-size: 18px;\">Pulse Count：%18 pcs</span><br/>\
                     </td>\
                 </tr>\
             </tbody>\

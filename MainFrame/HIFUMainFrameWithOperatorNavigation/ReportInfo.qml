@@ -152,7 +152,7 @@ ColumnLayout {
     Text{
         id:mobile_label
         color: "#ffffff"
-        text:"Phone:"
+        text:"Telephone:"
         font.family: "微软雅黑"
         font.pointSize: roportInfo_gui.height*0.03*0.3
         anchors{left:age_text.right;leftMargin: 80;top:firstName_label.bottom;topMargin: 20}
@@ -388,7 +388,7 @@ ColumnLayout {
     Text{
         id:pulseNumber_label
         color: "#ffffff"
-        text:"Pulse:"
+        text:"Pulse Count:"
         font.family: "微软雅黑"
         font.pointSize: roportInfo_gui.height*0.03*0.3
         anchors{left:deep_text.right;leftMargin: 80;top:irradiateSpotNumber_label.bottom;topMargin:20}
